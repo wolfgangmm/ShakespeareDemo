@@ -99,6 +99,12 @@ declare function app:epub-link($node as node(), $params as element(parameters)?,
         <a href="{$node/@href}{$id}.epub">{ $node/node() }</a>
 };
 
+declare function app:pdf-link($node as node(), $params as element(parameters)?, $model as item()*) {
+    let $id := $model/@xml:id/string()
+    return
+        <a href="{$node/@href}{$id}.pdf">{ $node/node() }</a>
+};
+
 declare function app:navigation($node as node(), $params as element(parameters)?, $div as item()*) {
     let $prevDiv := $div/preceding::tei:div[parent::tei:div][1]
     let $nextDiv := $div/following::tei:div[parent::tei:div][1]

@@ -353,6 +353,10 @@ ul {
     padding: 0;
 }
 
+.hit .previous {
+    text-align: right;
+}
+
 .number {
     float: left;
 }

@@ -29,6 +29,16 @@ else if (starts-with($exist:path, "/plays/")) then
                     <forward url="{$exist:controller}/modules/view.xql"/>
                 </error-handler>
             </dispatch>
+        else if (ends-with($exist:resource, ".pdf")) then
+            <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
+                <forward url="{$exist:controller}/modules/tei2fo.xql">
+                    <add-parameter name="id" value="{$id}"/>
+                </forward>
+                <error-handler>
+                    <forward url="{$exist:controller}/error-page.html" method="get"/>
+                    <forward url="{$exist:controller}/modules/view.xql"/>
+                </error-handler>
+            </dispatch>
         else
             <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
                 <forward url="{$exist:controller}/{$html}">
