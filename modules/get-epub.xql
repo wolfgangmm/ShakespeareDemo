@@ -1,7 +1,7 @@
 xquery version "3.0";
 
-import module namespace config="http://exist-db.org/xquery/apps/config" at "xmldb:exist:///db/shakes/modules/config.xqm";
-import module namespace epub="http://exist-db.org/xquery/epub" at "xmldb:exist:///db/shakes/modules/epub.xql";
+import module namespace config="http://exist-db.org/xquery/apps/config" at "config.xqm";
+import module namespace epub="http://exist-db.org/xquery/epub" at "epub.xql";
 
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
