@@ -4,8 +4,12 @@ import module namespace templates="http://exist-db.org/xquery/templates";
 import module namespace config="http://exist-db.org/xquery/apps/config" at "config.xqm";
 
 import module namespace app="http://exist-db.org/xquery/app" at "app.xql";
+import module namespace demo="http://exist-db.org/apps/demo" at "demo.xql";
 
-declare option exist:serialize "method=html5 media-type=text/html";
+declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
+
+declare option output:method "html5";
+declare option output:media-type "text/html";
 
 let $config := map {
     $templates:CONFIG_APP_ROOT := $config:app-root,
