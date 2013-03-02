@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <div xmlns="http://www.w3.org/1999/xhtml" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="main">
-    <h1>Shakespeare's Works in TEI</h1>
-    <div id="content">
-        <h2>List of Works</h2>
-        <table class="toc">
-            <thead>
-                <tr>
-                    <td>ID</td>
-                    <td>Title</td>
-                    <td>Download</td>
-                </tr>
-            </thead>
-            <tbody data-template="app:list-works">
-                <tr data-template="templates:each" data-template-from="works" data-template-to="work">
-                    <td>
-                        <span data-template="app:work-id"/>
-                    </td>
-                    <td>
-                        <a href="" data-template="app:work-title"/>
-                    </td>
-                    <td>
-                        <a href="" data-template="app:epub-link">epub</a>, 
-                        <a href="" data-template="app:pdf-link">pdf</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="span9">
+        <h1>Shakespeare's Works in TEI</h1>
+        <div id="content">
+            <h2>List of Works</h2>
+            <table class="toc">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody data-template="app:list-works">
+                    <tr data-template="templates:each" data-template-from="works" data-template-to="work">
+                        <td>
+                            <span data-template="app:work-id"/>
+                        </td>
+                        <td>
+                            <a href="" data-template="app:work-title"/>
+                        </td>
+                        <td>
+                            <a href="" data-template="app:epub-link">epub</a>, 
+                            <a href="" data-template="app:pdf-link">pdf</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div id="right">
+    <div class="span3">
         <div class="well">
             <form id="quicksearch" method="post" action="search.html">
                 <fieldset>

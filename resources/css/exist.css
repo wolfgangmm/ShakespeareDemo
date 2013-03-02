@@ -3,6 +3,7 @@
 
 @import url('$shared/resources/css/fonts.css');
 @import url('bootstrap.min.css');
+@import url('bootstrap-responsive.min.css');
 @import url('dropdowns.css');
 
 
@@ -10,21 +11,18 @@
 
 body { color: #222; background: url(../images/body.gif) repeat 50% 100%; }
 
-#grey-top { background: #F3F3F3 url(../images/horizontal.gif) repeat-x 50% 0; float: left; width: 100%; height: 100%; }
-#grey-bot { background: url(../images/body-base.gif) repeat-x 50% 100%; float: left; width: 100%; height: 100%; }
+#grey-top { background: #F3F3F3 url(../images/horizontal.gif) repeat-x 50% 0; height: 100%; }
+.grey-bot { background: url(../images/body-base.gif) repeat-x 50% 100%; width: 100%; }
 
-#container { width: 940px; margin: 0 auto 30px auto; }
+#container { margin: 0 auto 30px auto; }
 
-#header { width: 940px; float: left; background: url(../images/header.gif) no-repeat; height: 120px; }
+#header { background: #EEF0EB url(../images/header.gif) top right no-repeat; height: 120px; width: 100%;}
 
-#header a#logo { display: block; width: 220px; height: 100px; outline: 0; text-indent: -999em; overflow: hidden; float: left; margin: 10px 0; }
+#header a#logo { background: url(../images/existdb.png) center left no-repeat; display: block; width: 220px; height: 100px; text-indent: -999em; outline: 0; margin: 10px 0; }
 
 #navigation {
-    float: left; 
-    height: 70px; 
-    width: 940px;
+    height: 70px;
     color: white;
-    margin-left: -10px;
 }
 
 #navigation .btn-group { 
@@ -49,8 +47,6 @@ body { color: #222; background: url(../images/body.gif) repeat 50% 100%; }
     float: right;
     margin: 8px 0 8px 0;
 }
-
-#main { width: 960px; float: left; padding: 0 0 30px; }
 
 
 /* ---------------------------------------- INDEX ---------------------------------------- */
@@ -101,7 +97,7 @@ body { color: #222; background: url(../images/body.gif) repeat 50% 100%; }
 /* ---------------------------------------- INDEX ---------------------------------------- */
 
 
-#content { font: 16px/24px Georgia, serif; width: 680px; float: left; min-height: 600px; padding: 0 10px; }
+#content { font: 16px/24px Georgia, serif; min-height: 600px; padding: 0 10px; }
 
 #right { width: 240px; float: right;  }
 #r-top { width: 240px; float: right; background: url(../images/grey-box-top.gif) no-repeat;  }
@@ -292,7 +288,18 @@ input:required:valid {
 }
 
 .toc {
-    width: 600px;
+    width: 100%;
+}
+
+.toc thead {
+    border-bottom: 2px solid #CCC;
+}
+
+.toc thead th {
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+    font-weight: normal;
+    text-align: left;
 }
 
 .bk-nav.top {

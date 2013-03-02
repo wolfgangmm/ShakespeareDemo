@@ -42,7 +42,8 @@ declare function app:outline($node as node(), $model as map(*), $details as xs:s
     let $work := $model("work")/ancestor-or-self::tei:TEI
     let $current := $model("work")
     return
-        <ul xmlns="http://www.w3.org/1999/xhtml">{
+        <ul xmlns="http://www.w3.org/1999/xhtml">
+        {
             for $act at $act-count in $work/tei:text/tei:body/tei:div
             return
                 <li>{$act/tei:head/text()}
