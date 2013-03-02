@@ -3,7 +3,7 @@ xquery version "3.0";
 module namespace app="http://exist-db.org/xquery/app";
 
 import module namespace templates="http://exist-db.org/xquery/templates";
-import module namespace config="http://exist-db.org/xquery/apps/config" at "config.xqm";
+import module namespace config="http://exist-db.org/apps/shakes/config" at "config.xqm";
 import module namespace tei2="http://exist-db.org/xquery/app/tei2html" at "tei2html.xql";
 import module namespace kwic="http://exist-db.org/xquery/kwic"
     at "resource:org/exist/xquery/lib/kwic.xql";
@@ -42,7 +42,7 @@ declare function app:outline($node as node(), $model as map(*), $details as xs:s
     let $work := $model("work")/ancestor-or-self::tei:TEI
     let $current := $model("work")
     return
-        <ul>{
+        <ul xmlns="http://www.w3.org/1999/xhtml">{
             for $act at $act-count in $work/tei:text/tei:body/tei:div
             return
                 <li>{$act/tei:head/text()}
@@ -82,7 +82,7 @@ declare function app:work-title($node as node(), $model as map(*), $type as xs:s
     let $suffix := if ($type) then "." || $type else ()
     let $work := $model("work")/ancestor-or-self::tei:TEI
     return
-        <a href="{$node/@href}{$work/@xml:id}{$suffix}">{ app:work-title($work) }</a>
+        <a xmlns="http://www.w3.org/1999/xhtml" href="{$node/@href}{$work/@xml:id}{$suffix}">{ app:work-title($work) }</a>
 };
 
 declare %private function app:work-title($work as element(tei:TEI)) {
@@ -96,13 +96,13 @@ declare function app:work-id($node as node(), $model as map(*)) {
 declare function app:epub-link($node as node(), $model as map(*)) {
     let $id := $model("work")/@xml:id/string()
     return
-        <a href="{$node/@href}{$id}.epub">{ $node/node() }</a>
+        <a xmlns="http://www.w3.org/1999/xhtml" href="{$node/@href}{$id}.epub">{ $node/node() }</a>
 };
 
 declare function app:pdf-link($node as node(), $model as map(*)) {
     let $id := $model("work")/@xml:id/string()
     return
-        <a href="{$node/@href}{$id}.pdf">{ $node/node() }</a>
+        <a xmlns="http://www.w3.org/1999/xhtml" href="{$node/@href}{$id}.pdf">{ $node/node() }</a>
 };
 
 declare function app:navigation($node as node(), $model as map(*)) {
@@ -114,21 +114,21 @@ declare function app:navigation($node as node(), $model as map(*)) {
         element { node-name($node) } {
             $node/@*,
             if ($nextDiv) then
-                <a href="{$nextDiv/@xml:id}.html" class="next">Next Scene</a>
+                <a xmlns="http://www.w3.org/1999/xhtml" href="{$nextDiv/@xml:id}.html" class="next">Next Scene</a>
             else
                 (),
             if ($prevDiv) then
-                <a href="{$prevDiv/@xml:id}.html" class="previous">Previous Scene</a>
+                <a xmlns="http://www.w3.org/1999/xhtml" href="{$prevDiv/@xml:id}.html" class="previous">Previous Scene</a>
             else
                 (),
-            <h5><a href="{$work/@xml:id}">{app:work-title($work)}</a></h5>
+            <h5 xmlns="http://www.w3.org/1999/xhtml"><a href="{$work/@xml:id}">{app:work-title($work)}</a></h5>
         }
 };
 
 declare function app:view($node as node(), $model as map(*), $id as xs:string) {
     for $div in $model("work")/id($id)
     return
-        <div class="play">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="play">
         { tei2:tei2html($div) }
         </div>
 };
@@ -189,7 +189,7 @@ declare function app:from-session($node as node()*, $model as map(*)) {
     Create a span with the number of items in the current search result.
 :)
 declare function app:hit-count($node as node()*, $model as map(*)) {
-    <span id="hit-count">{ count($model("hits")) }</span>
+    <span xmlns="http://www.w3.org/1999/xhtml" id="hit-count">{ count($model("hits")) }</span>
 };
 
 (:~
@@ -202,7 +202,7 @@ function app:show-hits($node as node()*, $model as map(*), $start as xs:integer)
     let $id := $hit/ancestor-or-self::tei:div[1]/@xml:id
     let $kwic := kwic:summarize($hit, <config width="40" table="yes" link="plays/{$id}.html"/>, util:function(xs:QName("app:filter"), 2))
     return
-        <div class="hit">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="hit">
             <span class="number">{$start + $p - 1}</span>
             <div>
                 <p>From: <a href="{$hit/ancestor::tei:TEI/@xml:id}.html">{app:work-title($hit/ancestor::tei:TEI)}</a>,
@@ -228,5 +228,5 @@ declare function app:base($node as node(), $model as map(*)) {
     let $context := request:get-context-path()
     let $app-root := substring-after($config:app-root, "/db/")
     return
-        <base href="{$context}/{$app-root}/"/>
+        <base xmlns="http://www.w3.org/1999/xhtml" href="{$context}/{$app-root}/"/>
 };

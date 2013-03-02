@@ -2,7 +2,7 @@ xquery version "3.0";
 
 module namespace demo="http://exist-db.org/apps/demo";
 
-import module namespace config="http://exist-db.org/xquery/apps/config" at "config.xqm";
+import module namespace config="http://exist-db.org/apps/shakes/config" at "config.xqm";
 import module namespace test="http://exist-db.org/xquery/xqsuite" at "resource:org/exist/xquery/lib/xqsuite/xqsuite.xql";
 
 import module namespace templates="http://exist-db.org/xquery/templates";
@@ -39,7 +39,7 @@ declare function demo:display-source($node as node(), $model as map(*), $lang as
                 <a class="btn eXide-open" href="{$eXideLink}" target="eXide"
                     data-exide-create="{$expanded}"
                     title="Opens the code in eXide in new tab or existing tab if it is already open.">Edit</a>
-                <img class="load-indicator" src="resources/images/ajax-loader.gif"/>
+                <img class="load-indicator" src="resources/images/ajax-loader.gif" style="display: none;"/>
                 <div class="output"></div>
             </div>
         </div>
