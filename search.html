@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<div xmlns="http://www.w3.org/1999/xhtml" class="templates:surround?with=templates/page.html&amp;at=main">
+<div xmlns="http://www.w3.org/1999/xhtml" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="main">
     <div id="content">
         <form action="" method="POST">
             <div class="inputrow">
                 <label for="query">Query:</label>
-                <input id="query" type="text" size="40" name="query" class="templates:form-control"/>
+                <input id="query" type="text" size="40" name="query" data-template="templates:form-control"/>
             </div>
             <div class="inputrow">
                 <label for="mode">Mode:</label>
-                <select name="mode" class="templates:form-control">
+                <select name="mode" data-template="templates:form-control">
                     <option value="all">All</option>
                     <option value="any">Any</option>
                     <option value="phrase">Phrase</option>
@@ -20,9 +20,9 @@
             </div>
         </form>
         <div class="app:query">
-            <p>Found: <span id="hit-count" class="app:hit-count"/> matches.</p>
+            <p>Found: <span id="hit-count" data-template="app:hit-count"/> matches.</p>
             <div id="results">
-                <div class="app:show-hits?howmany=20"/>
+                <div data-template="app:show-hits" data-template-howmany="20"/>
             </div>
         </div>
     </div>

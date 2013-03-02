@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<div xmlns="http://www.w3.org/1999/xhtml" class="templates:surround?with=templates/page.html&amp;at=main">
+<div xmlns="http://www.w3.org/1999/xhtml" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="main">
     <div id="content">
         <a href="." class="nav-link">Back to all plays</a>
-        <div class="app:work">
-            <div class="app:header"/>
-            <div class="app:outline?details=yes"/>
+        <div data-template="app:work">
+            <div data-template="app:header"/>
+            <div data-template="app:outline" data-template-details="yes"/>
         </div>
     </div>
     <div id="right">
         <form id="quicksearch" method="POST" action="search.html">
             <fieldset>
-                <input type="search" name="query" placeholder="Search string" class="templates:form-control"/>
+                <input type="search" name="query" placeholder="Search string" data-template="templates:form-control"/>
             </fieldset>
             <a href="search.html">Advanced search</a>
         </form>
