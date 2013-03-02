@@ -53,7 +53,7 @@ declare function app:outline($node as node(), $model as map(*), $details as xs:s
                             <li>
                                 {
                                     if ($details) then (
-                                        <p><a href="plays/{$scene/@xml:id}.html" class="{$class}">{$scene/tei:head/text()}</a></p>,
+                                        <p><a href="{$scene/@xml:id}.html" class="{$class}">{$scene/tei:head/text()}</a></p>,
                                         <p>{$scene/tei:stage[1]/text()}</p>,
                                         <p><em>Speakers: </em>
                                         {
@@ -67,7 +67,7 @@ declare function app:outline($node as node(), $model as map(*), $details as xs:s
                                         }
                                         </p>
                                     ) else
-                                        <a href="plays/{$scene/@xml:id}.html" class="{$class}">{$scene/tei:head/text()}</a>
+                                        <a href="{$scene/@xml:id}.html" class="{$class}">{$scene/tei:head/text()}</a>
                                 }
                             </li>
                     }</ul>
@@ -114,14 +114,14 @@ declare function app:navigation($node as node(), $model as map(*)) {
         element { node-name($node) } {
             $node/@*,
             if ($nextDiv) then
-                <a href="plays/{$nextDiv/@xml:id}.html" class="next">Next Scene</a>
+                <a href="{$nextDiv/@xml:id}.html" class="next">Next Scene</a>
             else
                 (),
             if ($prevDiv) then
-                <a href="plays/{$prevDiv/@xml:id}.html" class="previous">Previous Scene</a>
+                <a href="{$prevDiv/@xml:id}.html" class="previous">Previous Scene</a>
             else
                 (),
-            <h5><a href="plays/{$work/@xml:id}">{app:work-title($work)}</a></h5>
+            <h5><a href="{$work/@xml:id}">{app:work-title($work)}</a></h5>
         }
 };
 
@@ -205,8 +205,8 @@ function app:show-hits($node as node()*, $model as map(*), $start as xs:integer)
         <div class="hit">
             <span class="number">{$start + $p - 1}</span>
             <div>
-                <p>From: <a href="plays/{$hit/ancestor::tei:TEI/@xml:id}.html">{app:work-title($hit/ancestor::tei:TEI)}</a>,
-                <a href="plays/{$hit/ancestor::tei:div[1]/@xml:id}.html">{$hit/ancestor::tei:div[1]/tei:head/text()}</a></p>
+                <p>From: <a href="{$hit/ancestor::tei:TEI/@xml:id}.html">{app:work-title($hit/ancestor::tei:TEI)}</a>,
+                <a href="{$hit/ancestor::tei:div[1]/@xml:id}.html">{$hit/ancestor::tei:div[1]/tei:head/text()}</a></p>
                 <table>{ $kwic }</table>
             </div>
         </div>

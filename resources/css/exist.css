@@ -1,25 +1,54 @@
 @charset "utf-8";
 /* CSS Document */
 
-@import url('reset.css');
+@import url('$shared/resources/css/fonts.css');
 @import url('bootstrap.min.css');
 @import url('dropdowns.css');
 
 
 /* ---------------------------------------- LAYOUT ---------------------------------------- */
 
-body { font: 12px/20px Verdana, Arial, Helvetica, sans-serif; color: #222; background: url(../images/body.gif) repeat 50% 100%; }
+body { color: #222; background: url(../images/body.gif) repeat 50% 100%; }
 
 #grey-top { background: #F3F3F3 url(../images/horizontal.gif) repeat-x 50% 0; float: left; width: 100%; height: 100%; }
 #grey-bot { background: url(../images/body-base.gif) repeat-x 50% 100%; float: left; width: 100%; height: 100%; }
 
-#container { width: 960px; margin: 0 auto; }
+#container { width: 940px; margin: 0 auto 30px auto; }
 
-#header { width: 960px; float: left; background: url(../images/header.gif) no-repeat; height: 120px; }
+#header { width: 940px; float: left; background: url(../images/header.gif) no-repeat; height: 120px; }
 
 #header a#logo { display: block; width: 220px; height: 100px; outline: 0; text-indent: -999em; overflow: hidden; float: left; margin: 10px 0; }
 
-#navigation { float: left; height: 70px; width: 960px; font-size: 10px; }
+#navigation {
+    float: left; 
+    height: 70px; 
+    width: 940px;
+    color: white;
+    margin-left: -10px;
+}
+
+#navigation .btn-group { 
+    float: left;
+    margin: 8px 0 8px 20px;
+    vertical-align: middle;
+}
+
+#navigation h2 {
+    float: left;
+    margin: auto 0;
+    font: 2.5em/1em "QuicksandBook", "Arial", Helvetica, sans-serif;
+    font-weight: bold;
+    color: #FFF;
+}
+
+#navigation h2 a {
+    color: #FFF;
+}
+
+#navigation .actions {
+    float: right;
+    margin: 8px 0 8px 0;
+}
 
 #main { width: 960px; float: left; padding: 0 0 30px; }
 
@@ -80,7 +109,7 @@ body { font: 12px/20px Verdana, Arial, Helvetica, sans-serif; color: #222; backg
     padding: 0 10px; }
 
 #right h2, #bluebox h2 { text-align: center; color: #FFF; font-size: 12px; padding: 20px 0 0; }
-#right p, #bluebox p { text-align: center; color: #FFF; font-size: 10px; padding: 20px 0 5px; }
+#right p, #bluebox p { text-align: center; color: #FFF; font-size: .9em; padding: 20px 0 5px; }
 #right p { padding: 0px 0 20px; margin: 0; }
 #right ol li { color: #777; }
 #right a, #bluebox p a { color: #0099FF; }
@@ -127,7 +156,12 @@ body { font: 12px/20px Verdana, Arial, Helvetica, sans-serif; color: #222; backg
 
 p { padding: 5px 0; }
 
-h1 { font-size: 16px; padding: 0px 0 5px; margin: 0; font-weight: bold; font-family: "Century Gothic", Verdana, Helvetica, sans-serif; letter-spacing: 1px; }
+h1 { font: 38px "QuicksandBook", "Arial", "Helvetica", sans-serif;
+    color: #0083CB;
+    border-bottom: 1px solid #C7C7C7;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
 h2 { font-size: 1.2em; padding: 10px 0; font-weight: bold; font-family: "Century Gothic", Verdana, Helvetica, sans-serif; letter-spacing: 1px; }
 h3 { font-size: 1.2em; padding: 10px 0 5px; margin: 0 0 5px; font-weight: bold; border-bottom: 1px dotted; }
 h4 { font-size: 1.1em; padding: 10px 0; font-weight: bold; }
