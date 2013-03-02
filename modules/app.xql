@@ -1,6 +1,6 @@
 xquery version "3.0";
 
-module namespace app="http://exist-db.org/xquery/app";
+module namespace app="http://exist-db.org/apps/";
 
 import module namespace templates="http://exist-db.org/xquery/templates";
 import module namespace config="http://exist-db.org/apps/shakes/config" at "config.xqm";
