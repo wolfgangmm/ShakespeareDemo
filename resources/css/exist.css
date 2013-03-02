@@ -12,11 +12,11 @@
 body { color: #222; background: url(../images/body.gif) repeat 50% 100%; }
 
 #grey-top { background: #F3F3F3 url(../images/horizontal.gif) repeat-x 50% 0; height: 100%; }
-.grey-bot { background: url(../images/body-base.gif) repeat-x 50% 100%; width: 100%; }
+.grey-bot { background: url(../images/body-base.gif) repeat-x 50% 100%; padding-bottom: 2em; }
 
 #container { margin: 0 auto 30px auto; }
 
-#header { background: #EEF0EB url(../images/header.gif) top right no-repeat; height: 120px; width: 100%;}
+#header { background: #EEF0EB url(../images/header.gif) top right no-repeat; height: 120px; width: 100%; }
 
 #header a#logo { background: url(../images/existdb.png) center left no-repeat; display: block; width: 220px; height: 100px; text-indent: -999em; outline: 0; margin: 10px 0; }
 
@@ -124,7 +124,7 @@ body { color: #222; background: url(../images/body.gif) repeat 50% 100%; }
 
 .full-div-line { border-bottom: 1px solid #c7c7c7; width: 940px; clear: both; height: 10px; margin: 0 auto 10px; }
 
-#footer { clear: both; width: 960px; margin: 0 auto; height: 50px; }
+#footer { clear: both; margin: 0 auto; padding: 1em 1em; height: 50px; color: #222; background: url(../images/body.gif) repeat 50% 100%; }
 
 #footer ul { float: left; width: 640px; margin: 0 0 0 -4px; }
 #footer ul li { display: inline; }
@@ -187,10 +187,6 @@ blockquote p { padding: 0 0 10px; }
 
 #quicksearch {
     margin: 10px 0;
-}
-
-#quicksearch input {
-    width: 100%;
 }
 
 .inputrow {
