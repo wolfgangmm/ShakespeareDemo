@@ -3,6 +3,9 @@
     <index xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink">
         <fulltext default="none" attributes="false"/>
         <lucene>
+            <analyzer class="org.apache.lucene.analysis.standard.StandardAnalyzer">
+                <param name="stopwords" type="java.util.Set"/>
+            </analyzer>
             <text qname="tei:sp"/>
             <text qname="tei:l"/>
             <text qname="tei:speaker"/>
