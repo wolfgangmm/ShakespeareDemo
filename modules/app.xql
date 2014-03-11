@@ -171,7 +171,13 @@ declare %private function app:create-query() {
             else if ($mode eq 'phrase') then
                 <phrase>{$queryStr}</phrase>
             else
-                <near>{$queryStr}</near>
+                <near slop="1" ordered="no">
+                {
+                    for $term in tokenize($queryStr, '\s')
+                    return
+                        <term>{$term}</term>
+                }
+                </near>
         }
         </query>
 };
