@@ -106,6 +106,17 @@ declare function app:pdf-link($node as node(), $model as map(*)) {
         <a xmlns="http://www.w3.org/1999/xhtml" href="{$node/@href}{$id}.pdf">{ $node/node() }</a>
 };
 
+declare function app:xml-link($node as node(), $model as map(*)) {
+    let $id := $model("work")/@xml:id/string()
+    let $link := concat($config:app-root, "/data/", replace($id, 'sha-', ''), '.xml')
+    let $eXide-link := templates:link-to-app("http://exist-db.org/apps/eXide", "index.html?open=" || $link)
+    let $rest-link := '/exist/rest' || $config:app-root || "/data/" || replace($id, 'sha-', '') || '.xml'
+    return
+        if (xmldb:collection-available('/db/apps/eXide'))
+        then <a xmlns="http://www.w3.org/1999/xhtml" href="{$eXide-link}" target="_blank">{ $node/node() }</a>
+        else <a xmlns="http://www.w3.org/1999/xhtml" href="{$rest-link}" target="_blank">{ $node/node() }</a>
+};
+
 declare function app:navigation($node as node(), $model as map(*)) {
     let $div := $model("work")
     let $prevDiv := $div/preceding::tei:div[parent::tei:div][1]
