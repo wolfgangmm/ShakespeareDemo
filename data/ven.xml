@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="sha-ven">
     <teiHeader>
         <fileDesc>
@@ -67,7 +66,7 @@
         <body>
             <div xml:id="sha-venbody">
                 <head>Venus and Adonis</head>
-                <lg type="stanza" n="1">
+                <lg type="stanza" n="1" xml:id="sha-ven-s1">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0001" n="1">
               EVEN as the sun with purple-coloured face
@@ -91,7 +90,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="2">
+                <lg type="stanza" n="2" xml:id="sha-ven-s2">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0007" n="7">
               “Thrice fairer than myself,” thus she began,
@@ -115,7 +114,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="3">
+                <lg type="stanza" n="3" xml:id="sha-ven-s3">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0013" n="13">
               “Vouchsafe, thou wonder, to alight thy steed,
@@ -139,7 +138,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="4">
+                <lg type="stanza" n="4" xml:id="sha-ven-s4">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0019" n="19">
               “And yet not cloy thy lips with loathed satiety,
@@ -163,7 +162,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="5">
+                <lg type="stanza" n="5" xml:id="sha-ven-s5">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0025" n="25">
               With this she seizeth on his sweating palm,
@@ -187,7 +186,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="6">
+                <lg type="stanza" n="6" xml:id="sha-ven-s6">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0031" n="31">
               Over one arm the lusty courser's rein,
@@ -211,7 +210,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="7">
+                <lg type="stanza" n="7" xml:id="sha-ven-s7">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0037" n="37">
               The studded bridle on a ragged bough
@@ -235,7 +234,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="8">
+                <lg type="stanza" n="8" xml:id="sha-ven-s8">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0043" n="43">
               So soon was she along as he was down,
@@ -259,7 +258,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="9">
+                <lg type="stanza" n="9" xml:id="sha-ven-s9">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0049" n="49">
               He burns with bashful shame: she with her tears
@@ -283,7 +282,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="10">
+                <lg type="stanza" n="10" xml:id="sha-ven-s10">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0055" n="55">
               Even as an empty eagle, sharp by fast,
@@ -307,7 +306,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="11">
+                <lg type="stanza" n="11" xml:id="sha-ven-s11">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0061" n="61">
               Forced to content, but never to obey,
@@ -331,7 +330,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="12">
+                <lg type="stanza" n="12" xml:id="sha-ven-s12">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0067" n="67">
               Look, how a bird lies tangled in a net,
@@ -355,7 +354,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="13">
+                <lg type="stanza" n="13" xml:id="sha-ven-s13">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0073" n="73">
               Still she entreats, and prettily entreats,
@@ -379,7 +378,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="14">
+                <lg type="stanza" n="14" xml:id="sha-ven-s14">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0079" n="79">
               Look how he can, she cannot choose but love;
@@ -403,7 +402,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="15">
+                <lg type="stanza" n="15" xml:id="sha-ven-s15">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0085" n="85">
               Upon this promise did he raise his chin,
@@ -427,7 +426,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="16">
+                <lg type="stanza" n="16" xml:id="sha-ven-s16">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0091" n="91">
               Never did passenger in summer's heat
@@ -451,7 +450,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="17">
+                <lg type="stanza" n="17" xml:id="sha-ven-s17">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0097" n="97">
               “I have been wooed, as I entreat thee now,
@@ -475,7 +474,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="18">
+                <lg type="stanza" n="18" xml:id="sha-ven-s18">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0103" n="103">
               “Over my altars hath he hung his lance,
@@ -499,7 +498,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="19">
+                <lg type="stanza" n="19" xml:id="sha-ven-s19">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0109" n="109">
               “Thus he that overruled I overswayed,
@@ -523,7 +522,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="20">
+                <lg type="stanza" n="20" xml:id="sha-ven-s20">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0115" n="115">
               “Touch but my lips with those fair lips of thine, —
@@ -547,7 +546,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="21">
+                <lg type="stanza" n="21" xml:id="sha-ven-s21">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0121" n="121">
               “Art thou ashamed to kiss? then wink again,
@@ -571,7 +570,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="22">
+                <lg type="stanza" n="22" xml:id="sha-ven-s22">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0127" n="127">
               “The tender spring upon thy tempting lip
@@ -595,7 +594,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="23">
+                <lg type="stanza" n="23" xml:id="sha-ven-s23">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0133" n="133">
               “Were I hard-favoured, foul, or wrinkled old,
@@ -619,7 +618,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="24">
+                <lg type="stanza" n="24" xml:id="sha-ven-s24">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0139" n="139">
               “Thou canst not see one wrinkle in my brow;
@@ -643,7 +642,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="25">
+                <lg type="stanza" n="25" xml:id="sha-ven-s25">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0145" n="145">
               “Bid me discourse, I will enchant thine ear,
@@ -667,7 +666,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="26">
+                <lg type="stanza" n="26" xml:id="sha-ven-s26">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0151" n="151">
               “Witness this primrose bank whereon I lie;
@@ -691,7 +690,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="27">
+                <lg type="stanza" n="27" xml:id="sha-ven-s27">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0157" n="157">
               “Is thine own heart to thine own face affected?
@@ -715,7 +714,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="28">
+                <lg type="stanza" n="28" xml:id="sha-ven-s28">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0163" n="163">
               “Torches are made to light, jewels to wear,
@@ -739,7 +738,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="29">
+                <lg type="stanza" n="29" xml:id="sha-ven-s29">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0169" n="169">
               “Upon the earth's increase why shouldst thou feed,
@@ -763,7 +762,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="30">
+                <lg type="stanza" n="30" xml:id="sha-ven-s30">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0175" n="175">
               By this the love-sick queen began to sweat,
@@ -787,7 +786,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="31">
+                <lg type="stanza" n="31" xml:id="sha-ven-s31">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0181" n="181">
               And now Adonis, with a lazy sprite,
@@ -811,7 +810,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="32">
+                <lg type="stanza" n="32" xml:id="sha-ven-s32">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0187" n="187">
               “Ay me,” quoth Venus, “young, and so unkind?
@@ -835,7 +834,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="33">
+                <lg type="stanza" n="33" xml:id="sha-ven-s33">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0193" n="193">
               “The sun that shines from heaven shines but warm,
@@ -859,7 +858,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="34">
+                <lg type="stanza" n="34" xml:id="sha-ven-s34">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0199" n="199">
               “Art thou obdurate, flinty, hard as steel,
@@ -883,7 +882,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="35">
+                <lg type="stanza" n="35" xml:id="sha-ven-s35">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0205" n="205">
               “What am I, that thou shouldst contemn me this?
@@ -907,7 +906,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="36">
+                <lg type="stanza" n="36" xml:id="sha-ven-s36">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0211" n="211">
               “Fie, lifeless picture, cold and senseless stone,
@@ -931,7 +930,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="37">
+                <lg type="stanza" n="37" xml:id="sha-ven-s37">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0217" n="217">
               This said, impatience chokes her pleading tongue,
@@ -955,7 +954,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="38">
+                <lg type="stanza" n="38" xml:id="sha-ven-s38">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0223" n="223">
               Sometime she shakes her head and then his hand,
@@ -979,7 +978,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="39">
+                <lg type="stanza" n="39" xml:id="sha-ven-s39">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0229" n="229">
               “Fondling,” she saith, “since I have hemmed thee here
@@ -1003,7 +1002,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="40">
+                <lg type="stanza" n="40" xml:id="sha-ven-s40">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0235" n="235">
               “Within this limit is relief enough,
@@ -1027,7 +1026,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="41">
+                <lg type="stanza" n="41" xml:id="sha-ven-s41">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0241" n="241">
               At this Adonis smiles as in disdain,
@@ -1051,7 +1050,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="42">
+                <lg type="stanza" n="42" xml:id="sha-ven-s42">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0247" n="247">
               These lovely caves, these round enchanting pits,
@@ -1075,7 +1074,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="43">
+                <lg type="stanza" n="43" xml:id="sha-ven-s43">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0253" n="253">
               Now which way shall she turn? what shall she say?
@@ -1099,7 +1098,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="44">
+                <lg type="stanza" n="44" xml:id="sha-ven-s44">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0259" n="259">
               But, lo, from forth a copse that neighbours by,
@@ -1123,7 +1122,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="45">
+                <lg type="stanza" n="45" xml:id="sha-ven-s45">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0265" n="265">
               Imperiously he leaps, he neighs, he bounds,
@@ -1147,7 +1146,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="46">
+                <lg type="stanza" n="46" xml:id="sha-ven-s46">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0271" n="271">
               His ears up-pricked; his braided hanging mane
@@ -1171,7 +1170,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="47">
+                <lg type="stanza" n="47" xml:id="sha-ven-s47">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0277" n="277">
               Sometime he trots, as if he told the steps,
@@ -1195,7 +1194,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="48">
+                <lg type="stanza" n="48" xml:id="sha-ven-s48">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0283" n="283">
               What recketh he his rider's angry stir,
@@ -1219,7 +1218,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="49">
+                <lg type="stanza" n="49" xml:id="sha-ven-s49">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0289" n="289">
               Look, when a painter would surpass the life,
@@ -1243,7 +1242,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="50">
+                <lg type="stanza" n="50" xml:id="sha-ven-s50">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0295" n="295">
               Round-hoofed, short-jointed, fetlocks shag and long,
@@ -1267,7 +1266,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="51">
+                <lg type="stanza" n="51" xml:id="sha-ven-s51">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0301" n="301">
               Sometime he scuds far off and there he stares;
@@ -1291,7 +1290,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="52">
+                <lg type="stanza" n="52" xml:id="sha-ven-s52">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0307" n="307">
               He looks upon his love and neighs unto her;
@@ -1315,7 +1314,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="53">
+                <lg type="stanza" n="53" xml:id="sha-ven-s53">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0313" n="313">
               Then, like a melancholy malcontent,
@@ -1339,7 +1338,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="54">
+                <lg type="stanza" n="54" xml:id="sha-ven-s54">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0319" n="319">
               His testy master goeth about to take him;
@@ -1363,7 +1362,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="55">
+                <lg type="stanza" n="55" xml:id="sha-ven-s55">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0325" n="325">
               All swoln with chafing, down Adonis sits,
@@ -1387,7 +1386,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="56">
+                <lg type="stanza" n="56" xml:id="sha-ven-s56">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0331" n="331">
               An oven that is stopped, or river stayed,
@@ -1411,7 +1410,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="57">
+                <lg type="stanza" n="57" xml:id="sha-ven-s57">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0337" n="337">
               He sees her coming, and begins to glow,
@@ -1435,7 +1434,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="58">
+                <lg type="stanza" n="58" xml:id="sha-ven-s58">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0343" n="343">
               O, what a sight it was, wistly to view
@@ -1459,7 +1458,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="59">
+                <lg type="stanza" n="59" xml:id="sha-ven-s59">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0349" n="349">
               Now was she just before him as he sat,
@@ -1483,7 +1482,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="60">
+                <lg type="stanza" n="60" xml:id="sha-ven-s60">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0355" n="355">
               O, what a war of looks was then between them!
@@ -1507,7 +1506,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="61">
+                <lg type="stanza" n="61" xml:id="sha-ven-s61">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0361" n="361">
               Full gently now she takes him by the hand,
@@ -1531,7 +1530,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="62">
+                <lg type="stanza" n="62" xml:id="sha-ven-s62">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0367" n="367">
               Once more the engine of her thoughts began:
@@ -1555,7 +1554,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="63">
+                <lg type="stanza" n="63" xml:id="sha-ven-s63">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0373" n="373">
               “Give me my hand,” saith he, “why dost thou feel it?”
@@ -1579,7 +1578,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="64">
+                <lg type="stanza" n="64" xml:id="sha-ven-s64">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0379" n="379">
               “For shame,” he cries, “let go, and let me go;
@@ -1603,7 +1602,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="65">
+                <lg type="stanza" n="65" xml:id="sha-ven-s65">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0385" n="385">
               Thus she replies: “Thy palfrey, as he should,
@@ -1627,7 +1626,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="66">
+                <lg type="stanza" n="66" xml:id="sha-ven-s66">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0391" n="391">
               “How like a jade he stood, tied to the tree,
@@ -1651,7 +1650,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="67">
+                <lg type="stanza" n="67" xml:id="sha-ven-s67">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0397" n="397">
               “Who sees his true-love in her naked bed,
@@ -1675,7 +1674,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="68">
+                <lg type="stanza" n="68" xml:id="sha-ven-s68">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0403" n="403">
               “Let me excuse thy courser, gentle boy;
@@ -1699,7 +1698,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="69">
+                <lg type="stanza" n="69" xml:id="sha-ven-s69">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0409" n="409">
               “I know not love,” quoth he, “nor will not know it,
@@ -1723,7 +1722,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="70">
+                <lg type="stanza" n="70" xml:id="sha-ven-s70">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0415" n="415">
               “Who wears a garment shapeless and unfinished?
@@ -1747,7 +1746,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="71">
+                <lg type="stanza" n="71" xml:id="sha-ven-s71">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0421" n="421">
               “You hurt my hand with wringing; let us part,
@@ -1771,7 +1770,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="72">
+                <lg type="stanza" n="72" xml:id="sha-ven-s72">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0427" n="427">
               “What! canst thou talk?” quoth she, “hast thou a tongue?
@@ -1795,7 +1794,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="73">
+                <lg type="stanza" n="73" xml:id="sha-ven-s73">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0433" n="433">
               “Had I no eyes but ears, my ears would love
@@ -1819,7 +1818,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="74">
+                <lg type="stanza" n="74" xml:id="sha-ven-s74">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0439" n="439">
               “Say, that the sense of feeling were bereft me,
@@ -1843,7 +1842,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="75">
+                <lg type="stanza" n="75" xml:id="sha-ven-s75">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0445" n="445">
               “But, O, what banquet wert thou to the taste,
@@ -1867,7 +1866,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="76">
+                <lg type="stanza" n="76" xml:id="sha-ven-s76">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0451" n="451">
               Once more the ruby-coloured portal opened,
@@ -1891,7 +1890,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="77">
+                <lg type="stanza" n="77" xml:id="sha-ven-s77">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0457" n="457">
               This ill presage advisedly she marketh:
@@ -1915,7 +1914,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="78">
+                <lg type="stanza" n="78" xml:id="sha-ven-s78">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0463" n="463">
               And at his look she flatly falleth down,
@@ -1939,7 +1938,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="79">
+                <lg type="stanza" n="79" xml:id="sha-ven-s79">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0469" n="469">
               And all amazed brake off his late intent,
@@ -1963,7 +1962,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="80">
+                <lg type="stanza" n="80" xml:id="sha-ven-s80">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0475" n="475">
               He wrings her nose, he strikes her on the cheeks,
@@ -1987,7 +1986,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="81">
+                <lg type="stanza" n="81" xml:id="sha-ven-s81">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0481" n="481">
               The night of sorrow now is turned to day:
@@ -2011,7 +2010,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="82">
+                <lg type="stanza" n="82" xml:id="sha-ven-s82">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0487" n="487">
               Whose beams upon his hairless face are fixed,
@@ -2035,7 +2034,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="83">
+                <lg type="stanza" n="83" xml:id="sha-ven-s83">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0493" n="493">
               “O, where am I?” quoth she, “in earth or heaven,
@@ -2059,7 +2058,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="84">
+                <lg type="stanza" n="84" xml:id="sha-ven-s84">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0499" n="499">
               “O, thou didst kill me: kill me once again:
@@ -2083,7 +2082,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="85">
+                <lg type="stanza" n="85" xml:id="sha-ven-s85">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0505" n="505">
               “Long may they kiss each other, for this cure!
@@ -2107,7 +2106,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="86">
+                <lg type="stanza" n="86" xml:id="sha-ven-s86">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0511" n="511">
               “Pure lips, sweet seals in my soft lips imprinted,
@@ -2131,7 +2130,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="87">
+                <lg type="stanza" n="87" xml:id="sha-ven-s87">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0517" n="517">
               “A thousand kisses buys my heart from me;
@@ -2155,7 +2154,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="88">
+                <lg type="stanza" n="88" xml:id="sha-ven-s88">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0523" n="523">
               “Fair queen,” quoth he, “if any love you owe me,
@@ -2179,7 +2178,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="89">
+                <lg type="stanza" n="89" xml:id="sha-ven-s89">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0529" n="529">
               “Look, the world's comforter, with weary gait,
@@ -2203,7 +2202,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="90">
+                <lg type="stanza" n="90" xml:id="sha-ven-s90">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0535" n="535">
               “Now let me say ‘ Good night,’ and so say you;
@@ -2227,7 +2226,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="91">
+                <lg type="stanza" n="91" xml:id="sha-ven-s91">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0541" n="541">
               Till, breathless, he disjoined, and backward drew
@@ -2251,7 +2250,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="92">
+                <lg type="stanza" n="92" xml:id="sha-ven-s92">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0547" n="547">
               Now quick desire hath caught the yielding prey,
@@ -2275,7 +2274,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="93">
+                <lg type="stanza" n="93" xml:id="sha-ven-s93">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0553" n="553">
               And having felt the sweetness of the spoil,
@@ -2299,7 +2298,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="94">
+                <lg type="stanza" n="94" xml:id="sha-ven-s94">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0559" n="559">
               Hot, faint, and weary, with her hard embracing,
@@ -2323,7 +2322,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="95">
+                <lg type="stanza" n="95" xml:id="sha-ven-s95">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0565" n="565">
               What wax so frozen but dissolves with tempering,
@@ -2347,7 +2346,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="96">
+                <lg type="stanza" n="96" xml:id="sha-ven-s96">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0571" n="571">
               When he did frown, O, had she then gave over,
@@ -2371,7 +2370,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="97">
+                <lg type="stanza" n="97" xml:id="sha-ven-s97">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0577" n="577">
               For pity now she can no more detain him;
@@ -2395,7 +2394,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="98">
+                <lg type="stanza" n="98" xml:id="sha-ven-s98">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0583" n="583">
               “Sweet boy,” she says, “this night I'll waste in sorrow,
@@ -2419,7 +2418,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="99">
+                <lg type="stanza" n="99" xml:id="sha-ven-s99">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0589" n="589">
               “The boar!” quoth she; whereat a sudden pale,
@@ -2443,7 +2442,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="100">
+                <lg type="stanza" n="100" xml:id="sha-ven-s100">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0595" n="595">
               Now is she in the very lists of love,
@@ -2467,7 +2466,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="101">
+                <lg type="stanza" n="101" xml:id="sha-ven-s101">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0601" n="601">
               Even so poor birds, deceived with painted grapes,
@@ -2491,7 +2490,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="102">
+                <lg type="stanza" n="102" xml:id="sha-ven-s102">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0607" n="607">
               But all in vain; good queen, it will not be:
@@ -2515,7 +2514,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="103">
+                <lg type="stanza" n="103" xml:id="sha-ven-s103">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0613" n="613">
               “Thou hadst been gone,” quoth she, “sweet boy, ere this,
@@ -2539,7 +2538,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="104">
+                <lg type="stanza" n="104" xml:id="sha-ven-s104">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0619" n="619">
               “On his bow-back he hath a battle set
@@ -2563,7 +2562,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="105">
+                <lg type="stanza" n="105" xml:id="sha-ven-s105">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0625" n="625">
               “His brawny sides, with hairy bristles armed,
@@ -2587,7 +2586,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="106">
+                <lg type="stanza" n="106" xml:id="sha-ven-s106">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0631" n="631">
               “Alas, he nought esteems that face of thine,
@@ -2611,7 +2610,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="107">
+                <lg type="stanza" n="107" xml:id="sha-ven-s107">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0637" n="637">
               “O, let him keep his loathsome cabin still;
@@ -2635,7 +2634,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="108">
+                <lg type="stanza" n="108" xml:id="sha-ven-s108">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0643" n="643">
               “Didst thou not mark my face? was it not white?
@@ -2659,7 +2658,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="109">
+                <lg type="stanza" n="109" xml:id="sha-ven-s109">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0649" n="649">
               “For where Love reigns, disturbing Jealousy
@@ -2683,7 +2682,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="110">
+                <lg type="stanza" n="110" xml:id="sha-ven-s110">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0655" n="655">
               “This sour informer, this bate-breeding spy,
@@ -2707,7 +2706,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="111">
+                <lg type="stanza" n="111" xml:id="sha-ven-s111">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0661" n="661">
               “And more than so, presenteth to mine eye
@@ -2731,7 +2730,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="112">
+                <lg type="stanza" n="112" xml:id="sha-ven-s112">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0667" n="667">
               “What should I do, seeing thee so indeed,
@@ -2755,7 +2754,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="113">
+                <lg type="stanza" n="113" xml:id="sha-ven-s113">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0673" n="673">
               “But if thou needs wilt hunt, be ruled by me;
@@ -2779,7 +2778,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="114">
+                <lg type="stanza" n="114" xml:id="sha-ven-s114">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0679" n="679">
               “And when thou hast on foot the purblind hare,
@@ -2803,7 +2802,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="115">
+                <lg type="stanza" n="115" xml:id="sha-ven-s115">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0685" n="685">
               “Sometime he runs among a flock of sheep,
@@ -2827,7 +2826,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="116">
+                <lg type="stanza" n="116" xml:id="sha-ven-s116">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0691" n="691">
               “For there his smell with others being mingled,
@@ -2851,7 +2850,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="117">
+                <lg type="stanza" n="117" xml:id="sha-ven-s117">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0697" n="697">
               “By this, poor Wat, far off upon a hill,
@@ -2875,7 +2874,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="118">
+                <lg type="stanza" n="118" xml:id="sha-ven-s118">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0703" n="703">
               “Then shalt thou see the dew-bedabbled wretch
@@ -2899,7 +2898,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="119">
+                <lg type="stanza" n="119" xml:id="sha-ven-s119">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0709" n="709">
               “Lie quietly, and hear a little more;
@@ -2923,7 +2922,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="120">
+                <lg type="stanza" n="120" xml:id="sha-ven-s120">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0715" n="715">
               “Where did I leave?” “No matter where;” quoth he,
@@ -2947,7 +2946,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="121">
+                <lg type="stanza" n="121" xml:id="sha-ven-s121">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0721" n="721">
               “But if thou fall, O, then imagine this,
@@ -2971,7 +2970,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="122">
+                <lg type="stanza" n="122" xml:id="sha-ven-s122">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0727" n="727">
               “Now of this dark night I perceive the reason:
@@ -2995,7 +2994,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="123">
+                <lg type="stanza" n="123" xml:id="sha-ven-s123">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0733" n="733">
               “And therefore hath she bribed the Destinies
@@ -3019,7 +3018,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="124">
+                <lg type="stanza" n="124" xml:id="sha-ven-s124">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0739" n="739">
               “As burning fevers, agues pale and faint,
@@ -3043,7 +3042,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="125">
+                <lg type="stanza" n="125" xml:id="sha-ven-s125">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0745" n="745">
               “And not the least of all these maladies
@@ -3067,7 +3066,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="126">
+                <lg type="stanza" n="126" xml:id="sha-ven-s126">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0751" n="751">
               “Therefore, despite of fruitless chastity,
@@ -3091,7 +3090,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="127">
+                <lg type="stanza" n="127" xml:id="sha-ven-s127">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0757" n="757">
               “What is thy body but a swallowing grave,
@@ -3115,7 +3114,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="128">
+                <lg type="stanza" n="128" xml:id="sha-ven-s128">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0763" n="763">
               “So in thyself thyself art made away;
@@ -3139,7 +3138,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="129">
+                <lg type="stanza" n="129" xml:id="sha-ven-s129">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0769" n="769">
               “Nay, then,” quoth Adon, “you will fall again
@@ -3163,7 +3162,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="130">
+                <lg type="stanza" n="130" xml:id="sha-ven-s130">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0775" n="775">
               “If love have lent you twenty thousand tongues,
@@ -3187,7 +3186,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="131">
+                <lg type="stanza" n="131" xml:id="sha-ven-s131">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0781" n="781">
               “Lest the deceiving harmony should run
@@ -3211,7 +3210,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="132">
+                <lg type="stanza" n="132" xml:id="sha-ven-s132">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0787" n="787">
               “What have you urged that I cannot reprove?
@@ -3235,7 +3234,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="133">
+                <lg type="stanza" n="133" xml:id="sha-ven-s133">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0793" n="793">
               “Call it not love, for Love to heaven is fled,
@@ -3259,7 +3258,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="134">
+                <lg type="stanza" n="134" xml:id="sha-ven-s134">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0799" n="799">
               “Love comforteth like sunshine after rain,
@@ -3283,7 +3282,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="135">
+                <lg type="stanza" n="135" xml:id="sha-ven-s135">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0805" n="805">
               “More I could tell, but more I dare not say;
@@ -3307,7 +3306,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="136">
+                <lg type="stanza" n="136" xml:id="sha-ven-s136">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0811" n="811">
               With this, he breaketh from the sweet embrace,
@@ -3331,7 +3330,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="137">
+                <lg type="stanza" n="137" xml:id="sha-ven-s137">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0817" n="817">
               Which after him she darts, as one on shore
@@ -3355,7 +3354,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="138">
+                <lg type="stanza" n="138" xml:id="sha-ven-s138">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0823" n="823">
               Whereat amazed, as one that unaware
@@ -3379,7 +3378,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="139">
+                <lg type="stanza" n="139" xml:id="sha-ven-s139">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0829" n="829">
               And now she beats her heart, whereat it groans,
@@ -3403,7 +3402,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="140">
+                <lg type="stanza" n="140" xml:id="sha-ven-s140">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0835" n="835">
               She marking them begins a wailing note
@@ -3427,7 +3426,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="141">
+                <lg type="stanza" n="141" xml:id="sha-ven-s141">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0841" n="841">
               Her song was tedious and outwore the night,
@@ -3451,7 +3450,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="142">
+                <lg type="stanza" n="142" xml:id="sha-ven-s142">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0847" n="847">
               For who hath she to spend the night withal
@@ -3475,7 +3474,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="143">
+                <lg type="stanza" n="143" xml:id="sha-ven-s143">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0853" n="853">
               Lo, here the gentle lark, weary of rest,
@@ -3499,7 +3498,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="144">
+                <lg type="stanza" n="144" xml:id="sha-ven-s144">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0859" n="859">
               Venus salutes him with this fair good morrow:
@@ -3523,7 +3522,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="145">
+                <lg type="stanza" n="145" xml:id="sha-ven-s145">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0865" n="865">
               This said, she hasteth to a myrtle grove,
@@ -3547,7 +3546,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="146">
+                <lg type="stanza" n="146" xml:id="sha-ven-s146">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0871" n="871">
               And as she runs, the bushes in the way
@@ -3571,7 +3570,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="147">
+                <lg type="stanza" n="147" xml:id="sha-ven-s147">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0877" n="877">
               By this, she hears the hounds are at a bay;
@@ -3595,7 +3594,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="148">
+                <lg type="stanza" n="148" xml:id="sha-ven-s148">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0883" n="883">
               For now she knows it is no gentle chase,
@@ -3619,7 +3618,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="149">
+                <lg type="stanza" n="149" xml:id="sha-ven-s149">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0889" n="889">
               This dismal cry rings sadly in her ear,
@@ -3643,7 +3642,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="150">
+                <lg type="stanza" n="150" xml:id="sha-ven-s150">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0895" n="895">
               Thus stands she in a trembling ecstasy;
@@ -3667,7 +3666,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="151">
+                <lg type="stanza" n="151" xml:id="sha-ven-s151">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0901" n="901">
               Whose frothy mouth, bepainted all with red,
@@ -3691,7 +3690,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="152">
+                <lg type="stanza" n="152" xml:id="sha-ven-s152">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0907" n="907">
               A thousand spleens bear her a thousand ways;
@@ -3715,7 +3714,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="153">
+                <lg type="stanza" n="153" xml:id="sha-ven-s153">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0913" n="913">
               Here kennelled in a brake she finds a hound,
@@ -3739,7 +3738,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="154">
+                <lg type="stanza" n="154" xml:id="sha-ven-s154">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0919" n="919">
               When he hath ceased his ill-resounding noise,
@@ -3763,7 +3762,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="155">
+                <lg type="stanza" n="155" xml:id="sha-ven-s155">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0925" n="925">
               Look, how the world's poor people are amazed
@@ -3787,7 +3786,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="156">
+                <lg type="stanza" n="156" xml:id="sha-ven-s156">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0931" n="931">
               “Hard-favoured tyrant, ugly, meagre, lean,
@@ -3811,7 +3810,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="157">
+                <lg type="stanza" n="157" xml:id="sha-ven-s157">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0937" n="937">
               “If he be dead, — O no, it cannot be,
@@ -3835,7 +3834,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="158">
+                <lg type="stanza" n="158" xml:id="sha-ven-s158">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0943" n="943">
               “Hadst thou but bid beware, then he had spoke,
@@ -3859,7 +3858,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="159">
+                <lg type="stanza" n="159" xml:id="sha-ven-s159">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0949" n="949">
               “Dost thou drink tears, that thou provokest such weeping?
@@ -3883,7 +3882,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="160">
+                <lg type="stanza" n="160" xml:id="sha-ven-s160">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0955" n="955">
               Here overcome, as one full of despair,
@@ -3907,7 +3906,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="161">
+                <lg type="stanza" n="161" xml:id="sha-ven-s161">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0961" n="961">
               O, how her eyes and tears did lend and borrow!
@@ -3931,7 +3930,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="162">
+                <lg type="stanza" n="162" xml:id="sha-ven-s162">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0967" n="967">
               Variable passions throng her constant woe,
@@ -3955,7 +3954,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="163">
+                <lg type="stanza" n="163" xml:id="sha-ven-s163">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0973" n="973">
               By this, far off she hears some huntsman hallow;
@@ -3979,7 +3978,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="164">
+                <lg type="stanza" n="164" xml:id="sha-ven-s164">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0979" n="979">
               Whereat her tears began to turn their tide,
@@ -4003,7 +4002,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="165">
+                <lg type="stanza" n="165" xml:id="sha-ven-s165">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0985" n="985">
               O hard-believing love, how strange it seems
@@ -4027,7 +4026,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="166">
+                <lg type="stanza" n="166" xml:id="sha-ven-s166">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0991" n="991">
               Now she unweaves the web that she hath wrought;
@@ -4051,7 +4050,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="167">
+                <lg type="stanza" n="167" xml:id="sha-ven-s167">
                     <lg type="quatrain">
                         <l xml:id="sha-ven0997" n="997">
               “No, no,” quoth she, “sweet Death, I did but jest;
@@ -4075,7 +4074,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="168">
+                <lg type="stanza" n="168" xml:id="sha-ven-s168">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1003" n="1003">
               “'Tis not my fault: the boar provoked my tongue;
@@ -4099,7 +4098,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="169">
+                <lg type="stanza" n="169" xml:id="sha-ven-s169">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1009" n="1009">
               Thus hoping that Adonis is alive,
@@ -4123,7 +4122,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="170">
+                <lg type="stanza" n="170" xml:id="sha-ven-s170">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1015" n="1015">
               “O Jove,” quoth she, “how much a fool was I
@@ -4147,7 +4146,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="171">
+                <lg type="stanza" n="171" xml:id="sha-ven-s171">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1021" n="1021">
               “Fie, fie, fond love, thou art as full of fear
@@ -4171,7 +4170,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="172">
+                <lg type="stanza" n="172" xml:id="sha-ven-s172">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1027" n="1027">
               As falcons to the lure, away she flies;
@@ -4195,7 +4194,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="173">
+                <lg type="stanza" n="173" xml:id="sha-ven-s173">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1033" n="1033">
               Or, as the snail, whose tender horns being hit,
@@ -4219,7 +4218,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="174">
+                <lg type="stanza" n="174" xml:id="sha-ven-s174">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1039" n="1039">
               Where they resign their office and their light
@@ -4243,7 +4242,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="175">
+                <lg type="stanza" n="175" xml:id="sha-ven-s175">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1045" n="1045">
               Whereat each tributary subject quakes;
@@ -4267,7 +4266,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="176">
+                <lg type="stanza" n="176" xml:id="sha-ven-s176">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1051" n="1051">
               And, being opened, threw unwilling light
@@ -4291,7 +4290,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="177">
+                <lg type="stanza" n="177" xml:id="sha-ven-s177">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1057" n="1057">
               This solemn sympathy poor Venus noteth;
@@ -4315,7 +4314,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="178">
+                <lg type="stanza" n="178" xml:id="sha-ven-s178">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1063" n="1063">
               Upon his hurt she looks so steadfastly,
@@ -4339,7 +4338,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="179">
+                <lg type="stanza" n="179" xml:id="sha-ven-s179">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1069" n="1069">
               “My tongue cannot express my grief for one,
@@ -4363,7 +4362,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="180">
+                <lg type="stanza" n="180" xml:id="sha-ven-s180">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1075" n="1075">
               “Alas, poor world, what treasure hast thou lost!
@@ -4387,7 +4386,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="181">
+                <lg type="stanza" n="181" xml:id="sha-ven-s181">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1081" n="1081">
               “Bonnet nor veil henceforth no creature wear!
@@ -4411,7 +4410,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="182">
+                <lg type="stanza" n="182" xml:id="sha-ven-s182">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1087" n="1087">
               “And therefore would he put his bonnet on,
@@ -4435,7 +4434,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="183">
+                <lg type="stanza" n="183" xml:id="sha-ven-s183">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1093" n="1093">
               “To see his face the lion walked along
@@ -4459,7 +4458,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="184">
+                <lg type="stanza" n="184" xml:id="sha-ven-s184">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1099" n="1099">
               “When he beheld his shadow in the brook,
@@ -4483,7 +4482,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="185">
+                <lg type="stanza" n="185" xml:id="sha-ven-s185">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1105" n="1105">
               “But this foul, grim, and urchin-snouted boar,
@@ -4507,7 +4506,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="186">
+                <lg type="stanza" n="186" xml:id="sha-ven-s186">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1111" n="1111">
               “'Tis true, 'tis true; thus was Adonis slain:
@@ -4531,7 +4530,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="187">
+                <lg type="stanza" n="187" xml:id="sha-ven-s187">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1117" n="1117">
               “Had I been toothed like him, I must confess,
@@ -4555,7 +4554,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="188">
+                <lg type="stanza" n="188" xml:id="sha-ven-s188">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1123" n="1123">
               She looks upon his lips, and they are pale;
@@ -4579,7 +4578,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="189">
+                <lg type="stanza" n="189" xml:id="sha-ven-s189">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1129" n="1129">
               Two glasses, where herself herself beheld
@@ -4603,7 +4602,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="190">
+                <lg type="stanza" n="190" xml:id="sha-ven-s190">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1135" n="1135">
               “Since thou art dead, lo, here I prophesy:
@@ -4627,7 +4626,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="191">
+                <lg type="stanza" n="191" xml:id="sha-ven-s191">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1141" n="1141">
               “It shall be fickle, false and full of fraud,
@@ -4651,7 +4650,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="192">
+                <lg type="stanza" n="192" xml:id="sha-ven-s192">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1147" n="1147">
               “It shall be sparing and too full of riot,
@@ -4675,7 +4674,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="193">
+                <lg type="stanza" n="193" xml:id="sha-ven-s193">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1153" n="1153">
               “It shall suspect where is no cause of fear;
@@ -4699,7 +4698,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="194">
+                <lg type="stanza" n="194" xml:id="sha-ven-s194">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1159" n="1159">
               “It shall be cause of war and dire events,
@@ -4723,7 +4722,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="195">
+                <lg type="stanza" n="195" xml:id="sha-ven-s195">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1165" n="1165">
               By this, the boy that by her side lay killed
@@ -4747,7 +4746,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="196">
+                <lg type="stanza" n="196" xml:id="sha-ven-s196">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1171" n="1171">
               She bows her head, the new-sprung flower to smell,
@@ -4771,7 +4770,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="197">
+                <lg type="stanza" n="197" xml:id="sha-ven-s197">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1177" n="1177">
               “Poor flower,” quoth she, “this was thy father's guise —
@@ -4795,7 +4794,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="198">
+                <lg type="stanza" n="198" xml:id="sha-ven-s198">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1183" n="1183">
               “Here was thy father's bed, here in my breast;
@@ -4819,7 +4818,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="199">
+                <lg type="stanza" n="199" xml:id="sha-ven-s199">
                     <lg type="quatrain">
                         <l xml:id="sha-ven1189" n="1189">
               Thus weary of the world, away she hies,
