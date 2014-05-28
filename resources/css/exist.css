@@ -6,6 +6,13 @@
 @import url('bootstrap-responsive.min.css');
 @import url('dropdowns.css');
 
+/*added rules begin*/
+
+.poem-list td {
+    padding:.5em;
+}
+
+/*added rules end*/
 
 /* ---------------------------------------- LAYOUT ---------------------------------------- */
 
