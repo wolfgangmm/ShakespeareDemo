@@ -50,38 +50,88 @@ declare function app:outline($node as node(), $model as map(*), $details as xs:s
     let $work := $model("work")/ancestor-or-self::tei:TEI
     let $current := $model("work")
     return
-        <ul xmlns="http://www.w3.org/1999/xhtml">
-        {
-            for $act at $act-count in $work/tei:text/tei:body/tei:div
-            return
-                <li>{$act/tei:head/text()}
-                    <ul>{
-                        for $scene in $act/tei:div
-                        let $class := if ($scene is $current) then "active" else ""
+        if ($work//tei:speaker)
+        then
+            <ul xmlns="http://www.w3.org/1999/xhtml">
+            {
+                for $act at $act-count in $work/tei:text/tei:body/tei:div
+                return
+                    <li>{$act/tei:head/text()}
+                        <ul>{
+                            for $scene in $act/tei:div
+                            let $class := if ($scene is $current) then "active" else ""
+                            return
+                                <li>
+                                    {
+                                        if ($details) then (
+                                            <p><a href="{$scene/@xml:id}.html" class="{$class}">{$scene/tei:head/text()}</a></p>,
+                                            <p>{$scene/tei:stage[1]/text()}</p>,
+                                            
+                                            if ($scene//tei:speaker)
+                                            then
+                                                <p><em>Speakers: </em>
+                                                {
+                                                    string-join(
+                                                        for $speaker in distinct-values($scene//tei:speaker)
+                                                        order by $speaker
+                                                        return
+                                                            $speaker
+                                                    , ", ")
+                                                }
+                                                </p>
+                                            else ()
+                                        ) else
+                                            <a href="{$scene/@xml:id}.html" class="{$class}">{$scene/tei:head/text()}</a>
+                                    }
+                                </li>
+                        }</ul>
+                    </li>
+            }</ul>
+            else
+                if ($work/tei:text/tei:body/tei:div/tei:lg)
+                then
+                    <table class="poem-list" xmlns="http://www.w3.org/1999/xhtml">
+                    {
+                        for $stanza at $stanza-count in $work/tei:text/tei:body/tei:div/tei:lg
+                        let $class := if ($stanza is $current) then "active" else ""
                         return
-                            <li>
+                            <tr>
+                                <td><a href="{$stanza/@xml:id}.html" class="{$class}">Stanza {$stanza/@n/string()}</a></td> 
+                                <td class="first-line">
                                 {
-                                    if ($details) then (
-                                        <p><a href="{$scene/@xml:id}.html" class="{$class}">{$scene/tei:head/text()}</a></p>,
-                                        <p>{$scene/tei:stage[1]/text()}</p>,
-                                        <p><em>Speakers: </em>
-                                        {
-                                            string-join(
-                                                for $speaker in distinct-values($scene//tei:speaker)
-                                                order by $speaker
-                                                return
-                                                    $speaker,
-                                                ", "
-                                            )
-                                        }
-                                        </p>
-                                    ) else
-                                        <a href="{$scene/@xml:id}.html" class="{$class}">{$scene/tei:head/text()}</a>
+                                    if ($stanza/tei:lg/tei:l)
+                                    then $stanza/tei:lg[1]/tei:l[1]/text()
+                                    else
+                                        if ($stanza/tei:l)
+                                        then $stanza/tei:l[1]/text()
+                                        else 'WHAT?'
                                 }
-                            </li>
-                    }</ul>
-                </li>
-        }</ul>
+                                </td>
+                            </tr>
+                    }
+                    </table>
+                else
+                    <table class="poem-list" xmlns="http://www.w3.org/1999/xhtml">
+                    {
+                        for $sonnet at $sonnet-count in $work/tei:text/tei:body/tei:div/tei:div
+                        let $class := if ($sonnet is $current) then "active" else ""
+                        return
+                            <tr>
+                                <td><a href="{$sonnet/@xml:id}.html" class="{$class}">{$sonnet/tei:head/string()}</a></td> 
+                                <td class="first-line">
+                                {
+                                    if ($sonnet/tei:lg/tei:l)
+                                    then $sonnet/tei:lg[1]/tei:l[1]/text()
+                                    else
+                                        if ($sonnet/tei:l)
+                                        then $sonnet/tei:l[1]/text()
+                                        else 'WHAT?'
+                                }
+                                </td>
+                            </tr>
+                    }
+                    </table>
+    
 };
 
 (:~
