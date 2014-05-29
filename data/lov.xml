@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="sha-lov">
     <teiHeader>
         <fileDesc>
@@ -76,7 +75,7 @@
             Storming her world with sorrow's wind and rain.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s1">
                     <l xml:id="sha-lov0008" n="8">
             Upon her head a platted hive of straw,
           </l>
@@ -99,7 +98,7 @@
             Some beauty peeped through lattice of seared age.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s2">
                     <l xml:id="sha-lov0015" n="15">
             Oft did she heave her napkin to her eyne,
           </l>
@@ -122,7 +121,7 @@
             In clamours of all size, both high and low.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s3">
                     <l xml:id="sha-lov0022" n="22">
             Sometimes her levelled eyes their carriage ride,
           </l>
@@ -145,7 +144,7 @@
             The mind and sight distractedly commixed.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s4">
                     <l xml:id="sha-lov0029" n="29">
             Her hair, nor loose nor tied in formal plat,
           </l>
@@ -168,7 +167,7 @@
             Though slackly braided in loose negligence.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s5">
                     <l xml:id="sha-lov0036" n="36">
             A thousand favours from a maund she drew
           </l>
@@ -191,7 +190,7 @@
             Where want cries some, but where excess begs all.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s6">
                     <l xml:id="sha-lov0043" n="43">
             Of folded schedules had she many a one,
           </l>
@@ -214,7 +213,7 @@
             Enswathed, and sealed to curious secrecy.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s7">
                     <l xml:id="sha-lov0050" n="50">
             These often bathed she in her fluxive eyes,
           </l>
@@ -237,7 +236,7 @@
             Big discontent so breaking their contents.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s8">
                     <l xml:id="sha-lov0057" n="57">
             A reverend man that grazed his cattle nigh —
           </l>
@@ -260,7 +259,7 @@
             In brief the grounds and motives of her woe.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s9">
                     <l xml:id="sha-lov0064" n="64">
             So slides he down upon his grained bat,
           </l>
@@ -283,7 +282,7 @@
             'Tis promised in the charity of age.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s10">
                     <l xml:id="sha-lov0071" n="71">
             “Father,” she says, “though in me you behold
           </l>
@@ -306,7 +305,7 @@
             Love to myself and to no love beside.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s11">
                     <l xml:id="sha-lov0078" n="78">
             “But, woe is me! too early I attended
           </l>
@@ -329,7 +328,7 @@
             She was new lodged and newly deified.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s12">
                     <l xml:id="sha-lov0085" n="85">
             “His browny locks did hang in crooked curls;
           </l>
@@ -352,7 +351,7 @@
             What largeness thinks in Paradise was sawn.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s13">
                     <l xml:id="sha-lov0092" n="92">
             “Small show of man was yet upon his chin;
           </l>
@@ -375,7 +374,7 @@
             If best were as it was, or best without.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s14">
                     <l xml:id="sha-lov0099" n="99">
             “His qualities were beauteous as his form,
           </l>
@@ -398,7 +397,7 @@
             Did livery falseness in a pride of truth.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s15">
                     <l xml:id="sha-lov0106" n="106">
             “Well could he ride, and often men would say
           </l>
@@ -421,7 +420,7 @@
             Or he his manage by the well-doing steed.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s16">
                     <l xml:id="sha-lov0113" n="113">
             “But quickly on this side the verdict went:
           </l>
@@ -444,7 +443,7 @@
             Pieced not his grace, but were all graced by him.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s17">
                     <l xml:id="sha-lov0120" n="120">
             “So on the tip of his subduing tongue
           </l>
@@ -467,7 +466,7 @@
             Catching all passions in his craft of will:
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s18">
                     <l xml:id="sha-lov0127" n="127">
             “That he did in the general bosom reign
           </l>
@@ -490,7 +489,7 @@
             asked their own wills, and made their wills obey.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s19">
                     <l xml:id="sha-lov0134" n="134">
             “Many there were that did his picture get,
           </l>
@@ -513,7 +512,7 @@
             Than the true gouty landlord which doth owe them:
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s20">
                     <l xml:id="sha-lov0141" n="141">
             “So many have, that never touched his hand,
           </l>
@@ -536,7 +535,7 @@
             Reserved the stalk and gave him all my flower.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s21">
                     <l xml:id="sha-lov0148" n="148">
             “Yet did I not, as some my equals did,
           </l>
@@ -559,7 +558,7 @@
             Of this false jewel, and his amorous spoil.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s22">
                     <l xml:id="sha-lov0155" n="155">
             “But, ah, who ever shunned by precedent
           </l>
@@ -582,7 +581,7 @@
             By blunting us to make our wits more keen.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s23">
                     <l xml:id="sha-lov0162" n="162">
             “Nor gives it satisfaction to our blood,
           </l>
@@ -605,7 +604,7 @@
             Though Reason weep, and cry ‘ It is thy last.’
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s24">
                     <l xml:id="sha-lov0169" n="169">
             “For further I could say ‘ This man's untrue,’
           </l>
@@ -628,7 +627,7 @@
             And bastards of his foul adulterate heart.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s25">
                     <l xml:id="sha-lov0176" n="176">
             “And long upon these terms I held my city,
           </l>
@@ -651,7 +650,7 @@
             Till now did ne'er invite, nor never woo.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s26">
                     <l xml:id="sha-lov0183" n="183">
             “All my offences that abroad you see
           </l>
@@ -674,7 +673,7 @@
             By how much of me their reproach contains.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s27">
                     <l xml:id="sha-lov0190" n="190">
             “Among the many that mine eyes have seen,
           </l>
@@ -697,7 +696,7 @@
             And reigned, commanding in his monarchy.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s28">
                     <l xml:id="sha-lov0197" n="197">
             “Look here, what tributes wounded fancies sent me,
           </l>
@@ -720,7 +719,7 @@
             Encamped in hearts, but fighting outwardly.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s29">
                     <l xml:id="sha-lov0204" n="204">
             “And, lo, behold these talents of their hair,
           </l>
@@ -743,7 +742,7 @@
             Each stone's dear nature, worth, and quality.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s30">
                     <l xml:id="sha-lov0211" n="211">
             “The diamond, — why, 'twas beautiful and hard,
           </l>
@@ -766,7 +765,7 @@
             With wit well blazoned, smiled or made some moan.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s31">
                     <l xml:id="sha-lov0218" n="218">
             “Lo, all these trophies of affections hot,
           </l>
@@ -789,7 +788,7 @@
             Since I their altar, you enpatron me.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s32">
                     <l xml:id="sha-lov0225" n="225">
             “O, then, advance of yours that phraseless hand,
           </l>
@@ -812,7 +811,7 @@
             Their distract parcels in combined sums.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s33">
                     <l xml:id="sha-lov0232" n="232">
             “Lo, this device was sent me from a nun,
           </l>
@@ -835,7 +834,7 @@
             To spend her living in eternal love.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s34">
                     <l xml:id="sha-lov0239" n="239">
             “But, O my sweet, what labour is't to leave
           </l>
@@ -858,7 +857,7 @@
             And makes her absence valiant, not her might.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s35">
                     <l xml:id="sha-lov0246" n="246">
             “O, pardon me, in that my boast is true:
           </l>
@@ -881,7 +880,7 @@
             And now, to tempt, all liberty procured.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s36">
                     <l xml:id="sha-lov0253" n="253">
             “How mighty then you are, O, hear me tell!
           </l>
@@ -904,7 +903,7 @@
             As compound love to physic your cold breast.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s37">
                     <l xml:id="sha-lov0260" n="260">
             “My parts had power to charm a sacred nun,
           </l>
@@ -927,7 +926,7 @@
             For thou art all, and all things else are thine.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s38">
                     <l xml:id="sha-lov0267" n="267">
             “When thou impressest, what are precepts worth
           </l>
@@ -950,7 +949,7 @@
             The aloes of all forces, shocks, and fears,
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s39">
                     <l xml:id="sha-lov0274" n="274">
             “Now all these hearts that do on mine depend,
           </l>
@@ -973,7 +972,7 @@
             That shall prefer and undertake my troth.’
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s40">
                     <l xml:id="sha-lov0281" n="281">
             “This said, his watery eyes he did dismount,
           </l>
@@ -996,7 +995,7 @@
             That flame through water which their hue encloses.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s41">
                     <l xml:id="sha-lov0288" n="288">
             “O father, what a hell of witchcraft lies
           </l>
@@ -1019,7 +1018,7 @@
             Both fire from hence and chill extincture hath.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s42">
                     <l xml:id="sha-lov0295" n="295">
             “For, lo, his passion, but an art of craft,
           </l>
@@ -1042,7 +1041,7 @@
             His poisoned me, and mine did him restore.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s43">
                     <l xml:id="sha-lov0302" n="302">
             “In him a plenitude of subtle matter,
           </l>
@@ -1065,7 +1064,7 @@
             Or to turn white and swoon at tragic shows:
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s44">
                     <l xml:id="sha-lov0309" n="309">
             “That not a heart which in his level came
           </l>
@@ -1088,7 +1087,7 @@
             He preached pure maid, and praised cold chastity.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s45">
                     <l xml:id="sha-lov0316" n="316">
             “Thus merely with the garment of a Grace
           </l>
@@ -1111,7 +1110,7 @@
             What I should do again for such a sake.
           </l>
                 </lg>
-                <lg type="stanza">
+              <lg type="stanza" xml:id="sha-lov-s46">
                     <l xml:id="sha-lov0323" n="323">
             “O, that infected moisture of his eye,
           </l>
