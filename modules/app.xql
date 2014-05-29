@@ -42,7 +42,7 @@ function app:work($node as node(), $model as map(*), $id as xs:string?) {
 };
 
 declare function app:header($node as node(), $model as map(*)) {
-    tei2:tei2html($model("work")/tei:teiHeader, 'feature', 'html')
+    tei2:tei2html($model("work")/tei:teiHeader)
 };
 
 declare function app:outline($node as node(), $model as map(*), $details as xs:string) {
