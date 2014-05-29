@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="sha-rap">
     <teiHeader>
         <fileDesc>
@@ -214,7 +213,7 @@
             </div>
             <div xml:id="sha-rapbody">
                 <head>The Rape of Lucrece</head>
-                <lg type="stanza" n="1">
+                <lg type="stanza" n="1" xml:id="sha-rape-s1">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0001" n="1">
               FROM the besieged Ardea all in post,
@@ -241,7 +240,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="2">
+                <lg type="stanza" n="2" xml:id="sha-rape-s2">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0008" n="8">
               Haply that name of “chaste” unhappily set
@@ -268,7 +267,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="3">
+                <lg type="stanza" n="3" xml:id="sha-rape-s3">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0015" n="15">
               For he the night before, in Tarquin's tent,
@@ -295,7 +294,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="4">
+                <lg type="stanza" n="4" xml:id="sha-rape-s4">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0022" n="22">
               O happiness enjoyed but of a few!
@@ -322,7 +321,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="5">
+                <lg type="stanza" n="5" xml:id="sha-rape-s5">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0029" n="29">
               Beauty itself doth of itself persuade
@@ -349,7 +348,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="6">
+                <lg type="stanza" n="6" xml:id="sha-rape-s6">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0036" n="36">
               Perchance his boast of Lucrece' sovereignty
@@ -376,7 +375,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="7">
+                <lg type="stanza" n="7" xml:id="sha-rape-s7">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0043" n="43">
               But some untimely thought did instigate
@@ -403,7 +402,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="8">
+                <lg type="stanza" n="8" xml:id="sha-rape-s8">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0050" n="50">
               When at Collatium this false lord arrived,
@@ -430,7 +429,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="9">
+                <lg type="stanza" n="9" xml:id="sha-rape-s9">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0057" n="57">
               But beauty, in that white intituled,
@@ -457,7 +456,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="10">
+                <lg type="stanza" n="10" xml:id="sha-rape-s10">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0064" n="64">
               This heraldry in Lucrece' face was seen,
@@ -484,7 +483,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="11">
+                <lg type="stanza" n="11" xml:id="sha-rape-s11">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0071" n="71">
               This silent war of lilies and of roses,
@@ -511,7 +510,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="12">
+                <lg type="stanza" n="12" xml:id="sha-rape-s12">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0078" n="78">
               Now thinks he that her husband's shallow tongue, —
@@ -538,7 +537,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="13">
+                <lg type="stanza" n="13" xml:id="sha-rape-s13">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0085" n="85">
               This earthly saint, adored by this devil,
@@ -565,7 +564,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="14">
+                <lg type="stanza" n="14" xml:id="sha-rape-s14">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0092" n="92">
               For that he coloured with his high estate,
@@ -592,7 +591,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="15">
+                <lg type="stanza" n="15" xml:id="sha-rape-s15">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0099" n="99">
               But she, that never coped with stranger eyes,
@@ -619,7 +618,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="16">
+                <lg type="stanza" n="16" xml:id="sha-rape-s16">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0106" n="106">
               He stories to her ears her husband's fame,
@@ -646,7 +645,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="17">
+                <lg type="stanza" n="17" xml:id="sha-rape-s17">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0113" n="113">
               Far from the purpose of his coming thither,
@@ -673,7 +672,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="18">
+                <lg type="stanza" n="18" xml:id="sha-rape-s18">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0120" n="120">
               For then is Tarquin brought unto his bed,
@@ -700,7 +699,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="19">
+                <lg type="stanza" n="19" xml:id="sha-rape-s19">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0127" n="127">
               As one of which doth Tarquin lie revolving
@@ -727,7 +726,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="20">
+                <lg type="stanza" n="20" xml:id="sha-rape-s20">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0134" n="134">
               Those that much covet are with gain so fond,
@@ -754,7 +753,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="21">
+                <lg type="stanza" n="21" xml:id="sha-rape-s21">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0141" n="141">
               The aim of all is but to nurse the life
@@ -781,7 +780,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="22">
+                <lg type="stanza" n="22" xml:id="sha-rape-s22">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0148" n="148">
               So that in venturing ill we leave to be
@@ -808,7 +807,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="23">
+                <lg type="stanza" n="23" xml:id="sha-rape-s23">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0155" n="155">
               Such hazard now must doting Tarquin make,
@@ -835,7 +834,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="24">
+                <lg type="stanza" n="24" xml:id="sha-rape-s24">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0162" n="162">
               Now stole upon the time the dead of night,
@@ -862,7 +861,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="25">
+                <lg type="stanza" n="25" xml:id="sha-rape-s25">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0169" n="169">
               And now this lustful lord leaped from his bed,
@@ -889,7 +888,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="26">
+                <lg type="stanza" n="26" xml:id="sha-rape-s26">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0176" n="176">
               His falchion on a flint he softly smiteth,
@@ -916,7 +915,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="27">
+                <lg type="stanza" n="27" xml:id="sha-rape-s27">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0183" n="183">
               Here pale with fear he doth premeditate
@@ -943,7 +942,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="28">
+                <lg type="stanza" n="28" xml:id="sha-rape-s28">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0190" n="190">
               “Fair torch, burn out thy light, and lend it not
@@ -970,7 +969,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="29">
+                <lg type="stanza" n="29" xml:id="sha-rape-s29">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0197" n="197">
               “O shame to knighthood and to shining arms!
@@ -997,7 +996,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="30">
+                <lg type="stanza" n="30" xml:id="sha-rape-s30">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0204" n="204">
               “Yea, though I die, the scandal will survive,
@@ -1024,7 +1023,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="31">
+                <lg type="stanza" n="31" xml:id="sha-rape-s31">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0211" n="211">
               “What win I, if I gain the thing I seek?
@@ -1051,7 +1050,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="32">
+                <lg type="stanza" n="32" xml:id="sha-rape-s32">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0218" n="218">
               “If Collatinus dream of my intent,
@@ -1078,7 +1077,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="33">
+                <lg type="stanza" n="33" xml:id="sha-rape-s33">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0225" n="225">
               “O, what excuse can my invention make,
@@ -1105,7 +1104,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="34">
+                <lg type="stanza" n="34" xml:id="sha-rape-s34">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0232" n="232">
               “Had Collatinus killed my son or sire,
@@ -1132,7 +1131,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="35">
+                <lg type="stanza" n="35" xml:id="sha-rape-s35">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0239" n="239">
               “Shameful it is; ay, if the fact be known:
@@ -1159,7 +1158,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="36">
+                <lg type="stanza" n="36" xml:id="sha-rape-s36">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0246" n="246">
               Thus, graceless, holds he disputation
@@ -1186,7 +1185,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="37">
+                <lg type="stanza" n="37" xml:id="sha-rape-s37">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0253" n="253">
               Quoth he, “She took me kindly by the hand,
@@ -1213,7 +1212,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="38">
+                <lg type="stanza" n="38" xml:id="sha-rape-s38">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0260" n="260">
               “And how her hand, in my hand being locked,
@@ -1240,7 +1239,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="39">
+                <lg type="stanza" n="39" xml:id="sha-rape-s39">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0267" n="267">
               “Why hunt I then for colour or excuses?
@@ -1267,7 +1266,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="40">
+                <lg type="stanza" n="40" xml:id="sha-rape-s40">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0274" n="274">
               “Then, childish fear, avaunt! debating, die!
@@ -1294,7 +1293,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="41">
+                <lg type="stanza" n="41" xml:id="sha-rape-s41">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0281" n="281">
               As corn o'ergrown by weeds, so heedful fear
@@ -1321,7 +1320,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="42">
+                <lg type="stanza" n="42" xml:id="sha-rape-s42">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0288" n="288">
               Within his thought her heavenly image sits,
@@ -1348,7 +1347,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="43">
+                <lg type="stanza" n="43" xml:id="sha-rape-s43">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0295" n="295">
               And therein heartens up his servile powers,
@@ -1375,7 +1374,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="44">
+                <lg type="stanza" n="44" xml:id="sha-rape-s44">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0302" n="302">
               The locks between her chamber and his will,
@@ -1402,7 +1401,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="45">
+                <lg type="stanza" n="45" xml:id="sha-rape-s45">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0309" n="309">
               As each unwilling portal yields him way,
@@ -1429,7 +1428,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="46">
+                <lg type="stanza" n="46" xml:id="sha-rape-s46">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0316" n="316">
               And being lighted, by the light he spies
@@ -1456,7 +1455,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="47">
+                <lg type="stanza" n="47" xml:id="sha-rape-s47">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0323" n="323">
               But all these poor forbiddings could not stay him;
@@ -1483,7 +1482,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="48">
+                <lg type="stanza" n="48" xml:id="sha-rape-s48">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0330" n="330">
               “So, so,” quoth he, “these lets attend the time,
@@ -1510,7 +1509,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="49">
+                <lg type="stanza" n="49" xml:id="sha-rape-s49">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0337" n="337">
               Now is he come unto the chamber door,
@@ -1537,7 +1536,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="50">
+                <lg type="stanza" n="50" xml:id="sha-rape-s50">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0344" n="344">
               But in the midst of his unfruitful prayer,
@@ -1564,7 +1563,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="51">
+                <lg type="stanza" n="51" xml:id="sha-rape-s51">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0351" n="351">
               “Then Love and Fortune be my gods, my guide!
@@ -1591,7 +1590,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="52">
+                <lg type="stanza" n="52" xml:id="sha-rape-s52">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0358" n="358">
               This said, his guilty hand plucked up the latch,
@@ -1618,7 +1617,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="53">
+                <lg type="stanza" n="53" xml:id="sha-rape-s53">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0365" n="365">
               Into the chamber wickedly he stalks,
@@ -1645,7 +1644,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="54">
+                <lg type="stanza" n="54" xml:id="sha-rape-s54">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0372" n="372">
               Look, as the fair and fiery-pointed sun,
@@ -1672,7 +1671,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="55">
+                <lg type="stanza" n="55" xml:id="sha-rape-s55">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0379" n="379">
               O, had they in that darksome prison died!
@@ -1699,7 +1698,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="56">
+                <lg type="stanza" n="56" xml:id="sha-rape-s56">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0386" n="386">
               Her lily hand her rosy cheek lies under,
@@ -1726,7 +1725,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="57">
+                <lg type="stanza" n="57" xml:id="sha-rape-s57">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0393" n="393">
               Without the bed her other fair hand was,
@@ -1753,7 +1752,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="58">
+                <lg type="stanza" n="58" xml:id="sha-rape-s58">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0400" n="400">
               Her hair, like golden threads, played with her breath;
@@ -1780,7 +1779,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="59">
+                <lg type="stanza" n="59" xml:id="sha-rape-s59">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0407" n="407">
               Her breasts, like ivory globes circled with blue,
@@ -1807,7 +1806,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="60">
+                <lg type="stanza" n="60" xml:id="sha-rape-s60">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0414" n="414">
               What could he see but mightily he noted?
@@ -1834,7 +1833,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="61">
+                <lg type="stanza" n="61" xml:id="sha-rape-s61">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0421" n="421">
               As the grim lion fawneth o'er his prey,
@@ -1861,7 +1860,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="62">
+                <lg type="stanza" n="62" xml:id="sha-rape-s62">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0428" n="428">
               And they, like straggling slaves for pillage fighting,
@@ -1888,7 +1887,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="63">
+                <lg type="stanza" n="63" xml:id="sha-rape-s63">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0435" n="435">
               His drumming heart cheers up his burning eye,
@@ -1915,7 +1914,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="64">
+                <lg type="stanza" n="64" xml:id="sha-rape-s64">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0442" n="442">
               They, mustering to the quiet cabinet
@@ -1942,7 +1941,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="65">
+                <lg type="stanza" n="65" xml:id="sha-rape-s65">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0449" n="449">
               Imagine her as one in dead of night
@@ -1969,7 +1968,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="66">
+                <lg type="stanza" n="66" xml:id="sha-rape-s66">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0456" n="456">
               Wrapped and confounded in a thousand fears,
@@ -1996,7 +1995,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="67">
+                <lg type="stanza" n="67" xml:id="sha-rape-s67">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0463" n="463">
               His hand, that yet remains upon her breast, —
@@ -2023,7 +2022,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="68">
+                <lg type="stanza" n="68" xml:id="sha-rape-s68">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0470" n="470">
               First, like a trumpet, doth his tongue begin
@@ -2050,7 +2049,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="69">
+                <lg type="stanza" n="69" xml:id="sha-rape-s69">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0477" n="477">
               Thus he replies: “The colour in thy face,
@@ -2077,7 +2076,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="70">
+                <lg type="stanza" n="70" xml:id="sha-rape-s70">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0484" n="484">
               “Thus I forestall thee, if thou mean to chide:
@@ -2104,7 +2103,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="71">
+                <lg type="stanza" n="71" xml:id="sha-rape-s71">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0491" n="491">
               “I see what crosses my attempt will bring;
@@ -2131,7 +2130,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="72">
+                <lg type="stanza" n="72" xml:id="sha-rape-s72">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0498" n="498">
               “I have debated, even in my soul,
@@ -2158,7 +2157,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="73">
+                <lg type="stanza" n="73" xml:id="sha-rape-s73">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0505" n="505">
               This said, he shakes aloft his Roman blade,
@@ -2185,7 +2184,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="74">
+                <lg type="stanza" n="74" xml:id="sha-rape-s74">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0512" n="512">
               “Lucrece,” quoth he, “this night I must enjoy thee:
@@ -2212,7 +2211,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="75">
+                <lg type="stanza" n="75" xml:id="sha-rape-s75">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0519" n="519">
               “So thy surviving husband shall remain
@@ -2239,7 +2238,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="76">
+                <lg type="stanza" n="76" xml:id="sha-rape-s76">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0526" n="526">
               “But if thou yield, I rest thy secret friend:
@@ -2266,7 +2265,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="77">
+                <lg type="stanza" n="77" xml:id="sha-rape-s77">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0533" n="533">
               “Then, for thy husband and thy children's sake,
@@ -2293,7 +2292,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="78">
+                <lg type="stanza" n="78" xml:id="sha-rape-s78">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0540" n="540">
               Here with a cockatrice's dead-killing eye
@@ -2320,7 +2319,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="79">
+                <lg type="stanza" n="79" xml:id="sha-rape-s79">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0547" n="547">
               But when a black-faced cloud the world doth threat,
@@ -2347,7 +2346,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="80">
+                <lg type="stanza" n="80" xml:id="sha-rape-s80">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0554" n="554">
               Yet, foul night-waking cat, he doth but dally,
@@ -2374,7 +2373,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="81">
+                <lg type="stanza" n="81" xml:id="sha-rape-s81">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0561" n="561">
               Her pity-pleading eyes are sadly fixed
@@ -2401,7 +2400,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="82">
+                <lg type="stanza" n="82" xml:id="sha-rape-s82">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0568" n="568">
               She conjures him by high almighty Jove,
@@ -2428,7 +2427,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="83">
+                <lg type="stanza" n="83" xml:id="sha-rape-s83">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0575" n="575">
               Quoth she, “Reward not hospitality
@@ -2455,7 +2454,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="84">
+                <lg type="stanza" n="84" xml:id="sha-rape-s84">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0582" n="582">
               “My husband is thy friend; for his sake spare me:
@@ -2482,7 +2481,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="85">
+                <lg type="stanza" n="85" xml:id="sha-rape-s85">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0589" n="589">
               “All which together, like a troubled ocean,
@@ -2509,7 +2508,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="86">
+                <lg type="stanza" n="86" xml:id="sha-rape-s86">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0596" n="596">
               “In Tarquin's likeness I did entertain thee:
@@ -2536,7 +2535,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="87">
+                <lg type="stanza" n="87" xml:id="sha-rape-s87">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0603" n="603">
               “How will thy shame be seeded in thine age,
@@ -2563,7 +2562,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="88">
+                <lg type="stanza" n="88" xml:id="sha-rape-s88">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0610" n="610">
               “This deed will make thee only loved for fear;
@@ -2590,7 +2589,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="89">
+                <lg type="stanza" n="89" xml:id="sha-rape-s89">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0617" n="617">
               “And wilt thou be the school where Lust shall learn?
@@ -2617,7 +2616,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="90">
+                <lg type="stanza" n="90" xml:id="sha-rape-s90">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0624" n="624">
               “Hast thou command? by him that gave it thee,
@@ -2644,7 +2643,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="91">
+                <lg type="stanza" n="91" xml:id="sha-rape-s91">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0631" n="631">
               “Think but how vile a spectacle it were,
@@ -2671,7 +2670,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="92">
+                <lg type="stanza" n="92" xml:id="sha-rape-s92">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0638" n="638">
               “To thee, to thee, my heaved-up hands appeal,
@@ -2698,7 +2697,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="93">
+                <lg type="stanza" n="93" xml:id="sha-rape-s93">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0645" n="645">
               “Have done,” quoth he: “my uncontrolled tide
@@ -2725,7 +2724,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="94">
+                <lg type="stanza" n="94" xml:id="sha-rape-s94">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0652" n="652">
               “Thou art,” quoth she, “a sea, a sovereign king;
@@ -2752,7 +2751,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="95">
+                <lg type="stanza" n="95" xml:id="sha-rape-s95">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0659" n="659">
               “So shall these slaves be king, and thou their slave;
@@ -2779,7 +2778,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="96">
+                <lg type="stanza" n="96" xml:id="sha-rape-s96">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0666" n="666">
               “So let thy thoughts, low vassals to thy state” —
@@ -2806,7 +2805,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="97">
+                <lg type="stanza" n="97" xml:id="sha-rape-s97">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0673" n="673">
               This said, he sets his foot upon the light,
@@ -2833,7 +2832,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="98">
+                <lg type="stanza" n="98" xml:id="sha-rape-s98">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0680" n="680">
               For with the nightly linen that she wears
@@ -2860,7 +2859,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="99">
+                <lg type="stanza" n="99" xml:id="sha-rape-s99">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0687" n="687">
               But she hath lost a dearer thing than life,
@@ -2887,7 +2886,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="100">
+                <lg type="stanza" n="100" xml:id="sha-rape-s100">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0694" n="694">
               Look, as the full-fed hound or gorged hawk,
@@ -2914,7 +2913,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="101">
+                <lg type="stanza" n="101" xml:id="sha-rape-s101">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0701" n="701">
               O, deeper sin than bottomless conceit
@@ -2941,7 +2940,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="102">
+                <lg type="stanza" n="102" xml:id="sha-rape-s102">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0708" n="708">
               And then with lank and lean discoloured cheek,
@@ -2968,7 +2967,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="103">
+                <lg type="stanza" n="103" xml:id="sha-rape-s103">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0715" n="715">
               So fares it with this faultful lord of Rome,
@@ -2995,7 +2994,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="104">
+                <lg type="stanza" n="104" xml:id="sha-rape-s104">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0722" n="722">
               She says, her subjects with foul insurrection
@@ -3022,7 +3021,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="105">
+                <lg type="stanza" n="105" xml:id="sha-rape-s105">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0729" n="729">
               Even in this thought through the dark night he stealeth,
@@ -3049,7 +3048,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="106">
+                <lg type="stanza" n="106" xml:id="sha-rape-s106">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0736" n="736">
               He like a thievish dog creeps sadly thence;
@@ -3076,7 +3075,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="107">
+                <lg type="stanza" n="107" xml:id="sha-rape-s107">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0743" n="743">
               He thence departs a heavy convertite;
@@ -3103,7 +3102,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="108">
+                <lg type="stanza" n="108" xml:id="sha-rape-s108">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0750" n="750">
               “They think not but that every eye can see
@@ -3130,7 +3129,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="109">
+                <lg type="stanza" n="109" xml:id="sha-rape-s109">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0757" n="757">
               Here she exclaims against repose and rest,
@@ -3157,7 +3156,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="110">
+                <lg type="stanza" n="110" xml:id="sha-rape-s110">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0764" n="764">
               “O comfort-killing Night, image of hell!
@@ -3184,7 +3183,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="111">
+                <lg type="stanza" n="111" xml:id="sha-rape-s111">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0771" n="771">
               “O hateful, vaporous, and foggy Night!
@@ -3211,7 +3210,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="112">
+                <lg type="stanza" n="112" xml:id="sha-rape-s112">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0778" n="778">
               “With rotten damps ravish the morning air;
@@ -3238,7 +3237,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="113">
+                <lg type="stanza" n="113" xml:id="sha-rape-s113">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0785" n="785">
               “Were Tarquin Night, as he is but Night's child,
@@ -3265,7 +3264,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="114">
+                <lg type="stanza" n="114" xml:id="sha-rape-s114">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0792" n="792">
               “Where now I have no one to blush with me,
@@ -3292,7 +3291,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="115">
+                <lg type="stanza" n="115" xml:id="sha-rape-s115">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0799" n="799">
               “O Night, thou furnace of foul reeking smoke,
@@ -3319,7 +3318,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="116">
+                <lg type="stanza" n="116" xml:id="sha-rape-s116">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0806" n="806">
               “Make me not object to the tell-tale Day
@@ -3346,7 +3345,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="117">
+                <lg type="stanza" n="117" xml:id="sha-rape-s117">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0813" n="813">
               “The nurse, to still her child, will tell my story,
@@ -3373,7 +3372,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="118">
+                <lg type="stanza" n="118" xml:id="sha-rape-s118">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0820" n="820">
               “Let my good name, that senseless reputation,
@@ -3400,7 +3399,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="119">
+                <lg type="stanza" n="119" xml:id="sha-rape-s119">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0827" n="827">
               “O unseen shame! invisible disgrace!
@@ -3427,7 +3426,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="120">
+                <lg type="stanza" n="120" xml:id="sha-rape-s120">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0834" n="834">
               “If, Collatine, thine honour lay in me,
@@ -3454,7 +3453,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="121">
+                <lg type="stanza" n="121" xml:id="sha-rape-s121">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0841" n="841">
               “Yet am I guilty of thy honour's wrack;
@@ -3481,7 +3480,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="122">
+                <lg type="stanza" n="122" xml:id="sha-rape-s122">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0848" n="848">
               “Why should the worm intrude the maiden bud?
@@ -3508,7 +3507,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="123">
+                <lg type="stanza" n="123" xml:id="sha-rape-s123">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0855" n="855">
               “The aged man that coffers up his gold
@@ -3535,7 +3534,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="124">
+                <lg type="stanza" n="124" xml:id="sha-rape-s124">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0862" n="862">
               “So then he hath it when he cannot use it,
@@ -3562,7 +3561,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="125">
+                <lg type="stanza" n="125" xml:id="sha-rape-s125">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0869" n="869">
               “Unruly blasts wait on the tender spring;
@@ -3589,7 +3588,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="126">
+                <lg type="stanza" n="126" xml:id="sha-rape-s126">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0876" n="876">
               “O Opportunity, thy guilt is great!
@@ -3616,7 +3615,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="127">
+                <lg type="stanza" n="127" xml:id="sha-rape-s127">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0883" n="883">
               “Thou makest the vestal violate her oath;
@@ -3643,7 +3642,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="128">
+                <lg type="stanza" n="128" xml:id="sha-rape-s128">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0890" n="890">
               “Thy secret pleasure turns to open shame,
@@ -3670,7 +3669,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="129">
+                <lg type="stanza" n="129" xml:id="sha-rape-s129">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0897" n="897">
               “When wilt thou be the humble suppliant's friend,
@@ -3697,7 +3696,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="130">
+                <lg type="stanza" n="130" xml:id="sha-rape-s130">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0904" n="904">
               “The patient dies while the physician sleeps;
@@ -3724,7 +3723,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="131">
+                <lg type="stanza" n="131" xml:id="sha-rape-s131">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0911" n="911">
               “When Truth and Virtue have to do with thee,
@@ -3751,7 +3750,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="132">
+                <lg type="stanza" n="132" xml:id="sha-rape-s132">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0918" n="918">
               “Guilty thou art of murder and of theft,
@@ -3778,7 +3777,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="133">
+                <lg type="stanza" n="133" xml:id="sha-rape-s133">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0925" n="925">
               “misshapen Time, copesmate of ugly Night,
@@ -3805,7 +3804,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="134">
+                <lg type="stanza" n="134" xml:id="sha-rape-s134">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0932" n="932">
               “Why hath thy servant, Opportunity,
@@ -3832,7 +3831,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="135">
+                <lg type="stanza" n="135" xml:id="sha-rape-s135">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0939" n="939">
               “Time's glory is to calm contending kings,
@@ -3859,7 +3858,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="136">
+                <lg type="stanza" n="136" xml:id="sha-rape-s136">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0946" n="946">
               “To fill with worm-holes stately monuments,
@@ -3886,7 +3885,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="137">
+                <lg type="stanza" n="137" xml:id="sha-rape-s137">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0953" n="953">
               “To show the beldam daughters of her daughter,
@@ -3913,7 +3912,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="138">
+                <lg type="stanza" n="138" xml:id="sha-rape-s138">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0960" n="960">
               “Why work'st thou mischief in thy pilgrimage,
@@ -3940,7 +3939,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="139">
+                <lg type="stanza" n="139" xml:id="sha-rape-s139">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0967" n="967">
               “Thou ceaseless lackey to eternity,
@@ -3967,7 +3966,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="140">
+                <lg type="stanza" n="140" xml:id="sha-rape-s140">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0974" n="974">
               “Disturb his hours of rest with restless trances,
@@ -3994,7 +3993,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="141">
+                <lg type="stanza" n="141" xml:id="sha-rape-s141">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0981" n="981">
               “Let him have time to tear his curled hair,
@@ -4021,7 +4020,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="142">
+                <lg type="stanza" n="142" xml:id="sha-rape-s142">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0988" n="988">
               “Let him have time to see his friends his foes,
@@ -4048,7 +4047,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="143">
+                <lg type="stanza" n="143" xml:id="sha-rape-s143">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep0995" n="995">
               “O Time, thou tutor both to good and bad,
@@ -4075,7 +4074,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="144">
+                <lg type="stanza" n="144" xml:id="sha-rape-s144">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1002" n="1002">
               “The baser is he, coming from a king,
@@ -4102,7 +4101,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="145">
+                <lg type="stanza" n="145" xml:id="sha-rape-s145">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1009" n="1009">
               “The crow may bathe his coal-black wings in mire,
@@ -4129,7 +4128,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="146">
+                <lg type="stanza" n="146" xml:id="sha-rape-s146">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1016" n="1016">
               “Out, idle words, servants to shallow fools!
@@ -4156,7 +4155,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="147">
+                <lg type="stanza" n="147" xml:id="sha-rape-s147">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1023" n="1023">
               “In vain I rail at Opportunity,
@@ -4183,7 +4182,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="148">
+                <lg type="stanza" n="148" xml:id="sha-rape-s148">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1030" n="1030">
               “Poor hand, why quiver'st thou at this decree?
@@ -4210,7 +4209,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="149">
+                <lg type="stanza" n="149" xml:id="sha-rape-s149">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1037" n="1037">
               This said, from her be-tumbled couch she starteth,
@@ -4237,7 +4236,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="150">
+                <lg type="stanza" n="150" xml:id="sha-rape-s150">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1044" n="1044">
               “In vain,” quoth she, “I live, and seek in vain
@@ -4264,7 +4263,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="151">
+                <lg type="stanza" n="151" xml:id="sha-rape-s151">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1051" n="1051">
               “O, that is gone for which I sought to live,
@@ -4291,7 +4290,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="152">
+                <lg type="stanza" n="152" xml:id="sha-rape-s152">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1058" n="1058">
               “Well, well, dear Collatine, thou shalt not know
@@ -4318,7 +4317,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="153">
+                <lg type="stanza" n="153" xml:id="sha-rape-s153">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1065" n="1065">
               “Nor shall he smile at thee in secret thought,
@@ -4345,7 +4344,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="154">
+                <lg type="stanza" n="154" xml:id="sha-rape-s154">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1072" n="1072">
               “I will not poison thee with my attaint,
@@ -4372,7 +4371,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="155">
+                <lg type="stanza" n="155" xml:id="sha-rape-s155">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1079" n="1079">
               By this, lamenting Philomel had ended
@@ -4399,7 +4398,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="156">
+                <lg type="stanza" n="156" xml:id="sha-rape-s156">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1086" n="1086">
               Revealing day through every cranny spies,
@@ -4426,7 +4425,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="157">
+                <lg type="stanza" n="157" xml:id="sha-rape-s157">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1093" n="1093">
               Thus cavils she with every thing she sees:
@@ -4453,7 +4452,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="158">
+                <lg type="stanza" n="158" xml:id="sha-rape-s158">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1100" n="1100">
               So she, deep drenched in a sea of care,
@@ -4480,7 +4479,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="159">
+                <lg type="stanza" n="159" xml:id="sha-rape-s159">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1107" n="1107">
               The little birds that tune their morning's joy
@@ -4507,7 +4506,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="160">
+                <lg type="stanza" n="160" xml:id="sha-rape-s160">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1114" n="1114">
               'Tis double death to drown in ken of shore;
@@ -4534,7 +4533,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="161">
+                <lg type="stanza" n="161" xml:id="sha-rape-s161">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1121" n="1121">
               “You mocking birds,” quoth she, “your tunes entomb
@@ -4561,7 +4560,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="162">
+                <lg type="stanza" n="162" xml:id="sha-rape-s162">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1128" n="1128">
               “Come, Philomel, that sing'st of ravishment,
@@ -4588,7 +4587,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="163">
+                <lg type="stanza" n="163" xml:id="sha-rape-s163">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1135" n="1135">
               “And whiles against a thorn thou bear'st thy part,
@@ -4615,7 +4614,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="164">
+                <lg type="stanza" n="164" xml:id="sha-rape-s164">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1142" n="1142">
               “And for, poor bird, thou sing'st not in the day,
@@ -4642,7 +4641,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="165">
+                <lg type="stanza" n="165" xml:id="sha-rape-s165">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1149" n="1149">
               As the poor frighted deer, that stands at gaze,
@@ -4669,7 +4668,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="166">
+                <lg type="stanza" n="166" xml:id="sha-rape-s166">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1156" n="1156">
               “To kill myself,” quoth she, “alack, what were it,
@@ -4696,7 +4695,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="167">
+                <lg type="stanza" n="167" xml:id="sha-rape-s167">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1163" n="1163">
               “My body or my soul, which was the dearer,
@@ -4723,7 +4722,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="168">
+                <lg type="stanza" n="168" xml:id="sha-rape-s168">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1170" n="1170">
               “Her house is sacked, her quiet interrupted,
@@ -4750,7 +4749,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="169">
+                <lg type="stanza" n="169" xml:id="sha-rape-s169">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1177" n="1177">
               “Yet die I will not till my Collatine
@@ -4777,7 +4776,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="170">
+                <lg type="stanza" n="170" xml:id="sha-rape-s170">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1184" n="1184">
               “My honour I'll bequeath unto the knife
@@ -4804,7 +4803,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="171">
+                <lg type="stanza" n="171" xml:id="sha-rape-s171">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1191" n="1191">
               “Dear lord of that dear jewel I have lost,
@@ -4831,7 +4830,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="172">
+                <lg type="stanza" n="172" xml:id="sha-rape-s172">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1198" n="1198">
               “This brief abridgement of my will I make:
@@ -4858,7 +4857,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="173">
+                <lg type="stanza" n="173" xml:id="sha-rape-s173">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1205" n="1205">
               “Thou, Collatine, shalt oversee this will;
@@ -4885,7 +4884,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="174">
+                <lg type="stanza" n="174" xml:id="sha-rape-s174">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1212" n="1212">
               This plot of death when sadly she had laid,
@@ -4912,7 +4911,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="175">
+                <lg type="stanza" n="175" xml:id="sha-rape-s175">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1219" n="1219">
               Her mistress she doth give demure good morrow,
@@ -4939,7 +4938,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="176">
+                <lg type="stanza" n="176" xml:id="sha-rape-s176">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1226" n="1226">
               But as the earth doth weep, the sun being set,
@@ -4966,7 +4965,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="177">
+                <lg type="stanza" n="177" xml:id="sha-rape-s177">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1233" n="1233">
               A pretty while these pretty creatures stand,
@@ -4993,7 +4992,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="178">
+                <lg type="stanza" n="178" xml:id="sha-rape-s178">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1240" n="1240">
               For men have marble, women waxen, minds,
@@ -5020,7 +5019,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="179">
+                <lg type="stanza" n="179" xml:id="sha-rape-s179">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1247" n="1247">
               Their smoothness, like a goodly champaign plain,
@@ -5047,7 +5046,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="180">
+                <lg type="stanza" n="180" xml:id="sha-rape-s180">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1254" n="1254">
               No man inveigh against the withered flower,
@@ -5074,7 +5073,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="181">
+                <lg type="stanza" n="181" xml:id="sha-rape-s181">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1261" n="1261">
               The precedent whereof in Lucrece view,
@@ -5101,7 +5100,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="182">
+                <lg type="stanza" n="182" xml:id="sha-rape-s182">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1268" n="1268">
               By this, mild patience bid fair Lucrece speak
@@ -5128,7 +5127,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="183">
+                <lg type="stanza" n="183" xml:id="sha-rape-s183">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1275" n="1275">
               “But tell me, girl, when went” — and there she stayed
@@ -5155,7 +5154,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="184">
+                <lg type="stanza" n="184" xml:id="sha-rape-s184">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1282" n="1282">
               “But, lady, if your maid may be so bold,
@@ -5182,7 +5181,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="185">
+                <lg type="stanza" n="185" xml:id="sha-rape-s185">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1289" n="1289">
               “Go, get me hither paper, ink, and pen:
@@ -5209,7 +5208,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="186">
+                <lg type="stanza" n="186" xml:id="sha-rape-s186">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1296" n="1296">
               Her maid is gone, and she prepares to write,
@@ -5236,7 +5235,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="187">
+                <lg type="stanza" n="187" xml:id="sha-rape-s187">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1303" n="1303">
               At last she thus begins: “Thou worthy lord
@@ -5263,7 +5262,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="188">
+                <lg type="stanza" n="188" xml:id="sha-rape-s188">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1310" n="1310">
               Here folds she up the tenor of her woe,
@@ -5290,7 +5289,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="189">
+                <lg type="stanza" n="189" xml:id="sha-rape-s189">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1317" n="1317">
               Besides, the life and feeling of her passion
@@ -5317,7 +5316,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="190">
+                <lg type="stanza" n="190" xml:id="sha-rape-s190">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1324" n="1324">
               To see sad sights moves more than hear them told:
@@ -5344,7 +5343,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="191">
+                <lg type="stanza" n="191" xml:id="sha-rape-s191">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1331" n="1331">
               Her letter now is sealed, and on it writ
@@ -5371,7 +5370,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="192">
+                <lg type="stanza" n="192" xml:id="sha-rape-s192">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1338" n="1338">
               The homely villain curtsies to her low;
@@ -5398,7 +5397,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="193">
+                <lg type="stanza" n="193" xml:id="sha-rape-s193">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1345" n="1345">
               When, silly groom! God wot, it was defect
@@ -5425,7 +5424,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="194">
+                <lg type="stanza" n="194" xml:id="sha-rape-s194">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1352" n="1352">
               His kindled duty kindled her mistrust,
@@ -5452,7 +5451,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="195">
+                <lg type="stanza" n="195" xml:id="sha-rape-s195">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1359" n="1359">
               But long she thinks till he return again,
@@ -5479,7 +5478,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="196">
+                <lg type="stanza" n="196" xml:id="sha-rape-s196">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1366" n="1366">
               At last she calls to mind where hangs a piece
@@ -5506,7 +5505,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="197">
+                <lg type="stanza" n="197" xml:id="sha-rape-s197">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1373" n="1373">
               A thousand lamentable objects there,
@@ -5533,7 +5532,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="198">
+                <lg type="stanza" n="198" xml:id="sha-rape-s198">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1380" n="1380">
               There might you see the labouring pioner
@@ -5560,7 +5559,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="199">
+                <lg type="stanza" n="199" xml:id="sha-rape-s199">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1387" n="1387">
               In great commanders grace and majesty
@@ -5587,7 +5586,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="200">
+                <lg type="stanza" n="200" xml:id="sha-rape-s200">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1394" n="1394">
               In Ajax and Ulysses, O, what art
@@ -5614,7 +5613,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="201">
+                <lg type="stanza" n="201" xml:id="sha-rape-s201">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1401" n="1401">
               There pleading might you see grave Nestor stand,
@@ -5641,7 +5640,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="202">
+                <lg type="stanza" n="202" xml:id="sha-rape-s202">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1408" n="1408">
               About him were a press of gaping faces,
@@ -5668,7 +5667,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="203">
+                <lg type="stanza" n="203" xml:id="sha-rape-s203">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1415" n="1415">
               Here one man's hand leaned on another's head,
@@ -5695,7 +5694,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="204">
+                <lg type="stanza" n="204" xml:id="sha-rape-s204">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1422" n="1422">
               For much imaginary work was there;
@@ -5722,7 +5721,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="205">
+                <lg type="stanza" n="205" xml:id="sha-rape-s205">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1429" n="1429">
               And from the walls of strong-besieged Troy
@@ -5749,7 +5748,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="206">
+                <lg type="stanza" n="206" xml:id="sha-rape-s206">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1436" n="1436">
               And from the strand of Dardan, where they fought,
@@ -5776,7 +5775,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="207">
+                <lg type="stanza" n="207" xml:id="sha-rape-s207">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1443" n="1443">
               To this well-painted piece is Lucrece come,
@@ -5803,7 +5802,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="208">
+                <lg type="stanza" n="208" xml:id="sha-rape-s208">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1450" n="1450">
               In her the painter had anatomized
@@ -5830,7 +5829,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="209">
+                <lg type="stanza" n="209" xml:id="sha-rape-s209">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1457" n="1457">
               On this sad shadow Lucrece spends her eyes,
@@ -5857,7 +5856,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="210">
+                <lg type="stanza" n="210" xml:id="sha-rape-s210">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1464" n="1464">
               “Poor instrument,” quoth she, “without a sound,
@@ -5884,7 +5883,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="211">
+                <lg type="stanza" n="211" xml:id="sha-rape-s211">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1471" n="1471">
               “Show me the strumpet that began this stir,
@@ -5911,7 +5910,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="212">
+                <lg type="stanza" n="212" xml:id="sha-rape-s212">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1478" n="1478">
               “Why should the private pleasure of some one
@@ -5938,7 +5937,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="213">
+                <lg type="stanza" n="213" xml:id="sha-rape-s213">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1485" n="1485">
               “Lo, here weeps Hecuba, here Priam dies,
@@ -5965,7 +5964,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="214">
+                <lg type="stanza" n="214" xml:id="sha-rape-s214">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1492" n="1492">
               Here feelingly she weeps Troy's painted woes:
@@ -5992,7 +5991,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="215">
+                <lg type="stanza" n="215" xml:id="sha-rape-s215">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1499" n="1499">
               She throws her eyes about the painting round,
@@ -6019,7 +6018,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="216">
+                <lg type="stanza" n="216" xml:id="sha-rape-s216">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1506" n="1506">
               In him the painter laboured with his skill
@@ -6046,7 +6045,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="217">
+                <lg type="stanza" n="217" xml:id="sha-rape-s217">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1513" n="1513">
               But, like a constant and confirmed devil,
@@ -6073,7 +6072,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="218">
+                <lg type="stanza" n="218" xml:id="sha-rape-s218">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1520" n="1520">
               The well-skilled workman this mild image drew
@@ -6100,7 +6099,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="219">
+                <lg type="stanza" n="219" xml:id="sha-rape-s219">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1527" n="1527">
               This picture she advisedly perused,
@@ -6127,7 +6126,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="220">
+                <lg type="stanza" n="220" xml:id="sha-rape-s220">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1534" n="1534">
               “It cannot be,” quoth she, “that so much guile” —
@@ -6154,7 +6153,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="221">
+                <lg type="stanza" n="221" xml:id="sha-rape-s221">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1541" n="1541">
               “For even as subtle Sinon here is painted,
@@ -6181,7 +6180,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="222">
+                <lg type="stanza" n="222" xml:id="sha-rape-s222">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1548" n="1548">
               “Look, look, how listening Priam wets his eyes,
@@ -6208,7 +6207,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="223">
+                <lg type="stanza" n="223" xml:id="sha-rape-s223">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1555" n="1555">
               “Such devils steal effects from lightless hell;
@@ -6235,7 +6234,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="224">
+                <lg type="stanza" n="224" xml:id="sha-rape-s224">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1562" n="1562">
               Here, all enraged, such passion her assails,
@@ -6262,7 +6261,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="225">
+                <lg type="stanza" n="225" xml:id="sha-rape-s225">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1569" n="1569">
               Thus ebbs and flows the current of her sorrow,
@@ -6289,7 +6288,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="226">
+                <lg type="stanza" n="226" xml:id="sha-rape-s226">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1576" n="1576">
               Which all this time hath overslipped her thought,
@@ -6316,7 +6315,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="227">
+                <lg type="stanza" n="227" xml:id="sha-rape-s227">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1583" n="1583">
               But now the mindful messenger, come back,
@@ -6343,7 +6342,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="228">
+                <lg type="stanza" n="228" xml:id="sha-rape-s228">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1590" n="1590">
               Which when her sad-beholding husband saw,
@@ -6370,7 +6369,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="229">
+                <lg type="stanza" n="229" xml:id="sha-rape-s229">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1597" n="1597">
               At last he takes her by the bloodless hand,
@@ -6397,7 +6396,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="230">
+                <lg type="stanza" n="230" xml:id="sha-rape-s230">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1604" n="1604">
               Three times with sighs she gives her sorrow fire,
@@ -6424,7 +6423,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="231">
+                <lg type="stanza" n="231" xml:id="sha-rape-s231">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1611" n="1611">
               And now this pale swan in her watery nest
@@ -6451,7 +6450,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="232">
+                <lg type="stanza" n="232" xml:id="sha-rape-s232">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1618" n="1618">
               “Then be this all the task it hath to say:
@@ -6478,7 +6477,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="233">
+                <lg type="stanza" n="233" xml:id="sha-rape-s233">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1625" n="1625">
               “For in the dreadful dead of dark midnight,
@@ -6505,7 +6504,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="234">
+                <lg type="stanza" n="234" xml:id="sha-rape-s234">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1632" n="1632">
               “‘ For some hard-favoured groom of thine,’ quoth he,
@@ -6532,7 +6531,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="235">
+                <lg type="stanza" n="235" xml:id="sha-rape-s235">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1639" n="1639">
               “With this, I did begin to start and cry;
@@ -6559,7 +6558,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="236">
+                <lg type="stanza" n="236" xml:id="sha-rape-s236">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1646" n="1646">
               “Mine enemy was strong, my poor self weak,
@@ -6586,7 +6585,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="237">
+                <lg type="stanza" n="237" xml:id="sha-rape-s237">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1653" n="1653">
               “O, teach me how to make mine own excuse!
@@ -6613,7 +6612,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="238">
+                <lg type="stanza" n="238" xml:id="sha-rape-s238">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1660" n="1660">
               Lo, here, the hopeless merchant of this loss,
@@ -6640,7 +6639,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="239">
+                <lg type="stanza" n="239" xml:id="sha-rape-s239">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1667" n="1667">
               As through an arch the violent roaring tide
@@ -6667,7 +6666,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="240">
+                <lg type="stanza" n="240" xml:id="sha-rape-s240">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1674" n="1674">
               Which speechless woe of his poor she attendeth,
@@ -6694,7 +6693,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="241">
+                <lg type="stanza" n="241" xml:id="sha-rape-s241">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1681" n="1681">
               “And for my sake, when I might charm thee so
@@ -6721,7 +6720,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="242">
+                <lg type="stanza" n="242" xml:id="sha-rape-s242">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1688" n="1688">
               “But ere I name him, you fair lords,” quoth she,
@@ -6748,7 +6747,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="243">
+                <lg type="stanza" n="243" xml:id="sha-rape-s243">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1695" n="1695">
               At this request, with noble disposition
@@ -6775,7 +6774,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="244">
+                <lg type="stanza" n="244" xml:id="sha-rape-s244">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1702" n="1702">
               “What is the quality of my offence,
@@ -6802,7 +6801,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="245">
+                <lg type="stanza" n="245" xml:id="sha-rape-s245">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1709" n="1709">
               With this, they all at once began to say,
@@ -6829,7 +6828,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="246">
+                <lg type="stanza" n="246" xml:id="sha-rape-s246">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1716" n="1716">
               Here with a sigh, as if her heart would break,
@@ -6856,7 +6855,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="247">
+                <lg type="stanza" n="247" xml:id="sha-rape-s247">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1723" n="1723">
               Even here she sheathed in her harmless breast
@@ -6883,7 +6882,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="248">
+                <lg type="stanza" n="248" xml:id="sha-rape-s248">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1730" n="1730">
               Stone-still, astonished with this deadly deed,
@@ -6910,7 +6909,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="249">
+                <lg type="stanza" n="249" xml:id="sha-rape-s249">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1737" n="1737">
               And bubbling from her breast, it doth divide
@@ -6937,7 +6936,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="250">
+                <lg type="stanza" n="250" xml:id="sha-rape-s250">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1744" n="1744">
               About the mourning and congealed face
@@ -6964,7 +6963,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="251">
+                <lg type="stanza" n="251" xml:id="sha-rape-s251">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1751" n="1751">
               “Daughter, dear daughter,” old Lucretius cries,
@@ -6991,7 +6990,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="252">
+                <lg type="stanza" n="252" xml:id="sha-rape-s252">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1758" n="1758">
               “Poor broken glass, I often did behold
@@ -7018,7 +7017,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="253">
+                <lg type="stanza" n="253" xml:id="sha-rape-s253">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1765" n="1765">
               “O time, cease thou thy course and last no longer,
@@ -7045,7 +7044,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="254">
+                <lg type="stanza" n="254" xml:id="sha-rape-s254">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1772" n="1772">
               By this, starts Collatine as from a dream,
@@ -7072,7 +7071,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="255">
+                <lg type="stanza" n="255" xml:id="sha-rape-s255">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1779" n="1779">
               The deep vexation of his inward soul
@@ -7099,7 +7098,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="256">
+                <lg type="stanza" n="256" xml:id="sha-rape-s256">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1786" n="1786">
               Yet sometime “Tarquin” was pronounced plain,
@@ -7126,7 +7125,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="257">
+                <lg type="stanza" n="257" xml:id="sha-rape-s257">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1793" n="1793">
               The one doth call her his, the other his,
@@ -7153,7 +7152,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="258">
+                <lg type="stanza" n="258" xml:id="sha-rape-s258">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1800" n="1800">
               “O,” quoth Lucretius, “I did give that life
@@ -7180,7 +7179,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="259">
+                <lg type="stanza" n="259" xml:id="sha-rape-s259">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1807" n="1807">
               Brutus, who plucked the knife from Lucrece' side,
@@ -7207,7 +7206,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="260">
+                <lg type="stanza" n="260" xml:id="sha-rape-s260">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1814" n="1814">
               But now he throws that shallow habit by,
@@ -7234,7 +7233,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="261">
+                <lg type="stanza" n="261" xml:id="sha-rape-s261">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1821" n="1821">
               “Why, Collatine, is woe the cure for woe?
@@ -7261,7 +7260,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="262">
+                <lg type="stanza" n="262" xml:id="sha-rape-s262">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1828" n="1828">
               “Courageous Roman, do not steep thy heart
@@ -7288,7 +7287,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="263">
+                <lg type="stanza" n="263" xml:id="sha-rape-s263">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1835" n="1835">
               “Now, by the Capitol that we adore,
@@ -7315,7 +7314,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="264">
+                <lg type="stanza" n="264" xml:id="sha-rape-s264">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1842" n="1842">
               This said, he struck his hand upon his breast,
@@ -7342,7 +7341,7 @@
             </l>
                     </lg>
                 </lg>
-                <lg type="stanza" n="265">
+                <lg type="stanza" n="265" xml:id="sha-rape-s265">
                     <lg type="quatrain">
                         <l xml:id="sha-rapep1849" n="1849">
               When they had sworn to this advised doom,
