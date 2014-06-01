@@ -201,6 +201,16 @@ declare function app:xml-link($node as node(), $model as map(*)) {
         else <a xmlns="http://www.w3.org/1999/xhtml" href="{$rest-link}" target="_blank">{ $node/node() }</a>
 };
 
+declare function app:work-types($node as node(), $model as map(*)) {
+let $types := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//value)
+    return
+    <select multiple="multiple" name="work-types" data-template="templates:form-control">
+        {for $type in $types
+        return <option value="{$type}">{$type}</option>
+        }
+    </select>
+};
+
 declare function app:navigation($node as node(), $model as map(*)) {
     let $div := $model("work")
     let $prevDiv := $div/preceding::tei:div[parent::tei:div][1]
@@ -236,14 +246,26 @@ declare function app:view($node as node(), $model as map(*), $id as xs:string) {
 declare function app:query($node as node()*, $model as map(*)) {
     session:create(),
     let $query := app:create-query()
+    (:Get the work ids of the work types selected.:)  
+    let $target-text-types := request:get-parameter('work-types', 'all')
+    let $target-text-ids := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//item[value = $target-text-types]/id)
+    (:Get the work ids of the individual works selected.:)
     let $target-texts := request:get-parameter('target-texts', 'all')
+    (:If no individual works have been selected, search in the works with ids selected by type;
+    if indiidual works have been selected, then neglect that no selection has been done in works according to type.:) 
+    let $target-texts := 
+        if ($target-texts = 'all' and $target-text-types = 'all')
+        then 'all' 
+        else 
+            if ($target-texts = 'all')
+            then $target-text-ids
+            else ($target-texts, $target-text-ids)
     let $context := 
         if ($target-texts = 'all')
         then collection($config:data-root)/tei:TEI
         else collection($config:data-root)//tei:TEI[@xml:id = $target-texts]
     let $hits :=
-        for $hit in $context//tei:sp[ft:query(., $query)]
-        (:for $hit in ($context//tei:sp[ft:query(., $query)] || $context//tei:sp[ft:query(., $query)]):)
+        for $hit in ($context//tei:sp[ft:query(., $query)], $context//tei:lg[ft:query(., $query)])
         order by ft:score($hit) descending
         return $hit
     let $store := session:set-attribute("apps.shakespeare", $hits)
@@ -257,7 +279,7 @@ declare function app:query($node as node()*, $model as map(*)) {
 :)
 declare %private function app:create-query() {
     let $query-string := request:get-parameter("query", ())
-    let $query-string := normalize-space($query-string)
+    let $query-string := normalize-space($query-string[1])
     let $mode := request:get-parameter("mode", "any")
     let $query:=
         (:TODO: refine regex:)
