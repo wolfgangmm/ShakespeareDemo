@@ -50,11 +50,12 @@ declare function app:outline($node as node(), $model as map(*), $details as xs:s
     let $work := $model("work")/ancestor-or-self::tei:TEI
     let $current := $model("work")
     return
+        (:If the work is a play:)
         if ($work//tei:speaker)
         then
             <ul xmlns="http://www.w3.org/1999/xhtml">
             {
-                for $act at $act-count in $work/tei:text/tei:body/tei:div
+                for $act in $work/tei:text/tei:body/tei:div
                 return
                     <li>{$act/tei:head/text()}
                         <ul>{
@@ -87,12 +88,37 @@ declare function app:outline($node as node(), $model as map(*), $details as xs:s
                         }</ul>
                     </li>
             }</ul>
+        else
+            (:If the work is Lover's Complaint, Phoenix and Turtle:)
+            if ($work/tei:text/tei:body/tei:div/tei:lg/tei:l)
+            then
+                <table class="poem-list" xmlns="http://www.w3.org/1999/xhtml">
+                {
+                    for $stanza at $stanza-count in $work/tei:text/tei:body/tei:div/tei:lg
+                    let $class := if ($stanza is $current) then "active" else ""
+                    return
+                        <tr>
+                            <td><a href="{$stanza/@xml:id}.html" class="{$class}">Stanza {$stanza-count}</a></td> 
+                            <td class="first-line">
+                            {
+                                if ($stanza/tei:lg/tei:l)
+                                then $stanza/tei:lg[1]/tei:l[1]/text()
+                                else
+                                    if ($stanza/tei:l)
+                                    then $stanza/tei:l[1]/text()
+                                    else 'WHAT?'
+                            }
+                            </td>
+                        </tr>
+                }
+                </table>
             else
-                if ($work/tei:text/tei:body/tei:div/tei:lg)
+                (:If the work is Rape of Lucrece, Venus and Adonis:) 
+                if ($work/tei:text/tei:body/tei:div/tei:lg/tei:lg/tei:l)
                 then
                     <table class="poem-list" xmlns="http://www.w3.org/1999/xhtml">
                     {
-                        for $stanza at $stanza-count in $work/tei:text/tei:body/tei:div/tei:lg
+                        for $stanza in $work/tei:text/tei:body/tei:div/tei:lg
                         let $class := if ($stanza is $current) then "active" else ""
                         return
                             <tr>
@@ -111,9 +137,10 @@ declare function app:outline($node as node(), $model as map(*), $details as xs:s
                     }
                     </table>
                 else
+                    (:If the work is Sonnets.:)
                     <table class="poem-list" xmlns="http://www.w3.org/1999/xhtml">
                     {
-                        for $sonnet at $sonnet-count in $work/tei:text/tei:body/tei:div/tei:div
+                        for $sonnet in $work/tei:text/tei:body/tei:div/tei:div
                         let $class := if ($sonnet is $current) then "active" else ""
                         return
                             <tr>
@@ -131,7 +158,6 @@ declare function app:outline($node as node(), $model as map(*), $details as xs:s
                             </tr>
                     }
                     </table>
-    
 };
 
 (:~
@@ -199,7 +225,7 @@ declare function app:view($node as node(), $model as map(*), $id as xs:string) {
     for $div in $model("work")/id($id)
     return
         <div xmlns="http://www.w3.org/1999/xhtml" class="play">
-        { tei2:tei2html($div, 'feature', 'html') }
+        { tei2:tei2html($div) }
         </div>
 };
 
@@ -288,6 +314,7 @@ declare %private function app:create-query() {
                     }</query>
 
     return $query
+    
 };
 
 (:~
