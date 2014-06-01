@@ -174,8 +174,8 @@ declare %private function app:work-title($work as element(tei:TEI)) {
     $work/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/text()
 };
 
-declare function app:work-id($node as node(), $model as map(*)) {
-    $model("work")/@xml:id/string()
+declare function app:checkbox($node as node(), $model as map(*)) {
+    <input type="checkbox" name="target-texts" value="{$model("work")/@xml:id/string()}"></input>
 };
 
 declare function app:epub-link($node as node(), $model as map(*)) {
@@ -236,8 +236,14 @@ declare function app:view($node as node(), $model as map(*), $id as xs:string) {
 declare function app:query($node as node()*, $model as map(*)) {
     session:create(),
     let $query := app:create-query()
+    let $target-texts := request:get-parameter('target-texts', 'all')
+    let $context := 
+        if ($target-texts = 'all')
+        then collection($config:data-root)/tei:TEI
+        else collection($config:data-root)//tei:TEI[@xml:id = $target-texts]
     let $hits :=
-        for $hit in collection($config:app-root)//tei:sp[ft:query(., $query)]
+        for $hit in $context//tei:sp[ft:query(., $query)]
+        (:for $hit in ($context//tei:sp[ft:query(., $query)] || $context//tei:sp[ft:query(., $query)]):)
         order by ft:score($hit) descending
         return $hit
     let $store := session:set-attribute("apps.shakespeare", $hits)
