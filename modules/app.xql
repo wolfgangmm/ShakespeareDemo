@@ -50,11 +50,12 @@ declare function app:outline($node as node(), $model as map(*), $details as xs:s
     let $work := $model("work")/ancestor-or-self::tei:TEI
     let $current := $model("work")
     return
+        (:If the work is a play:)
         if ($work//tei:speaker)
         then
             <ul xmlns="http://www.w3.org/1999/xhtml">
             {
-                for $act at $act-count in $work/tei:text/tei:body/tei:div
+                for $act in $work/tei:text/tei:body/tei:div
                 return
                     <li>{$act/tei:head/text()}
                         <ul>{
@@ -87,12 +88,37 @@ declare function app:outline($node as node(), $model as map(*), $details as xs:s
                         }</ul>
                     </li>
             }</ul>
+        else
+            (:If the work is Lover's Complaint, Phoenix and Turtle:)
+            if ($work/tei:text/tei:body/tei:div/tei:lg/tei:l)
+            then
+                <table class="poem-list" xmlns="http://www.w3.org/1999/xhtml">
+                {
+                    for $stanza at $stanza-count in $work/tei:text/tei:body/tei:div/tei:lg
+                    let $class := if ($stanza is $current) then "active" else ""
+                    return
+                        <tr>
+                            <td><a href="{$stanza/@xml:id}.html" class="{$class}">Stanza {$stanza-count}</a></td> 
+                            <td class="first-line">
+                            {
+                                if ($stanza/tei:lg/tei:l)
+                                then $stanza/tei:lg[1]/tei:l[1]/text()
+                                else
+                                    if ($stanza/tei:l)
+                                    then $stanza/tei:l[1]/text()
+                                    else 'WHAT?'
+                            }
+                            </td>
+                        </tr>
+                }
+                </table>
             else
-                if ($work/tei:text/tei:body/tei:div/tei:lg)
+                (:If the work is Rape of Lucrece, Venus and Adonis:) 
+                if ($work/tei:text/tei:body/tei:div/tei:lg/tei:lg/tei:l)
                 then
                     <table class="poem-list" xmlns="http://www.w3.org/1999/xhtml">
                     {
-                        for $stanza at $stanza-count in $work/tei:text/tei:body/tei:div/tei:lg
+                        for $stanza in $work/tei:text/tei:body/tei:div/tei:lg
                         let $class := if ($stanza is $current) then "active" else ""
                         return
                             <tr>
@@ -111,9 +137,10 @@ declare function app:outline($node as node(), $model as map(*), $details as xs:s
                     }
                     </table>
                 else
+                    (:If the work is Sonnets.:)
                     <table class="poem-list" xmlns="http://www.w3.org/1999/xhtml">
                     {
-                        for $sonnet at $sonnet-count in $work/tei:text/tei:body/tei:div/tei:div
+                        for $sonnet in $work/tei:text/tei:body/tei:div/tei:div
                         let $class := if ($sonnet is $current) then "active" else ""
                         return
                             <tr>
@@ -131,7 +158,6 @@ declare function app:outline($node as node(), $model as map(*), $details as xs:s
                             </tr>
                     }
                     </table>
-    
 };
 
 (:~
@@ -148,8 +174,8 @@ declare %private function app:work-title($work as element(tei:TEI)) {
     $work/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/text()
 };
 
-declare function app:work-id($node as node(), $model as map(*)) {
-    $model("work")/@xml:id/string()
+declare function app:checkbox($node as node(), $model as map(*)) {
+    <input type="checkbox" name="target-texts" value="{$model("work")/@xml:id/string()}"></input>
 };
 
 declare function app:epub-link($node as node(), $model as map(*)) {
@@ -173,6 +199,16 @@ declare function app:xml-link($node as node(), $model as map(*)) {
         if (xmldb:collection-available('/db/apps/eXide'))
         then <a xmlns="http://www.w3.org/1999/xhtml" href="{$eXide-link}" target="_blank">{ $node/node() }</a>
         else <a xmlns="http://www.w3.org/1999/xhtml" href="{$rest-link}" target="_blank">{ $node/node() }</a>
+};
+
+declare function app:work-types($node as node(), $model as map(*)) {
+let $types := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//value)
+    return
+    <select multiple="multiple" name="work-types" data-template="templates:form-control">
+        {for $type in $types
+        return <option value="{$type}">{$type}</option>
+        }
+    </select>
 };
 
 declare function app:navigation($node as node(), $model as map(*)) {
@@ -199,7 +235,7 @@ declare function app:view($node as node(), $model as map(*), $id as xs:string) {
     for $div in $model("work")/id($id)
     return
         <div xmlns="http://www.w3.org/1999/xhtml" class="play">
-        { tei2:tei2html($div, 'feature', 'html') }
+        { tei2:tei2html($div) }
         </div>
 };
 
@@ -210,8 +246,26 @@ declare function app:view($node as node(), $model as map(*), $id as xs:string) {
 declare function app:query($node as node()*, $model as map(*)) {
     session:create(),
     let $query := app:create-query()
+    (:Get the work ids of the work types selected.:)  
+    let $target-text-types := request:get-parameter('work-types', 'all')
+    let $target-text-ids := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//item[value = $target-text-types]/id)
+    (:Get the work ids of the individual works selected.:)
+    let $target-texts := request:get-parameter('target-texts', 'all')
+    (:If no individual works have been selected, search in the works with ids selected by type;
+    if indiidual works have been selected, then neglect that no selection has been done in works according to type.:) 
+    let $target-texts := 
+        if ($target-texts = 'all' and $target-text-types = 'all')
+        then 'all' 
+        else 
+            if ($target-texts = 'all')
+            then $target-text-ids
+            else ($target-texts, $target-text-ids)
+    let $context := 
+        if ($target-texts = 'all')
+        then collection($config:data-root)/tei:TEI
+        else collection($config:data-root)//tei:TEI[@xml:id = $target-texts]
     let $hits :=
-        for $hit in collection($config:app-root)//tei:sp[ft:query(., $query)]
+        for $hit in ($context//tei:sp[ft:query(., $query)], $context//tei:lg[ft:query(., $query)])
         order by ft:score($hit) descending
         return $hit
     let $store := session:set-attribute("apps.shakespeare", $hits)
@@ -225,7 +279,7 @@ declare function app:query($node as node()*, $model as map(*)) {
 :)
 declare %private function app:create-query() {
     let $query-string := request:get-parameter("query", ())
-    let $query-string := normalize-space($query-string)
+    let $query-string := normalize-space($query-string[1])
     let $mode := request:get-parameter("mode", "any")
     let $query:=
         (:TODO: refine regex:)
@@ -288,6 +342,7 @@ declare %private function app:create-query() {
                     }</query>
 
     return $query
+    
 };
 
 (:~
