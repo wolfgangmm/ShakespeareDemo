@@ -171,11 +171,23 @@ declare function app:work-title($node as node(), $model as map(*), $type as xs:s
 };
 
 declare %private function app:work-title($work as element(tei:TEI)) {
-    $work/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/text()
+    $work/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[1]/text()
 };
 
 declare function app:checkbox($node as node(), $model as map(*)) {
     <input type="checkbox" name="target-texts" value="{$model("work")/@xml:id/string()}"></input>
+};
+
+declare function app:work-type($node as node(), $model as map(*)) {
+    let $work := $model("work")/ancestor-or-self::tei:TEI
+    let $id := $work/@xml:id/string()
+    let $work-types := doc(concat($config:data-root, '/', 'work-types.xml'))//item[id = $id]/value
+    return 
+        string-join(
+            for $work-type in $work-types
+            order by $work-type 
+            return $work-type
+        , ', ')    
 };
 
 declare function app:epub-link($node as node(), $model as map(*)) {

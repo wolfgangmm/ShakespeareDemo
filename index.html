@@ -9,18 +9,22 @@
                     <tr>
                         <th/>
                         <th>Title</th>
+                        <th>Work Type</th>
                         <th>Download</th>
                         <th>Open</th>
                     </tr>
                 </thead>
                 <tbody data-template="app:list-works">
                     <tr data-template="templates:each" data-template-from="works" data-template-to="work">
-                        <td>
+                        <td class="checkbox">
                             <span data-template="app:checkbox"/>
                         </td>
                         <td>
                             <a href="" data-template="app:work-title"/>
                         </td>
+                        <td class="work-type">
+                            <a href="" data-template="app:work-type"/>
+                    	</td>
                         <td>
                             <a href="" data-template="app:epub-link">epub</a>, 
                             <a href="" data-template="app:pdf-link">pdf</a>
