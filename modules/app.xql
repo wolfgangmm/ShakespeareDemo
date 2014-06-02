@@ -279,7 +279,7 @@ declare function app:query($node as node()*, $model as map(*)) {
 :)
 declare %private function app:create-query() {
     let $query-string := request:get-parameter("query", ())
-    let $query-string := normalize-space($query-string[1])
+    let $query-string := normalize-space($query-string)
     let $mode := request:get-parameter("mode", "any")
     let $query:=
         (:TODO: refine regex:)
@@ -370,7 +370,7 @@ declare
 function app:show-hits($node as node()*, $model as map(*), $start as xs:integer) {
     for $hit at $p in subsequence($model("hits"), $start, 10)
     let $id := $hit/ancestor-or-self::tei:div[1]/@xml:id
-    let $kwic := kwic:summarize($hit, <config width="40" table="yes" link="plays/{$id}.html"/>, util:function(xs:QName("app:filter"), 2))
+    let $kwic := kwic:summarize($hit, <config width="40" table="yes" link="works/{$id}.html"/>, util:function(xs:QName("app:filter"), 2))
     return
         <div xmlns="http://www.w3.org/1999/xhtml" class="hit">
             <span class="number">{$start + $p - 1}</span>
