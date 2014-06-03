@@ -7,7 +7,7 @@ declare variable $exist:controller external;
 if ($exist:path eq "/") then
     (: forward root path to index.xql :)
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
-        <redirect url="plays/"/>
+        <redirect url="works/"/>
     </dispatch>
 
 else if ($exist:resource = ("search.html", "demo-queries.html")) then
@@ -36,7 +36,7 @@ else if (contains($exist:path, "/resources/")) then
         <forward url="{$exist:controller}/resources/{substring-after($exist:path, '/resources/')}"/>
     </dispatch>
 
-else if (starts-with($exist:path, "/plays/")) then
+else if (starts-with($exist:path, "/works/")) then
     let $id := replace($exist:resource, "^(.*)\.\w+$", "$1")
     let $html :=
         if ($exist:resource = "") then

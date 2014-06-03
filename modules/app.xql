@@ -171,11 +171,23 @@ declare function app:work-title($node as node(), $model as map(*), $type as xs:s
 };
 
 declare %private function app:work-title($work as element(tei:TEI)) {
-    $work/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/text()
+    $work/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[1]/text()
 };
 
 declare function app:checkbox($node as node(), $model as map(*)) {
     <input type="checkbox" name="target-texts" value="{$model("work")/@xml:id/string()}"></input>
+};
+
+declare function app:work-type($node as node(), $model as map(*)) {
+    let $work := $model("work")/ancestor-or-self::tei:TEI
+    let $id := $work/@xml:id/string()
+    let $work-types := doc(concat($config:data-root, '/', 'work-types.xml'))//item[id = $id]/value
+    return 
+        string-join(
+            for $work-type in $work-types
+            order by $work-type 
+            return $work-type
+        , ', ')    
 };
 
 declare function app:epub-link($node as node(), $model as map(*)) {
@@ -279,7 +291,7 @@ declare function app:query($node as node()*, $model as map(*)) {
 :)
 declare %private function app:create-query() {
     let $query-string := request:get-parameter("query", ())
-    let $query-string := normalize-space($query-string[1])
+    let $query-string := normalize-space($query-string)
     let $mode := request:get-parameter("mode", "any")
     let $query:=
         (:TODO: refine regex:)
@@ -370,7 +382,7 @@ declare
 function app:show-hits($node as node()*, $model as map(*), $start as xs:integer) {
     for $hit at $p in subsequence($model("hits"), $start, 10)
     let $id := $hit/ancestor-or-self::tei:div[1]/@xml:id
-    let $kwic := kwic:summarize($hit, <config width="40" table="yes" link="plays/{$id}.html"/>, util:function(xs:QName("app:filter"), 2))
+    let $kwic := kwic:summarize($hit, <config width="40" table="yes" link="works/{$id}.html"/>, util:function(xs:QName("app:filter"), 2))
     return
         <div xmlns="http://www.w3.org/1999/xhtml" class="hit">
             <span class="number">{$start + $p - 1}</span>

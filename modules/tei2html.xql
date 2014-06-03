@@ -69,7 +69,7 @@ declare function tei2:header($header as element(tei:teiHeader)) {
     let $sourceDesc := $header//tei:sourceDesc
     return
         <div xmlns="http://www.w3.org/1999/xhtml" class="play-header">
-            <h1><a href="plays/{$header/ancestor::tei:TEI/@xml:id}.html">{$titleStmt/tei:title/text()}</a></h1>
+            <h1><a href="works/{$header/ancestor::tei:TEI/@xml:id}.html">{$titleStmt/tei:title/text()}</a></h1>
             <h2>By {$titleStmt/tei:author/text()}</h2>
             <ul>
             {
