@@ -587,12 +587,14 @@ declare function local:lucene2xml($node as item(), $mode as xs:string) {
                     ,
                     if (matches($tok, '(.*?)(\^(\d+))(\W|$)')) 
                     then
+                        (:regex searches have to be lower-cased:)
                         attribute boost {
-                            replace($tok, '(.*?)(\^(\d+))(\W|$)', '$3')
+                            lower-case(replace($tok, '(.*?)(\^(\d+))(\W|$)', '$3'))
                         }
                     else ()
         ,
-        normalize-space(replace($tok, '(.*?)(\^(\d+))(\W|$)', '$1'))
+        (:regex searches have to be lower-cased:)
+        lower-case(normalize-space(replace($tok, '(.*?)(\^(\d+))(\W|$)', '$1')))
         }
         else normalize-space($node)
     default return
