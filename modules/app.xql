@@ -231,6 +231,7 @@ declare function app:work-types($node as node(), $model as map(*)) {
 let $types := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//value)
     return
     <select multiple="multiple" name="work-types" data-template="templates:form-control">
+        <option value="all">All</option>
         {for $type in $types
         return <option value="{$type}">{$type}</option>
         }
@@ -305,7 +306,7 @@ declare function app:query($node as node()*, $model as map(*)) {
 :)
 declare %private function app:create-query() {
     let $query-string := request:get-parameter("query", ())
-    let $query-string := local:sanitize-lucene-query($query-string)
+    let $query-string := if ($query-string) then local:sanitize-lucene-query($query-string) else ''
     let $query-string := normalize-space($query-string)
     let $mode := request:get-parameter("mode", "any")
     let $query:=
