@@ -1,27 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="main">
     <div id="content" class="span12">
-        <form action="" method="POST">
-            <div class="inputrow">
-                <label for="query">Query:</label>
-                <input id="query" type="text" size="40" name="query" data-template="templates:form-control"/>
-            </div>
-            <div class="inputrow">
-                <label for="mode">Mode:</label>
-                <select name="mode" data-template="templates:form-control">
-                    <option value="all">All</option>
-                    <option value="any">Any</option>
-                    <option value="phrase">Phrase</option>
-                    <option value="near">Near</option>
-                </select>
-            </div>
-            <div class="inputrow">
-                <label for="work-types">Work Types:</label>
-                <span class="app:work-types"></span>
-            </div>
-            <div class="inputrow">
-                <button type="submit">Query</button>
-            </div>
-        </form>
         <div class="app:query">
             <p>Found: <span id="hit-count" data-template="app:hit-count"/> matches.</p>
             <div id="results">
