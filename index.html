@@ -37,20 +37,41 @@
             </table>
         </div>
     </div>
-    <div class="span3">
-        <div class="well">  
-                <fieldset>
-                    <input type="search" name="query" placeholder="Search string" class="span12" data-template="templates:form-control"/>
-                    <input type="hidden" name="field" value="text"/>
-                </fieldset>
-                <a href="search.html">Advanced search</a>
-        </div>
-        <div class="box">
-            <p>This application is based on data provided by The WordHoard Shakespeare, a joint project of the Perseus 
-                Project at Tufts University, The Northwestern University Library, and Northwestern University
-                Academic Technologies.</p>
-            <img src="resources/images/nu-logo.gif"/>
-        </div>  
-    </div>
+	<div class="span3">
+		<div class="well">
+			<div class="inputrow">
+			<fieldset>
+				<input type="search" name="query" placeholder="Search string" class="span12" data-template="templates:form-control"/>
+				<input type="hidden" name="field" value="text"/>
+			</fieldset>
+		</div>
+		<div class="inputrow">
+			<label for="mode">Mode:</label>
+			<select name="mode" data-template="templates:form-control">
+				<option value="any">Any</option>
+				<option value="all">All</option>
+				<option value="phrase">Phrase</option>
+				<option value="near-ordered">Near (Ordered)</option>
+				<option value="near-unordered">Near (Unordered)</option>
+				<option value="fuzzy">Fuzzy</option>
+				<option value="wildcard">Wildcard</option>
+				<option value="regex">Regex</option>
+			</select>
+		</div>
+		<div class="inputrow">
+			<label for="work-types">Work Types:</label>
+			<span class="app:work-types"/>
+		</div>
+		<div class="inputrow">
+			<button type="submit">Query</button>
+		</div>
+		</div>
+		<div class="box">
+			<p>This application is based on data provided by The WordHoard Shakespeare, a joint project of the Perseus 
+				Project at Tufts University, The Northwestern University Library, and Northwestern University
+				Academic Technologies.</p>
+			<img src="resources/images/nu-logo.gif"/>
+		</div>
+	</div>
     </form>
 </div>

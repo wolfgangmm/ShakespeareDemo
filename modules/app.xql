@@ -17,7 +17,22 @@ declare function functx:contains-any-of
    some $searchString in $searchStrings
    satisfies contains($arg,$searchString)
  } ;
- 
+
+(:modified by applying functx:escape-for-regex() :)
+declare function functx:number-of-matches 
+  ( $arg as xs:string? ,
+    $pattern as xs:string )  as xs:integer {
+       
+   count(tokenize(functx:escape-for-regex(functx:escape-for-regex($arg)),functx:escape-for-regex($pattern))) - 1
+ } ;
+
+declare function functx:escape-for-regex
+  ( $arg as xs:string? )  as xs:string {
+
+   replace($arg,
+           '(\.|\[|\]|\\|\||\-|\^|\$|\?|\*|\+|\{|\}|\(|\))','\\$1')
+ } ;
+
 (:~
  : List Shakespeare works
  :)
@@ -106,7 +121,7 @@ declare function app:outline($node as node(), $model as map(*), $details as xs:s
                                 else
                                     if ($stanza/tei:l)
                                     then $stanza/tei:l[1]/text()
-                                    else 'WHAT?'
+                                    else ''
                             }
                             </td>
                         </tr>
@@ -203,10 +218,9 @@ declare function app:pdf-link($node as node(), $model as map(*)) {
 };
 
 declare function app:xml-link($node as node(), $model as map(*)) {
-    let $id := $model("work")/@xml:id/string()
-    let $link := concat($config:app-root, "/data/", replace($id, 'sha-', ''), '.xml')
-    let $eXide-link := templates:link-to-app("http://exist-db.org/apps/eXide", "index.html?open=" || $link)
-    let $rest-link := '/exist/rest' || $config:app-root || "/data/" || replace($id, 'sha-', '') || '.xml'
+    let $doc-path := document-uri(root($model("work")))
+    let $eXide-link := templates:link-to-app("http://exist-db.org/apps/eXide", "index.html?open=" || $doc-path)
+    let $rest-link := '/exist/rest' || $doc-path
     return
         if (xmldb:collection-available('/db/apps/eXide'))
         then <a xmlns="http://www.w3.org/1999/xhtml" href="{$eXide-link}" target="_blank">{ $node/node() }</a>
@@ -217,6 +231,7 @@ declare function app:work-types($node as node(), $model as map(*)) {
 let $types := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//value)
     return
     <select multiple="multiple" name="work-types" data-template="templates:form-control">
+        <option value="all">All</option>
         {for $type in $types
         return <option value="{$type}">{$type}</option>
         }
@@ -291,6 +306,7 @@ declare function app:query($node as node()*, $model as map(*)) {
 :)
 declare %private function app:create-query() {
     let $query-string := request:get-parameter("query", ())
+    let $query-string := if ($query-string) then local:sanitize-lucene-query($query-string) else ''
     let $query-string := normalize-space($query-string)
     let $mode := request:get-parameter("mode", "any")
     let $query:=
@@ -299,7 +315,8 @@ declare %private function app:create-query() {
         then 
             let $luceneParse := local:parse-lucene($query-string)
             let $luceneXML := util:parse($luceneParse)
-            return local:lucene2xml($luceneXML/node())
+            let $lucene2xml := local:lucene2xml($luceneXML/node(), $mode)
+            return $lucene2xml
         else
             let $last-item := tokenize($query-string, '\s')[last()]
             let $last-item :=
@@ -381,8 +398,8 @@ declare
     %templates:default("start", 1)
 function app:show-hits($node as node()*, $model as map(*), $start as xs:integer) {
     for $hit at $p in subsequence($model("hits"), $start, 10)
-    let $id := $hit/ancestor-or-self::tei:div[1]/@xml:id
-    let $kwic := kwic:summarize($hit, <config width="40" table="yes" link="works/{$id}.html"/>, util:function(xs:QName("app:filter"), 2))
+    let $id := $hit/ancestor-or-self::tei:div[1]/@xml:id/string()
+    let $kwic := kwic:summarize($hit, <config width="120" table="yes" link="works/{$id}.html"/>, util:function(xs:QName("app:filter"), 2))
     return
         <div xmlns="http://www.w3.org/1999/xhtml" class="hit">
             <span class="number">{$start + $p - 1}</span>
@@ -411,6 +428,33 @@ declare function app:base($node as node(), $model as map(*)) {
     let $app-root := substring-after($config:app-root, "/db/")
     return
         <base xmlns="http://www.w3.org/1999/xhtml" href="{$context}/{$app-root}/"/>
+};
+
+declare function local:sanitize-lucene-query($query-string as xs:string) as xs:string {
+    let $query-string := replace($query-string, "'", "''") (:escape apostrophes:)
+    (:TODO: notify user if query has been modified.:)
+    let $query-string := translate($query-string, ":", " ")
+    let $query-string := 
+	   if (functx:number-of-matches($query-string, '"') mod 2) 
+	   then replace($query-string, '"', ' ') (:if there is an uneven number of quotation marks, delete all quotation marks.:)
+	   else $query-string
+    let $query-string := 
+	   if (functx:number-of-matches($query-string, '\(') mod 2 and functx:number-of-matches($query-string, '\)') mod 2) 
+	   then $query-string
+	   else translate($query-string, '()', ' ') (:if there is an uneven number of parentheses, delete all parentheses.:)
+    let $query-string := 
+	   if (functx:number-of-matches($query-string, '\[') mod 2 and functx:number-of-matches($query-string, '\]') mod 2) 
+	   then $query-string
+	   else translate($query-string, '[]', ' ') (:if there is an uneven number of brackets, delete all brackets.:)    
+    let $query-string := 
+	   if (functx:number-of-matches($query-string, '&amp;') eq functx:number-of-matches($query-string, '&amp;&amp;') * 2)
+	   then $query-string
+	   else translate($query-string, '&amp;', ' ') (:if there is an uneven number of ampersands, delete all ampersands.:)
+    let $query-string := 
+	   if (functx:number-of-matches($query-string, '|') eq functx:number-of-matches($query-string, '||') * 2)
+	   then $query-string
+	   else translate($query-string, '|', ' ') (:if there is an uneven number of pipes, delete all pipes.:)
+    return $query-string
 };
 
 (:based on Ron Van den Branden, https://rvdb.wordpress.com/2010/08/04/exist-lucene-to-xml-syntax/:)
@@ -470,14 +514,13 @@ declare function local:parse-lucene($string as xs:string) {
                             concat('<query>', replace(normalize-space($string), '_', '"'), '</query>')
 };
 
-
 (:based on Ron Van den Branden, https://rvdb.wordpress.com/2010/08/04/exist-lucene-to-xml-syntax/:)
-declare function local:lucene2xml($node as item()) {
+declare function local:lucene2xml($node as item(), $mode as xs:string) {
     typeswitch ($node)
         case element(query) return 
             element { node-name($node)} {
             element bool {
-            $node/node()/local:lucene2xml(.)
+            $node/node()/local:lucene2xml(., $mode)
         }
     }
     case element(AND) return ()
@@ -509,7 +552,7 @@ declare function local:lucene2xml($node as item()) {
                         }
                     else ()
                     ,
-                    $node/node()/local:lucene2xml(.)
+                    $node/node()/local:lucene2xml(., $mode)
         }
     case text() return
         if ($node/parent::*[self::query or self::bool]) 
@@ -518,10 +561,12 @@ declare function local:lucene2xml($node as item()) {
             (: here is the place for further differentiation between  term / wildcard / regex elements :)
             (: using regex-regex detection (?): matches($string, '((^|[^\\])[.?*+()\[\]\\^]|\$$)') :)
                 let $el-name := 
-                    if (matches($tok, '(^|[^\\])[$^|+\p{P}-[,]]'))
-                    then 'wildcard'
-                    else 
-                        if (matches($tok, '(^|[^\\.])[?*+]|\[!'))
+                    (:How could one reliably distinguish reliably between a wildcard search and a regex search? Better rule out wildcard searches …:)
+                    (:One could also simply dispense with 'term' and use 'regex' instead - is there was a speed penalty?:)
+                    (:if (matches($tok, '(^|[^\\])[$^|+\p{P}-[,]]')):)
+                    (:then 'wildcard':)
+                    (:else :)
+                        if (matches($tok, '((^|[^\\])[.?*+()\[\]\\^]|\$$)') or $mode eq 'regex')
                         then 'regex'
                         else 'term'
                 return 
@@ -543,12 +588,14 @@ declare function local:lucene2xml($node as item()) {
                     ,
                     if (matches($tok, '(.*?)(\^(\d+))(\W|$)')) 
                     then
+                        (:regex searches have to be lower-cased:)
                         attribute boost {
-                            replace($tok, '(.*?)(\^(\d+))(\W|$)', '$3')
+                            lower-case(replace($tok, '(.*?)(\^(\d+))(\W|$)', '$3'))
                         }
                     else ()
         ,
-        normalize-space(replace($tok, '(.*?)(\^(\d+))(\W|$)', '$1'))
+        (:regex searches have to be lower-cased:)
+        lower-case(normalize-space(replace($tok, '(.*?)(\^(\d+))(\W|$)', '$1')))
         }
         else normalize-space($node)
     default return
