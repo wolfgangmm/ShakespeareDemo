@@ -7,7 +7,12 @@
 @import url('dropdowns.css');
 
 /*added rules begin*/
-
+table {
+    border:0;
+}
+#main {
+    padding-bottom:.5em;
+} 
 .poem-list td {
     padding:.5em;
 }
@@ -428,26 +433,31 @@ ul {
     font-variant: small-caps;
 }
 
-.hit .hi {
-    padding: 0 8px;
+/*kwic formatting*/
+
+.hit {
+    width: 100%;
 }
 
-.hit div {
-    padding: 0 0 10px 20px;
+tr.reference {
 }
 
-.hit table {
-    margin: 10px;
+td .number {
+    padding-right: 1em;
 }
 
-.hit p {
-    padding: 0;
-}
-
-.hit .previous {
+td.previous {
     text-align: right;
+    /*width:25%;*/
 }
 
-.number {
-    float: left;
+td.hi {
+    padding: 0 8px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+td.following {
+    text-align: left;
+    /*width:25%;*/
 }

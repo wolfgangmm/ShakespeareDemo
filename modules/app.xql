@@ -399,16 +399,22 @@ declare
 function app:show-hits($node as node()*, $model as map(*), $start as xs:integer) {
     for $hit at $p in subsequence($model("hits"), $start, 10)
     let $id := $hit/ancestor-or-self::tei:div[1]/@xml:id/string()
+    let $work-title := app:work-title($hit/ancestor::tei:TEI)
+    let $doc-id := $hit/ancestor::tei:TEI/@xml:id
+    let $div-ancestor-id := $hit/ancestor::tei:div[1]/@xml:id
+    let $div-ancestor-head := $hit/ancestor::tei:div[1]/tei:head/text() 
+    (:pad hit with surrounding siblings:)
+    let $hit := <hit>{($hit/preceding-sibling::*[1], $hit, $hit/following-sibling::*[1])}</hit>
+    let $loc := 
+                <tr class="reference">
+                    <td colspan="3">
+                        <span class="number">{$start + $p - 1}</span>
+                        <a href="{$doc-id}.html">{$work-title}</a>, <a href="{$div-ancestor-id}.html">{$div-ancestor-head}</a>
+                    </td>
+                </tr>
     let $kwic := kwic:summarize($hit, <config width="120" table="yes" link="works/{$id}.html"/>, util:function(xs:QName("app:filter"), 2))
     return
-        <div xmlns="http://www.w3.org/1999/xhtml" class="hit">
-            <span class="number">{$start + $p - 1}</span>
-            <div>
-                <p>From: <a href="{$hit/ancestor::tei:TEI/@xml:id}.html">{app:work-title($hit/ancestor::tei:TEI)}</a>,
-                <a href="{$hit/ancestor::tei:div[1]/@xml:id}.html">{$hit/ancestor::tei:div[1]/tei:head/text()}</a></p>
-                <table>{ $kwic }</table>
-            </div>
-        </div>
+        ($loc, $kwic)        
 };
 
 (:~
@@ -416,7 +422,7 @@ function app:show-hits($node as node()*, $model as map(*), $start as xs:integer)
 :)
 declare %private function app:filter($node as node(), $mode as xs:string) as xs:string? {
   if ($node/parent::tei:speaker or $node/parent::tei:stage or $node/parent::tei:head) then 
-      ()
+      concat('(', $node, ':) ')
   else if ($mode eq 'before') then 
       concat($node, ' ')
   else 
@@ -458,6 +464,10 @@ declare function local:sanitize-lucene-query($query-string as xs:string) as xs:s
 };
 
 (:based on Ron Van den Branden, https://rvdb.wordpress.com/2010/08/04/exist-lucene-to-xml-syntax/:)
+(:The following is not covered:
+<query><near slop="10"><first end="4">snake</first><term>fillet</term></near></query>
+as opposed to
+<query><near slop="10"><first end="4">fillet</first><term>snake</term></near></query>:)
 declare function local:parse-lucene($string as xs:string) {
     (: replace all symbolic booleans with lexical counterparts :)
     if (matches($string, '[^\\](\|{2}|&amp;{2}|!) ')) 
