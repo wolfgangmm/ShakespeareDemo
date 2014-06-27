@@ -343,7 +343,7 @@ input:required:valid {
 }
 
 .bk-nav .previous {
-    float: left;
+    float: right;
 }
 
 .bk-nav .next {
