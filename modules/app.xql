@@ -191,10 +191,14 @@ declare %private function app:work-title($work as element(tei:TEI)) {
 
 declare 
     %templates:wrap
-function app:checkbox($node as node(), $model as map(*)) {
+function app:checkbox($node as node(), $model as map(*), $target-texts as xs:string*) {
     attribute { "value" } {
         $model("work")/@xml:id/string()
-    }
+    },
+    if ($model("work")/@xml:id/string() = $target-texts) then
+        attribute checked { "checked" }
+    else
+        ()
 };
 
 declare function app:work-type($node as node(), $model as map(*)) {
@@ -239,8 +243,9 @@ declare function app:copy-params($node as node(), $model as map(*)) {
             let $params :=
                 string-join(
                     for $param in request:get-parameter-names()
+                    for $value in request:get-parameter($param, ())
                     return
-                        $param || "=" || request:get-parameter($param, ()),
+                        $param || "=" || $value,
                     "&amp;"
                 )
             return
@@ -317,7 +322,8 @@ function app:query($node as node()*, $model as map(*), $query as xs:string?, $mo
                     <p>No search term was specified and no search is cached.</p>
                 else
                     map {
-                        "hits" := $cached
+                        "hits" := $cached,
+                        "query" := session:get-attribute("apps.shakespeare.query")
                     }
         else
             (:Get the work ids of the work types selected.:)  
@@ -330,7 +336,7 @@ function app:query($node as node()*, $model as map(*), $query as xs:string?, $mo
                 else 
                     if ($target-texts = 'all')
                     then $target-text-ids
-                    else ($target-texts, $target-text-ids)
+                    else ($target-texts[. = $target-text-ids])
             let $context := 
                 if ($target-texts = 'all')
                 then collection($config:data-root)/tei:TEI
@@ -339,11 +345,13 @@ function app:query($node as node()*, $model as map(*), $query as xs:string?, $mo
                 for $hit in ($context//tei:sp[ft:query(., $queryExpr)], $context//tei:lg[ft:query(., $queryExpr)])
                 order by ft:score($hit) descending
                 return $hit
-            let $store :=
-                session:set-attribute("apps.shakespeare", $hits)
+            let $store := (
+                session:set-attribute("apps.shakespeare", $hits),
+                session:set-attribute("apps.shakespeare.query", $queryExpr)
+            )
             return
                 (: Process nested templates :)
-                map { 
+                map {
                     "hits" := $hits,
                     "query" := $queryExpr
                 }
