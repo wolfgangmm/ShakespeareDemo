@@ -435,72 +435,68 @@ declare
     %templates:wrap
     %templates:default('start', 1)
     %templates:default("per-page", 10)
-function app:paginate($node as node(), $model as map(*), $start as xs:int, $per-page as xs:int) {
-    if (count($model("hits")) > 0) then
+    %templates:default("min-hits", 0)
+    %templates:default("max-pages", 10)
+function app:paginate($node as node(), $model as map(*), $start as xs:int, $per-page as xs:int, $min-hits as xs:int,
+    $max-pages as xs:int) {
+    if ($min-hits < 0 or count($model("hits")) >= $min-hits) then
         let $count := xs:integer(ceiling(count($model("hits"))) div $per-page) + 1
-        return
-            <ul class="pagination">
-                {
-                    if ($start = 1) then (
-                        <li class="disabled">
-                            <a><i class="glyphicon glyphicon-fast-backward"/></a>
-                        </li>,
-                        <li class="disabled">
-                            <a><i class="glyphicon glyphicon-backward"/></a>
-                        </li>
-                    ) else (
-                        <li>
-                            <a href="?start=1"><i class="glyphicon glyphicon-fast-backward"/></a>
-                        </li>,
-                        <li>
-                            <a href="?start={max( ($start - $per-page, 1 ) ) }"><i class="glyphicon glyphicon-backward"/></a>
-                        </li>
-                    )
-                }
-                {
-                    let $startPage := xs:integer(ceiling($start div $per-page))
-                    let $lowerBound :=
-                        if ($startPage < 5) then
-                            1
-                        else
-                            if ($startPage + 5 > $count) then
-                                $count - 9
-                            else
-                                $startPage - 4
-                    let $upperBound :=
-                        if ($startPage <= 5) then
-                            if ($count >= 10) then 10 else $count
-                        else
-                            if ($startPage + 5 > $count) then
-                                $count
-                            else
-                                $startPage + 5
-                    for $i in $lowerBound to $upperBound
-                    return
-                        if ($i = ceiling($start div $per-page)) then
-                            <li class="active"><a href="?start={max( (($i - 1) * $per-page + 1, 1) )}">{$i}</a></li>
-                        else
-                            <li><a href="?start={max( (($i - 1) * $per-page + 1, 1)) }">{$i}</a></li>
-                }
-                {
-                    if ($start + $per-page < count($model("hits"))) then (
-                        <li>
-                            <a href="?start={$start + $per-page}"><i class="glyphicon glyphicon-forward"/></a>
-                        </li>,
-                        <li>
-                            <a href="?start={max( (($count - 1) * $per-page + 1, 1))}"><i class="glyphicon glyphicon-fast-forward"/></a>
-                        </li>
-                    ) else (
-                        <li class="disabled">
-                            <a><i class="glyphicon glyphicon-forward"/></a>
-                        </li>,
-                        <li class="disabled">
-                            <a><i class="glyphicon glyphicon-fast-forward"/></a>
-                        </li>
-                    )
-                }
-            </ul>
-        else
+        let $middle := $max-pages idiv 2
+        return (
+            if ($start = 1) then (
+                <li class="disabled">
+                    <a><i class="glyphicon glyphicon-fast-backward"/></a>
+                </li>,
+                <li class="disabled">
+                    <a><i class="glyphicon glyphicon-backward"/></a>
+                </li>
+            ) else (
+                <li>
+                    <a href="?start=1"><i class="glyphicon glyphicon-fast-backward"/></a>
+                </li>,
+                <li>
+                    <a href="?start={max( ($start - $per-page, 1 ) ) }"><i class="glyphicon glyphicon-backward"/></a>
+                </li>
+            ),
+            let $startPage := xs:integer(ceiling($start div $per-page))
+            let $lowerBound :=
+                if ($startPage < $middle) then
+                    1
+                else
+                    if ($startPage + $middle > $count) then
+                        $count - ($max-pages - 1)
+                    else
+                        $startPage - ($middle - 1)
+            let $upperBound :=
+                if ($startPage <= $middle) then
+                    if ($count >= $max-pages) then $max-pages else $count
+                else
+                    if ($startPage + $middle > $count) then
+                        $count
+                    else
+                        $startPage + $middle
+            for $i in $lowerBound to $upperBound
+            return
+                if ($i = ceiling($start div $per-page)) then
+                    <li class="active"><a href="?start={max( (($i - 1) * $per-page + 1, 1) )}">{$i}</a></li>
+                else
+                    <li><a href="?start={max( (($i - 1) * $per-page + 1, 1)) }">{$i}</a></li>,
+            if ($start + $per-page < count($model("hits"))) then (
+                <li>
+                    <a href="?start={$start + $per-page}"><i class="glyphicon glyphicon-forward"/></a>
+                </li>,
+                <li>
+                    <a href="?start={max( (($count - 1) * $per-page + 1, 1))}"><i class="glyphicon glyphicon-fast-forward"/></a>
+                </li>
+            ) else (
+                <li class="disabled">
+                    <a><i class="glyphicon glyphicon-forward"/></a>
+                </li>,
+                <li>
+                    <a><i class="glyphicon glyphicon-fast-forward"/></a>
+                </li>
+            )
+        ) else
             ()
 };
 

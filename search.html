@@ -3,11 +3,27 @@
     <div class="app:query col-md-12">
         <div id="content">
             <a href="." class="nav-link" data-template="app:copy-params">
-                <i class="glyphicon glyphicon-chevron-up"/> Back to Search and Work List</a>
+                <i class="glyphicon glyphicon-chevron-up"/> Back to Search and Work List
+            </a>
             <p>Found: <span id="hit-count" data-template="app:hit-count"/> matches.</p>
-            <div data-template="app:paginate" data-template-per-page="20"/>
+            <!-- pagination for small device -->
+            <div class="hidden-md hidden-lg hidden-sm">
+                <ul class="pagination" data-template="app:paginate" data-template-per-page="20" data-template-max-pages="5" data-template-min-hits="21"/>
+            </div>
+            <!-- pagination for larger device -->
+            <div class="hidden-xs">
+                <ul class="pagination" data-template="app:paginate" data-template-per-page="20" data-template-max-pages="11" data-template-min-hits="21"/>
+            </div>
+            <!-- query results -->
             <table data-template="app:show-hits" data-template-per-page="20" id="results" class="col-md-8 table"/>
-            <div data-template="app:paginate" data-template-per-page="20"/>
+            <!-- bottom pagination for small device -->
+            <div class="hidden-md hidden-lg hidden-sm">
+                <ul class="pagination" data-template="app:paginate" data-template-per-page="20" data-template-max-pages="5" data-template-min-hits="21"/>
+            </div>
+            <!-- bottom pagination for larger device -->
+            <div class="hidden-xs">
+                <ul class="pagination" data-template="app:paginate" data-template-per-page="20" data-template-max-pages="11" data-template-min-hits="21"/>
+            </div>
         </div>
     </div>
 </div>
