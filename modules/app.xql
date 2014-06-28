@@ -189,8 +189,12 @@ declare %private function app:work-title($work as element(tei:TEI)) {
     $work/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[1]/text()
 };
 
-declare function app:checkbox($node as node(), $model as map(*)) {
-    <input type="checkbox" name="target-texts" value="{$model("work")/@xml:id/string()}"></input>
+declare 
+    %templates:wrap
+function app:checkbox($node as node(), $model as map(*)) {
+    attribute { "value" } {
+        $model("work")/@xml:id/string()
+    }
 };
 
 declare function app:work-type($node as node(), $model as map(*)) {
@@ -230,7 +234,7 @@ declare function app:xml-link($node as node(), $model as map(*)) {
 declare function app:work-types($node as node(), $model as map(*)) {
 let $types := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//value)
     return
-    <select multiple="multiple" name="work-types" data-template="templates:form-control">
+    <select multiple="multiple" name="work-types" class="form-control" data-template="templates:form-control">
         <option value="all">All</option>
         {for $type in $types
         return <option value="{$type}">{$type}</option>
@@ -246,12 +250,14 @@ declare function app:navigation($node as node(), $model as map(*)) {
     return
         element { node-name($node) } {
             $node/@*,
-            if ($nextDiv) then
-                <a xmlns="http://www.w3.org/1999/xhtml" href="{$nextDiv/@xml:id}.html" class="next">Next Scene</a>
+            if ($prevDiv) then
+                <a xmlns="http://www.w3.org/1999/xhtml" href="{$prevDiv/@xml:id}.html" class="previous">
+                    <i class="glyphicon glyphicon-chevron-left"/> Previous Scene</a>
             else
                 (),
-            if ($prevDiv) then
-                <a xmlns="http://www.w3.org/1999/xhtml" href="{$prevDiv/@xml:id}.html" class="previous">Previous Scene</a>
+            if ($nextDiv) then
+                <a xmlns="http://www.w3.org/1999/xhtml" href="{$nextDiv/@xml:id}.html" class="next">
+                    Next Scene <i class="glyphicon glyphicon-chevron-right"/></a>
             else
                 (),
             <h5 xmlns="http://www.w3.org/1999/xhtml"><a href="{$work/@xml:id}">{app:work-title($work)}</a></h5>
@@ -395,6 +401,7 @@ declare function app:hit-count($node as node()*, $model as map(*)) {
     Output the actual search result as a div, using the kwic module to summarize full text matches.
 :)
 declare 
+    %templates:wrap
     %templates:default("start", 1)
 function app:show-hits($node as node()*, $model as map(*), $start as xs:integer) {
     for $hit at $p in subsequence($model("hits"), $start, 10)

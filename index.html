@@ -1,77 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <div xmlns="http://www.w3.org/1999/xhtml" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="main">
-    <form action="search.html" class="form-inline">
-        <div class="span9">
-        <h1>Shakespeare's Works in TEI</h1>        
+    <form action="search.html" class="form form-horizontal">
+        <div class="col-md-9">
+            <h1>Shakespeare's Works in TEI</h1>
             <div id="content">
-            <h2>List of Works</h2>
-            <table class="toc">
-                <thead>
-                    <tr>
-                        <th/>
-                        <th>Title</th>
-                        <th>Work Type</th>
-                        <th>Download</th>
-                        <th>Open</th>
-                    </tr>
-                </thead>
-                <tbody data-template="app:list-works">
-                    <tr data-template="templates:each" data-template-from="works" data-template-to="work">
-                        <td class="checkbox">
-                            <span data-template="app:checkbox"/>
-                        </td>
-                        <td>
-                            <a href="" data-template="app:work-title"/>
-                        </td>
-                        <td class="work-type">
-                            <a href="" data-template="app:work-type"/>
-                    	</td>
-                        <td>
-                            <a href="" data-template="app:epub-link">epub</a>, 
+                <h2>List of Works</h2>
+                <table class="toc table">
+                    <thead>
+                        <tr>
+                            <th/>
+                            <th>Title</th>
+                            <th>Work Type</th>
+                            <th>Download</th>
+                            <th>Open</th>
+                        </tr>
+                    </thead>
+                    <tbody data-template="app:list-works">
+                        <tr data-template="templates:each" data-template-from="works" data-template-to="work">
+                            <td class="checkbox">
+                                <input type="checkbox" name="target-texts" data-template="app:checkbox"/>
+                            </td>
+                            <td>
+                                <a href="" data-template="app:work-title"/>
+                            </td>
+                            <td class="work-type">
+                                <a href="" data-template="app:work-type"/>
+                            </td>
+                            <td>
+                                <a href="" data-template="app:epub-link">epub</a>, 
                             <a href="" data-template="app:pdf-link">pdf</a>
-                        </td>
-                        <td>
-                            <a href="" data-template="app:xml-link">XML</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            </td>
+                            <td>
+                                <a href="" data-template="app:xml-link">XML</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-	<div class="span3">
-		<div class="well">
-			<div class="inputrow">
-			<fieldset>
-				<input type="search" name="query" placeholder="Search string" class="span12" data-template="templates:form-control"/>
-				<input type="hidden" name="field" value="text"/>
-			</fieldset>
-		</div>
-		<div class="inputrow">
-			<label for="mode">Mode:</label>
-			<select name="mode" data-template="templates:form-control">
-				<option value="any">Any</option>
-				<option value="all">All</option>
-				<option value="phrase">Phrase</option>
-				<option value="near-ordered">Near (Ordered)</option>
-				<option value="near-unordered">Near (Unordered)</option>
-				<option value="fuzzy">Fuzzy</option>
-				<option value="wildcard">Wildcard</option>
-				<option value="regex">Regex</option>
-			</select>
-		</div>
-		<div class="inputrow">
-			<label for="work-types">Work Types:</label>
-			<span class="app:work-types"/>
-		</div>
-		<div class="inputrow">
-			<button type="submit">Query</button>
-		</div>
-		</div>
-		<div class="box">
-			<p>This application is based on data provided by The WordHoard Shakespeare, a joint project of the Perseus 
+        <div class="col-md-3">
+            <div class="well well-sm">
+                <div class="form-group">
+                    <div class="col-md-12 col-xs-12">
+                        <span class="input-group">
+                            <input name="query" type="search" class="templates:form-control form-control" placeholder="Search string"/>
+                            <span class="input-group-btn">
+                                <button id="f-btn-search" type="submit" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-search"/>
+                                </button>
+                            </span>
+                        </span>
+                        <input type="hidden" name="field" value="text"/>
+                    </div>
+                </div>
+                <div class="form-group" data-toggle="tooltip" data-placement="left" title="Search mode">
+                    <div class="col-md-12 col-xs-12">
+                        <select name="mode" class="form-control" data-template="templates:form-control">
+                            <option value="any">Any</option>
+                            <option value="all">All</option>
+                            <option value="phrase">Phrase</option>
+                            <option value="near-ordered">Near (Ordered)</option>
+                            <option value="near-unordered">Near (Unordered)</option>
+                            <option value="fuzzy">Fuzzy</option>
+                            <option value="wildcard">Wildcard</option>
+                            <option value="regex">Regex</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" data-toggle="tooltip" data-placement="left" title="Type of work to search">
+                    <div class="col-md-12 col-xs-12">
+                        <span class="app:work-types"/>
+                    </div>
+                </div>
+            </div>
+            <div class="well well-sm well-dark">
+                <p>This application is based on data provided by The WordHoard Shakespeare, a joint project of the Perseus 
 				Project at Tufts University, The Northwestern University Library, and Northwestern University
 				Academic Technologies.</p>
-			<img src="resources/images/nu-logo.gif"/>
-		</div>
-	</div>
+                <img src="resources/images/nu-logo.gif"/>
+            </div>
+        </div>
     </form>
 </div>
