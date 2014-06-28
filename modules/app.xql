@@ -2,6 +2,8 @@ xquery version "3.0";
 
 module namespace app="http://exist-db.org/apps/";
 
+
+import module namespace console="http://exist-db.org/xquery/console" at "java:org.exist.console.xquery.ConsoleModule";
 import module namespace templates="http://exist-db.org/xquery/templates";
 import module namespace config="http://exist-db.org/apps/shakes/config" at "config.xqm";
 import module namespace tei2="http://exist-db.org/xquery/app/tei2html" at "tei2html.xql";
@@ -277,34 +279,44 @@ declare function app:view($node as node(), $model as map(*), $id as xs:string) {
     are passed to nested templates through the $model parameter.
 :)
 declare function app:query($node as node()*, $model as map(*)) {
-    session:create(),
     let $query := app:create-query()
-    (:Get the work ids of the work types selected.:)  
-    let $target-text-types := request:get-parameter('work-types', 'all')
-    let $target-text-ids := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//item[value = $target-text-types]/id)
-    (:Get the work ids of the individual works selected.:)
-    let $target-texts := request:get-parameter('target-texts', 'all')
-    (:If no individual works have been selected, search in the works with ids selected by type;
-    if indiidual works have been selected, then neglect that no selection has been done in works according to type.:) 
-    let $target-texts := 
-        if ($target-texts = 'all' and $target-text-types = 'all')
-        then 'all' 
-        else 
-            if ($target-texts = 'all')
-            then $target-text-ids
-            else ($target-texts, $target-text-ids)
-    let $context := 
-        if ($target-texts = 'all')
-        then collection($config:data-root)/tei:TEI
-        else collection($config:data-root)//tei:TEI[@xml:id = $target-texts]
-    let $hits :=
-        for $hit in ($context//tei:sp[ft:query(., $query)], $context//tei:lg[ft:query(., $query)])
-        order by ft:score($hit) descending
-        return $hit
-    let $store := session:set-attribute("apps.shakespeare", $hits)
     return
-        (: Process nested templates :)
-        map { "hits" := $hits }
+        if (empty($query) or $query = "") then
+            let $cached := session:get-attribute("apps.shakespeare")
+            return
+                if (empty($cached)) then
+                    <p>No search term was specified and no search is cached.</p>
+                else
+                    map {
+                        "hits" := $cached
+                    }
+        else
+            (:Get the work ids of the work types selected.:)  
+            let $target-text-types := request:get-parameter('work-types', 'all')
+            let $target-text-ids := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//item[value = $target-text-types]/id)
+            (:Get the work ids of the individual works selected.:)
+            let $target-texts := request:get-parameter('target-texts', 'all')
+            (:If no individual works have been selected, search in the works with ids selected by type;
+            if indiidual works have been selected, then neglect that no selection has been done in works according to type.:) 
+            let $target-texts := 
+                if ($target-texts = 'all' and $target-text-types = 'all')
+                then 'all' 
+                else 
+                    if ($target-texts = 'all')
+                    then $target-text-ids
+                    else ($target-texts, $target-text-ids)
+            let $context := 
+                if ($target-texts = 'all')
+                then collection($config:data-root)/tei:TEI
+                else collection($config:data-root)//tei:TEI[@xml:id = $target-texts]
+            let $hits :=
+                for $hit in ($context//tei:sp[ft:query(., $query)], $context//tei:lg[ft:query(., $query)])
+                order by ft:score($hit) descending
+                return $hit
+            let $store := session:set-attribute("apps.shakespeare", $hits)
+            return
+                (: Process nested templates :)
+                map { "hits" := $hits }
 };
 
 (:~
@@ -380,14 +392,75 @@ declare %private function app:create-query() {
     
 };
 
-(:~
-    Read the last query result from the HTTP session and pass it to nested templates
-    in the $model parameter.
-:)
-declare function app:from-session($node as node()*, $model as map(*)) {
-    let $hits := session:get-attribute("apps.shakespeare")
+declare
+    %templates:wrap
+    %templates:default('start', 1)
+    %templates:default("per-page", 10)
+function app:navigate($node as node(), $model as map(*), $start as xs:int, $per-page as xs:int) {
+    let $count := xs:integer(ceiling(count($model("hits"))) div $per-page) + 1
+    let $log := console:log("count: " || $count)
     return
-        map { "hits" := $hits }
+        <ul class="pagination">
+            {
+                if ($start = 1) then (
+                    <li class="disabled">
+                        <a><i class="glyphicon glyphicon-fast-backward"/></a>
+                    </li>,
+                    <li class="disabled">
+                        <a><i class="glyphicon glyphicon-backward"/></a>
+                    </li>
+                ) else (
+                    <li>
+                        <a href="?start=1"><i class="glyphicon glyphicon-fast-backward"/></a>
+                    </li>,
+                    <li>
+                        <a href="?start={max( ($start - $per-page, 1 ) ) }"><i class="glyphicon glyphicon-backward"/></a>
+                    </li>
+                )
+            }
+            {
+                let $startPage := xs:integer(ceiling($start div $per-page))
+                let $lowerBound :=
+                    if ($startPage < 5) then
+                        1
+                    else
+                        if ($startPage + 5 > $count) then
+                            $count - 9
+                        else
+                            $startPage - 4
+                let $upperBound :=
+                    if ($startPage <= 5) then
+                        if ($count >= 10) then 10 else $count
+                    else
+                        if ($startPage + 5 > $count) then
+                            $count
+                        else
+                            $startPage + 5
+                for $i in $lowerBound to $upperBound
+                return
+                    if ($i = ceiling($start div $per-page)) then
+                        <li class="active"><a href="?start={max( (($i - 1) * $per-page + 1, 1) )}">{$i}</a></li>
+                    else
+                        <li><a href="?start={max( (($i - 1) * $per-page + 1, 1)) }">{$i}</a></li>
+            }
+            {
+                if ($start + $per-page < count($model("hits"))) then (
+                    <li>
+                        <a href="?start={$start + $per-page}"><i class="glyphicon glyphicon-forward"/></a>
+                    </li>,
+                    <li>
+                        <a href="?start={max( (($count - 1) * $per-page + 1, 1))}"><i class="glyphicon glyphicon-fast-forward"/></a>
+                    </li>
+                ) else (
+                    <li class="disabled">
+                        <a><i class="glyphicon glyphicon-forward"/></a>
+                    </li>,
+                    <li class="disabled">
+                        <a><i class="glyphicon glyphicon-fast-forward"/></a>
+                    </li>
+                )
+            }
+        </ul>
 };
 
 (:~
@@ -403,8 +476,9 @@ declare function app:hit-count($node as node()*, $model as map(*)) {
 declare 
     %templates:wrap
     %templates:default("start", 1)
-function app:show-hits($node as node()*, $model as map(*), $start as xs:integer) {
-    for $hit at $p in subsequence($model("hits"), $start, 10)
+    %templates:default("per-page", 10)
+function app:show-hits($node as node()*, $model as map(*), $start as xs:integer, $per-page as xs:integer) {
+    for $hit at $p in subsequence($model("hits"), $start, $per-page)
     let $id := $hit/ancestor-or-self::tei:div[1]/@xml:id/string()
     let $work-title := app:work-title($hit/ancestor::tei:TEI)
     let $doc-id := $hit/ancestor::tei:TEI/@xml:id
