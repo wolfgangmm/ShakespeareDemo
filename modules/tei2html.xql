@@ -35,12 +35,16 @@ declare function tei2:tei2html($nodes as node()*) {
                     <p xmlns="http://www.w3.org/1999/xhtml" class="stage">{ tei2:tei2html($node/node()) }</p>
             case element(tei:sp) return
                 if ($node/tei:l) then
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="sp">{ tei2:tei2html($node/node()) }</div>
+                    <div xmlns="http://www.w3.org/1999/xhtml" class="sp" id="{tei2:get-id($node)}">{ tei2:tei2html($node/node()) }</div>
                 else
-                    <div xmlns="http://www.w3.org/1999/xhtml" class="sp">
+                    <div xmlns="http://www.w3.org/1999/xhtml" class="sp" id="{tei2:get-id($node)}">
                         { tei2:tei2html($node/tei:speaker) }
                         <p class="p-ab">{ tei2:tei2html($node/tei:ab) }</p>
                     </div>
+            case element(tei:lg) return
+                <div xmlns="http://www.w3.org/1999/xhtml" class="lg" id="{tei2:get-id($node)}">
+                { tei2:tei2html($node/node()) }
+                </div>
             case element(tei:l) return
                 <p xmlns="http://www.w3.org/1999/xhtml" class="line">{ tei2:tei2html($node/node()) }</p>
             (:NB: block to inline.:)
@@ -57,6 +61,8 @@ declare function tei2:tei2html($nodes as node()*) {
                 <p xmlns="http://www.w3.org/1999/xhtml">{ tei2:tei2html($node/node()) }</p>
             case element(tei:title) return
                 <em xmlns="http://www.w3.org/1999/xhtml">{ tei2:tei2html($node/node()) }</em>
+            case element(exist:match) return
+                <mark xmlns="http://www.w3.org/1999/xhtml">{ $node/node() }</mark>
             case element() return
                 tei2:tei2html($node/node())
             default return
@@ -81,4 +87,8 @@ declare function tei2:header($header as element(tei:teiHeader)) {
             { tei2:tei2html($pubStmt/*) }
             { tei2:tei2html($sourceDesc/*) }
         </div>
+};
+
+declare %private function tei2:get-id($node as element()) {
+    ($node/@xml:id, $node/@exist:id)[1]
 };

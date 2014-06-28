@@ -2,8 +2,6 @@ xquery version "3.0";
 
 module namespace app="http://exist-db.org/apps/";
 
-
-import module namespace console="http://exist-db.org/xquery/console" at "java:org.exist.console.xquery.ConsoleModule";
 import module namespace templates="http://exist-db.org/xquery/templates";
 import module namespace config="http://exist-db.org/apps/shakes/config" at "config.xqm";
 import module namespace tei2="http://exist-db.org/xquery/app/tei2html" at "tei2html.xql";
@@ -233,15 +231,36 @@ declare function app:xml-link($node as node(), $model as map(*)) {
         else <a xmlns="http://www.w3.org/1999/xhtml" href="{$rest-link}" target="_blank">{ $node/node() }</a>
 };
 
+declare function app:copy-params($node as node(), $model as map(*)) {
+    element { node-name($node) } {
+        $node/@* except $node/@href,
+        attribute href {
+            let $link := $node/@href
+            let $params :=
+                string-join(
+                    for $param in request:get-parameter-names()
+                    return
+                        $param || "=" || request:get-parameter($param, ()),
+                    "&amp;"
+                )
+            return
+                $link || "?" || $params
+        },
+        $node/node()
+    }
+};
+
 declare function app:work-types($node as node(), $model as map(*)) {
-let $types := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//value)
+    let $types := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//value)
+    let $control :=
+        <select multiple="multiple" name="work-types" class="form-control">
+            <option value="all">All</option>
+            {for $type in $types
+            return <option value="{$type}">{$type}</option>
+            }
+        </select>
     return
-    <select multiple="multiple" name="work-types" class="form-control" data-template="templates:form-control">
-        <option value="all">All</option>
-        {for $type in $types
-        return <option value="{$type}">{$type}</option>
-        }
-    </select>
+        templates:form-control($control, $model)
 };
 
 declare function app:navigation($node as node(), $model as map(*)) {
@@ -266,8 +285,13 @@ declare function app:navigation($node as node(), $model as map(*)) {
         }
 };
 
-declare function app:view($node as node(), $model as map(*), $id as xs:string) {
+declare function app:view($node as node(), $model as map(*), $id as xs:string, $query as xs:string?) {
     for $div in $model("work")/id($id)
+    let $div :=
+        if ($query) then
+            util:expand(($div[.//tei:sp[ft:query(., $query)]], $div[.//tei:lg[ft:query(., $query)]]), "add-exist-id=all")
+        else
+            $div
     return
         <div xmlns="http://www.w3.org/1999/xhtml" class="play">
         { tei2:tei2html($div) }
@@ -278,10 +302,15 @@ declare function app:view($node as node(), $model as map(*), $id as xs:string) {
     Execute the query. The search results are not output immediately. Instead they
     are passed to nested templates through the $model parameter.
 :)
-declare function app:query($node as node()*, $model as map(*)) {
-    let $query := app:create-query()
+declare 
+    %templates:default("mode", "any")
+    %templates:default("work-types", "all")
+    %templates:default("target-texts", "all")
+function app:query($node as node()*, $model as map(*), $query as xs:string?, $mode as xs:string, 
+    $work-types as xs:string+, $target-texts as xs:string+) {
+    let $queryExpr := app:create-query($query, $mode)
     return
-        if (empty($query) or $query = "") then
+        if (empty($queryExpr) or $queryExpr = "") then
             let $cached := session:get-attribute("apps.shakespeare")
             return
                 if (empty($cached)) then
@@ -292,14 +321,11 @@ declare function app:query($node as node()*, $model as map(*)) {
                     }
         else
             (:Get the work ids of the work types selected.:)  
-            let $target-text-types := request:get-parameter('work-types', 'all')
-            let $target-text-ids := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//item[value = $target-text-types]/id)
-            (:Get the work ids of the individual works selected.:)
-            let $target-texts := request:get-parameter('target-texts', 'all')
+            let $target-text-ids := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//item[value = $work-types]/id)
             (:If no individual works have been selected, search in the works with ids selected by type;
             if indiidual works have been selected, then neglect that no selection has been done in works according to type.:) 
             let $target-texts := 
-                if ($target-texts = 'all' and $target-text-types = 'all')
+                if ($target-texts = 'all' and $work-types = 'all')
                 then 'all' 
                 else 
                     if ($target-texts = 'all')
@@ -310,30 +336,32 @@ declare function app:query($node as node()*, $model as map(*)) {
                 then collection($config:data-root)/tei:TEI
                 else collection($config:data-root)//tei:TEI[@xml:id = $target-texts]
             let $hits :=
-                for $hit in ($context//tei:sp[ft:query(., $query)], $context//tei:lg[ft:query(., $query)])
+                for $hit in ($context//tei:sp[ft:query(., $queryExpr)], $context//tei:lg[ft:query(., $queryExpr)])
                 order by ft:score($hit) descending
                 return $hit
-            let $store := session:set-attribute("apps.shakespeare", $hits)
+            let $store :=
+                session:set-attribute("apps.shakespeare", $hits)
             return
                 (: Process nested templates :)
-                map { "hits" := $hits }
+                map { 
+                    "hits" := $hits,
+                    "query" := $queryExpr
+                }
 };
 
 (:~
     Helper function: create a lucene query from the user input
 :)
-declare %private function app:create-query() {
-    let $query-string := request:get-parameter("query", ())
-    let $query-string := if ($query-string) then local:sanitize-lucene-query($query-string) else ''
+declare %private function app:create-query($query-string as xs:string?, $mode as xs:string) {
+    let $query-string := if ($query-string) then app:sanitize-lucene-query($query-string) else ''
     let $query-string := normalize-space($query-string)
-    let $mode := request:get-parameter("mode", "any")
     let $query:=
         (:TODO: refine regex:)
         if (functx:contains-any-of($query-string, ('AND', 'OR', 'NOT', '+', '-', '!', '~', '^')) and $mode eq 'any')
         then 
-            let $luceneParse := local:parse-lucene($query-string)
+            let $luceneParse := app:parse-lucene($query-string)
             let $luceneXML := util:parse($luceneParse)
-            let $lucene2xml := local:lucene2xml($luceneXML/node(), $mode)
+            let $lucene2xml := app:lucene2xml($luceneXML/node(), $mode)
             return $lucene2xml
         else
             let $last-item := tokenize($query-string, '\s')[last()]
@@ -392,75 +420,80 @@ declare %private function app:create-query() {
     
 };
 
+(:~
+ : Create a bootstrap pagination element to navigate through the hits.
+ :)
 declare
     %templates:wrap
     %templates:default('start', 1)
     %templates:default("per-page", 10)
-function app:navigate($node as node(), $model as map(*), $start as xs:int, $per-page as xs:int) {
-    let $count := xs:integer(ceiling(count($model("hits"))) div $per-page) + 1
-    let $log := console:log("count: " || $count)
-    return
-        <ul class="pagination">
-            {
-                if ($start = 1) then (
-                    <li class="disabled">
-                        <a><i class="glyphicon glyphicon-fast-backward"/></a>
-                    </li>,
-                    <li class="disabled">
-                        <a><i class="glyphicon glyphicon-backward"/></a>
-                    </li>
-                ) else (
-                    <li>
-                        <a href="?start=1"><i class="glyphicon glyphicon-fast-backward"/></a>
-                    </li>,
-                    <li>
-                        <a href="?start={max( ($start - $per-page, 1 ) ) }"><i class="glyphicon glyphicon-backward"/></a>
-                    </li>
-                )
-            }
-            {
-                let $startPage := xs:integer(ceiling($start div $per-page))
-                let $lowerBound :=
-                    if ($startPage < 5) then
-                        1
-                    else
-                        if ($startPage + 5 > $count) then
-                            $count - 9
+function app:paginate($node as node(), $model as map(*), $start as xs:int, $per-page as xs:int) {
+    if (count($model("hits")) > 0) then
+        let $count := xs:integer(ceiling(count($model("hits"))) div $per-page) + 1
+        return
+            <ul class="pagination">
+                {
+                    if ($start = 1) then (
+                        <li class="disabled">
+                            <a><i class="glyphicon glyphicon-fast-backward"/></a>
+                        </li>,
+                        <li class="disabled">
+                            <a><i class="glyphicon glyphicon-backward"/></a>
+                        </li>
+                    ) else (
+                        <li>
+                            <a href="?start=1"><i class="glyphicon glyphicon-fast-backward"/></a>
+                        </li>,
+                        <li>
+                            <a href="?start={max( ($start - $per-page, 1 ) ) }"><i class="glyphicon glyphicon-backward"/></a>
+                        </li>
+                    )
+                }
+                {
+                    let $startPage := xs:integer(ceiling($start div $per-page))
+                    let $lowerBound :=
+                        if ($startPage < 5) then
+                            1
                         else
-                            $startPage - 4
-                let $upperBound :=
-                    if ($startPage <= 5) then
-                        if ($count >= 10) then 10 else $count
-                    else
-                        if ($startPage + 5 > $count) then
-                            $count
+                            if ($startPage + 5 > $count) then
+                                $count - 9
+                            else
+                                $startPage - 4
+                    let $upperBound :=
+                        if ($startPage <= 5) then
+                            if ($count >= 10) then 10 else $count
                         else
-                            $startPage + 5
-                for $i in $lowerBound to $upperBound
-                return
-                    if ($i = ceiling($start div $per-page)) then
-                        <li class="active"><a href="?start={max( (($i - 1) * $per-page + 1, 1) )}">{$i}</a></li>
-                    else
-                        <li><a href="?start={max( (($i - 1) * $per-page + 1, 1)) }">{$i}</a></li>
-            }
-            {
-                if ($start + $per-page < count($model("hits"))) then (
-                    <li>
-                        <a href="?start={$start + $per-page}"><i class="glyphicon glyphicon-forward"/></a>
-                    </li>,
-                    <li>
-                        <a href="?start={max( (($count - 1) * $per-page + 1, 1))}"><i class="glyphicon glyphicon-fast-forward"/></a>
-                    </li>
-                ) else (
-                    <li class="disabled">
-                        <a><i class="glyphicon glyphicon-forward"/></a>
-                    </li>,
-                    <li class="disabled">
-                        <a><i class="glyphicon glyphicon-fast-forward"/></a>
-                    </li>
-                )
-            }
-        </ul>
+                            if ($startPage + 5 > $count) then
+                                $count
+                            else
+                                $startPage + 5
+                    for $i in $lowerBound to $upperBound
+                    return
+                        if ($i = ceiling($start div $per-page)) then
+                            <li class="active"><a href="?start={max( (($i - 1) * $per-page + 1, 1) )}">{$i}</a></li>
+                        else
+                            <li><a href="?start={max( (($i - 1) * $per-page + 1, 1)) }">{$i}</a></li>
+                }
+                {
+                    if ($start + $per-page < count($model("hits"))) then (
+                        <li>
+                            <a href="?start={$start + $per-page}"><i class="glyphicon glyphicon-forward"/></a>
+                        </li>,
+                        <li>
+                            <a href="?start={max( (($count - 1) * $per-page + 1, 1))}"><i class="glyphicon glyphicon-fast-forward"/></a>
+                        </li>
+                    ) else (
+                        <li class="disabled">
+                            <a><i class="glyphicon glyphicon-forward"/></a>
+                        </li>,
+                        <li class="disabled">
+                            <a><i class="glyphicon glyphicon-fast-forward"/></a>
+                        </li>
+                    )
+                }
+            </ul>
+        else
+            ()
 };
 
 (:~
@@ -485,15 +518,17 @@ function app:show-hits($node as node()*, $model as map(*), $start as xs:integer,
     let $div-ancestor-id := $hit/ancestor::tei:div[1]/@xml:id
     let $div-ancestor-head := $hit/ancestor::tei:div[1]/tei:head/text() 
     (:pad hit with surrounding siblings:)
-    let $hit := <hit>{($hit/preceding-sibling::*[1], $hit, $hit/following-sibling::*[1])}</hit>
+    let $hitExpanded := <hit>{($hit/preceding-sibling::*[1], $hit, $hit/following-sibling::*[1])}</hit>
     let $loc := 
-                <tr class="reference">
-                    <td colspan="3">
-                        <span class="number">{$start + $p - 1}</span>
-                        <a href="{$doc-id}.html">{$work-title}</a>, <a href="{$div-ancestor-id}.html">{$div-ancestor-head}</a>
-                    </td>
-                </tr>
-    let $kwic := kwic:summarize($hit, <config width="120" table="yes" link="works/{$id}.html"/>, util:function(xs:QName("app:filter"), 2))
+        <tr class="reference">
+            <td colspan="3">
+                <span class="number">{$start + $p - 1}</span>
+                <a href="{$doc-id}.html">{$work-title}</a>, <a href="{$div-ancestor-id}.html">{$div-ancestor-head}</a>
+            </td>
+        </tr>
+    let $matchId := ($hit/@xml:id, util:node-id($hit))[1]
+    let $config := <config width="120" table="yes" link="works/{$id}.html?query={$model('query')}#{$matchId}"/>
+    let $kwic := kwic:summarize($hitExpanded, $config, app:filter#2)
     return
         ($loc, $kwic)        
 };
@@ -517,7 +552,7 @@ declare function app:base($node as node(), $model as map(*)) {
         <base xmlns="http://www.w3.org/1999/xhtml" href="{$context}/{$app-root}/"/>
 };
 
-declare function local:sanitize-lucene-query($query-string as xs:string) as xs:string {
+declare %private function app:sanitize-lucene-query($query-string as xs:string) as xs:string {
     let $query-string := replace($query-string, "'", "''") (:escape apostrophes:)
     (:TODO: notify user if query has been modified.:)
     let $query-string := translate($query-string, ":", " ")
@@ -549,7 +584,7 @@ declare function local:sanitize-lucene-query($query-string as xs:string) as xs:s
 <query><near slop="10"><first end="4">snake</first><term>fillet</term></near></query>
 as opposed to
 <query><near slop="10"><first end="4">fillet</first><term>snake</term></near></query>:)
-declare function local:parse-lucene($string as xs:string) {
+declare %private function app:parse-lucene($string as xs:string) {
     (: replace all symbolic booleans with lexical counterparts :)
     if (matches($string, '[^\\](\|{2}|&amp;{2}|!) ')) 
     then
@@ -561,22 +596,22 @@ declare function local:parse-lucene($string as xs:string) {
             '&amp;{2} ', 'AND '), 
             '\|{2} ', 'OR '), 
             '! ', 'NOT ')
-        return local:parse-lucene($rep)                
+        return app:parse-lucene($rep)                
     else (: replace all booleans with '<AND/>|<OR/>|<NOT/>' :)
         if (matches($string, '[^<](AND|OR|NOT) ')) 
         then
             let $rep := replace($string, '(AND|OR|NOT) ', '<$1/>')
-            return local:parse-lucene($rep)
+            return app:parse-lucene($rep)
     else (: replace all '+' modifiers with '<AND/>' :)
         if (matches($string, '(^|[^\w&quot;])\+[\w&quot;(]'))
         then
             let $rep := replace($string, '(^|[^\w&quot;])\+([\w&quot;(])', '$1<AND type=_+_/>$2')
-            return local:parse-lucene($rep)
+            return app:parse-lucene($rep)
         else (: replace all '-' modifiers with '<NOT/>' :)
             if (matches($string, '(^|[^\w&quot;])-[\w&quot;(]'))
             then
                 let $rep := replace($string, '(^|[^\w&quot;])-([\w&quot;(])', '$1<NOT type=_-_/>$2')
-                return local:parse-lucene($rep)
+                return app:parse-lucene($rep)
             else (: replace parentheses with '<bool></bool>' :)
                 if (matches($string, '(^|[\W-[\\]]|>)\(.*?[^\\]\)(\^(\d+))?(<|\W|$)'))                
                 then
@@ -585,7 +620,7 @@ declare function local:parse-lucene($string as xs:string) {
                         if (matches($string, '(^|\W|>)\(.*?\)(\^(\d+))(<|\W|$)')) 
                         then replace($string, '(^|\W|>)\((.*?)\)(\^(\d+))(<|\W|$)', '$1<bool boost=_$4_>$2</bool>$5')
                         else replace($string, '(^|\W|>)\((.*?)\)(<|\W|$)', '$1<bool>$2</bool>$3')
-                    return local:parse-lucene($rep)
+                    return app:parse-lucene($rep)
                 else (: replace quoted phrases with '<near slop=""></bool>' :)
                     if (matches($string, '(^|\W|>)(&quot;).*?\2([~^]\d+)?(<|\W|$)')) 
                     then
@@ -595,23 +630,23 @@ declare function local:parse-lucene($string as xs:string) {
                             then replace($string, '(^|\W|>)(&quot;)(.*?)\2([~^](\d+))?(<|\W|$)', '$1<near boost=_$5_>$3</near>$6')
                             (: add @slop attribute in other cases :)
                             else replace($string, '(^|\W|>)(&quot;)(.*?)\2([~^](\d+))?(<|\W|$)', '$1<near slop=_$5_>$3</near>$6')
-                        return local:parse-lucene($rep)
+                        return app:parse-lucene($rep)
                     else (: wrap fuzzy search strings in '<fuzzy min-similarity=""></fuzzy>' :)
                         if (matches($string, '[\w-[<>]]+?~[\d.]*')) 
                         then
                             let $rep := replace($string, '([\w-[<>]]+?)~([\d.]*)', '<fuzzy min-similarity=_$2_>$1</fuzzy>')
-                            return local:parse-lucene($rep)
+                            return app:parse-lucene($rep)
                         else (: wrap resulting string in '<query></query>' :)
                             concat('<query>', replace(normalize-space($string), '_', '"'), '</query>')
 };
 
 (:based on Ron Van den Branden, https://rvdb.wordpress.com/2010/08/04/exist-lucene-to-xml-syntax/:)
-declare function local:lucene2xml($node as item(), $mode as xs:string) {
+declare %private function app:lucene2xml($node as item(), $mode as xs:string) {
     typeswitch ($node)
         case element(query) return 
             element { node-name($node)} {
             element bool {
-            $node/node()/local:lucene2xml(., $mode)
+            $node/node()/app:lucene2xml(., $mode)
         }
     }
     case element(AND) return ()
@@ -643,7 +678,7 @@ declare function local:lucene2xml($node as item(), $mode as xs:string) {
                         }
                     else ()
                     ,
-                    $node/node()/local:lucene2xml(., $mode)
+                    $node/node()/app:lucene2xml(., $mode)
         }
     case text() return
         if ($node/parent::*[self::query or self::bool]) 
