@@ -469,7 +469,7 @@ function app:paginate($node as node(), $model as map(*), $start as xs:int, $per-
                         $startPage - ($middle - 1)
             let $upperBound :=
                 if ($startPage <= $middle) then
-                    if ($count >= $max-pages) then $max-pages else $count
+                    if ($count >= $max-pages) then $max-pages - 1 else $count
                 else
                     if ($startPage + $middle > $count) then
                         $count
