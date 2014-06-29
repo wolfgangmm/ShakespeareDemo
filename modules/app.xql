@@ -371,22 +371,8 @@ declare %private function app:create-query($query-string as xs:string?, $mode as
             return $lucene2xml
         else
             let $last-item := tokenize($query-string, '\s')[last()]
-            let $last-item :=
-                if ($last-item castable as xs:integer)
-                then $last-item cast as xs:integer
-                else
-                    if ($last-item castable as xs:decimal)
-                    then $last-item cast as xs:decimal
-                    else ()
-            let $last-item-type :=
-                if ($last-item instance of xs:integer)
-                then 'integer'
-                else
-                    if ($last-item instance of xs:decimal and $last-item < 1 and $last-item > 0)
-                    then 'decimal'
-                    else ()
             let $query-string := tokenize($query-string, '\s')
-            let $query-string := if ($last-item-type) then string-join(subsequence($query-string, 1, count($query-string) - 1), ' ') else $query-string
+            let $query-string := if ($last-item castable as xs:integer) then string-join(subsequence($query-string, 1, count($query-string) - 1), ' ') else $query-string
             return
                 <query>
                     {
@@ -405,13 +391,13 @@ declare %private function app:create-query($query-string as xs:string?, $mode as
                             then <phrase>{$query-string}</phrase>
                             else
                                 if ($mode eq 'near-unordered')
-                                then <near slop="{if ($last-item-type eq 'integer') then $last-item else 5}" ordered="no">{$query-string}</near>
+                                then <near slop="{if ($last-item castable as xs:integer) then $last-item else 5}" ordered="no">{$query-string}</near>
                                 else 
                                     if ($mode eq 'near-ordered')
-                                    then <near slop="{if ($last-item-type eq 'integer') then $last-item else 5}" ordered="yes">{$query-string}</near>
+                                    then <near slop="{if ($last-item castable as xs:integer) then $last-item else 5}" ordered="yes">{$query-string}</near>
                                     else 
                                         if ($mode eq 'fuzzy')
-                                        then <fuzzy min-similarity="{if ($last-item-type eq 'decimal') then $last-item else 0.5}">{$query-string}</fuzzy>
+                                        then <fuzzy max-edits="{if ($last-item castable as xs:integer and number($last-item) < 3) then $last-item else 2}">{$query-string}</fuzzy>
                                         else 
                                             if ($mode eq 'wildcard')
                                             then <wildcard>{$query-string}</wildcard>
@@ -541,6 +527,8 @@ declare function app:base($node as node(), $model as map(*)) {
         <base xmlns="http://www.w3.org/1999/xhtml" href="{$context}/{$app-root}/"/>
 };
 
+(: This functions provides crude way to avoid the most common errors with paired expressions and apostrophes. :)
+(: TODO: check order of pairs:)
 declare %private function app:sanitize-lucene-query($query-string as xs:string) as xs:string {
     let $query-string := replace($query-string, "'", "''") (:escape apostrophes:)
     (:TODO: notify user if query has been modified.:)
@@ -558,21 +546,22 @@ declare %private function app:sanitize-lucene-query($query-string as xs:string) 
 	   then $query-string
 	   else translate($query-string, '[]', ' ') (:if there is an uneven number of brackets, delete all brackets.:)    
     let $query-string := 
-	   if (functx:number-of-matches($query-string, '&amp;') eq functx:number-of-matches($query-string, '&amp;&amp;') * 2)
+	   if (functx:number-of-matches($query-string, '{') mod 2 and functx:number-of-matches($query-string, '}') mod 2) 
 	   then $query-string
-	   else translate($query-string, '&amp;', ' ') (:if there is an uneven number of ampersands, delete all ampersands.:)
-    let $query-string := 
-	   if (functx:number-of-matches($query-string, '|') eq functx:number-of-matches($query-string, '||') * 2)
-	   then $query-string
-	   else translate($query-string, '|', ' ') (:if there is an uneven number of pipes, delete all pipes.:)
+	   else translate($query-string, '{}', ' ') (:if there is an uneven number of braces, delete all braces.:)    
     return $query-string
 };
 
-(:based on Ron Van den Branden, https://rvdb.wordpress.com/2010/08/04/exist-lucene-to-xml-syntax/:)
-(:The following is not covered:
+(: Function to translate a Lucene search string to an intermediate string mimicking the XML syntax, 
+with some additions for later parsing of boolean operators. The resulting intermediary XML search string will be parsed as XML with util:parse(). 
+Based on Ron Van den Branden, https://rvdb.wordpress.com/2010/08/04/exist-lucene-to-xml-syntax/:)
+(:TODO:
+The following cases are not covered:
+1)
 <query><near slop="10"><first end="4">snake</first><term>fillet</term></near></query>
 as opposed to
-<query><near slop="10"><first end="4">fillet</first><term>snake</term></near></query>:)
+<query><near slop="10"><first end="4">fillet</first><term>snake</term></near></query>
+:)
 declare %private function app:parse-lucene($string as xs:string) {
     (: replace all symbolic booleans with lexical counterparts :)
     if (matches($string, '[^\\](\|{2}|&amp;{2}|!) ')) 
@@ -591,12 +580,12 @@ declare %private function app:parse-lucene($string as xs:string) {
         then
             let $rep := replace($string, '(AND|OR|NOT) ', '<$1/>')
             return app:parse-lucene($rep)
-    else (: replace all '+' modifiers with '<AND/>' :)
+    else (: replace all '+' modifiers in token-initial position with '<AND/>' :)
         if (matches($string, '(^|[^\w&quot;])\+[\w&quot;(]'))
         then
             let $rep := replace($string, '(^|[^\w&quot;])\+([\w&quot;(])', '$1<AND type=_+_/>$2')
             return app:parse-lucene($rep)
-        else (: replace all '-' modifiers with '<NOT/>' :)
+        else (: replace all '-' modifiers in token-initial position with '<NOT/>' :)
             if (matches($string, '(^|[^\w&quot;])-[\w&quot;(]'))
             then
                 let $rep := replace($string, '(^|[^\w&quot;])-([\w&quot;(])', '$1<NOT type=_-_/>$2')
@@ -620,16 +609,18 @@ declare %private function app:parse-lucene($string as xs:string) {
                             (: add @slop attribute in other cases :)
                             else replace($string, '(^|\W|>)(&quot;)(.*?)\2([~^](\d+))?(<|\W|$)', '$1<near slop=_$5_>$3</near>$6')
                         return app:parse-lucene($rep)
-                    else (: wrap fuzzy search strings in '<fuzzy min-similarity=""></fuzzy>' :)
+                    else (: wrap fuzzy search strings in '<fuzzy max-edits=""></fuzzy>' :)
                         if (matches($string, '[\w-[<>]]+?~[\d.]*')) 
                         then
-                            let $rep := replace($string, '([\w-[<>]]+?)~([\d.]*)', '<fuzzy min-similarity=_$2_>$1</fuzzy>')
+                            let $rep := replace($string, '([\w-[<>]]+?)~([\d.]*)', '<fuzzy max-edits=_$2_>$1</fuzzy>')
                             return app:parse-lucene($rep)
                         else (: wrap resulting string in '<query></query>' :)
                             concat('<query>', replace(normalize-space($string), '_', '"'), '</query>')
 };
 
-(:based on Ron Van den Branden, https://rvdb.wordpress.com/2010/08/04/exist-lucene-to-xml-syntax/:)
+(: Function to transform the intermediary structures in the search query generated through app:parse-lucene() and util:parse() 
+to full-fledged boolean expressions employing XML query syntax. 
+Based on Ron Van den Branden, https://rvdb.wordpress.com/2010/08/04/exist-lucene-to-xml-syntax/:)
 declare %private function app:lucene2xml($node as item(), $mode as xs:string) {
     typeswitch ($node)
         case element(query) return 
