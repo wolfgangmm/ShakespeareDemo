@@ -13,7 +13,9 @@ if ($exist:path eq "/") then
 else if ($exist:resource = ("search.html", "demo-queries.html")) then
     (: the html page is run through view.xql to expand templates :)
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
-        <forward url="{$exist:controller}/{$exist:resource}"/>
+        <forward url="{$exist:controller}/{$exist:resource}">
+            <set-header name="Cache-Control" value="no-cache"/>
+        </forward>
         <view>
             <forward url="{$exist:controller}/modules/view.xql"/>
         </view>
