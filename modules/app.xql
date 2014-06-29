@@ -333,7 +333,8 @@ function app:query($node as node()*, $model as map(*), $query as xs:string?, $mo
                 else 
                     if ($target-texts = 'all')
                     then $target-text-ids
-                    else ($target-texts[. = $target-text-ids])
+                    else 
+                        if ($work-types = "all") then $target-texts else ($target-texts[. = $target-text-ids])
             let $context := 
                 if ($target-texts = 'all')
                 then collection($config:data-root)/tei:TEI
