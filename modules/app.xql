@@ -318,13 +318,10 @@ function app:query($node as node()*, $model as map(*), $query as xs:string?, $mo
         if (empty($queryExpr) or $queryExpr = "") then
             let $cached := session:get-attribute("apps.shakespeare")
             return
-                if (empty($cached)) then
-                    <p>No search term was specified and no search is cached.</p>
-                else
-                    map {
-                        "hits" := $cached,
-                        "query" := session:get-attribute("apps.shakespeare.query")
-                    }
+                map {
+                    "hits" := $cached,
+                    "query" := session:get-attribute("apps.shakespeare.query")
+                }
         else
             (:Get the work ids of the work types selected.:)  
             let $target-text-ids := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//item[value = $work-types]/id)
@@ -441,7 +438,7 @@ function app:paginate($node as node(), $model as map(*), $start as xs:int, $per-
     $max-pages as xs:int) {
     if ($min-hits < 0 or count($model("hits")) >= $min-hits) then
         let $count := xs:integer(ceiling(count($model("hits"))) div $per-page) + 1
-        let $middle := $max-pages idiv 2
+        let $middle := ($max-pages + 1) idiv 2
         return (
             if ($start = 1) then (
                 <li class="disabled">
@@ -459,22 +456,9 @@ function app:paginate($node as node(), $model as map(*), $start as xs:int, $per-
                 </li>
             ),
             let $startPage := xs:integer(ceiling($start div $per-page))
-            let $lowerBound :=
-                if ($startPage < $middle) then
-                    1
-                else
-                    if ($startPage + $middle > $count) then
-                        $count - ($max-pages - 1)
-                    else
-                        $startPage - ($middle - 1)
-            let $upperBound :=
-                if ($startPage <= $middle) then
-                    if ($count >= $max-pages) then $max-pages - 1 else $count
-                else
-                    if ($startPage + $middle > $count) then
-                        $count
-                    else
-                        $startPage + $middle
+            let $lowerBound := max(($startPage - ($max-pages idiv 2), 1))
+            let $upperBound := min(($lowerBound + $max-pages - 1, $count))
+            let $lowerBound := max(($upperBound - $max-pages + 1, 1))
             for $i in $lowerBound to $upperBound
             return
                 if ($i = ceiling($start div $per-page)) then
@@ -531,7 +515,7 @@ function app:show-hits($node as node()*, $model as map(*), $start as xs:integer,
             </td>
         </tr>
     let $matchId := ($hit/@xml:id, util:node-id($hit))[1]
-    let $config := <config width="120" table="yes" link="works/{$id}.html?query={$model('query')}#{$matchId}"/>
+    let $config := <config width="120" table="yes" link="{$id}.html?query={$model('query')}#{$matchId}"/>
     let $kwic := kwic:summarize($hitExpanded, $config, app:filter#2)
     return
         ($loc, $kwic)        
