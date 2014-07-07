@@ -259,7 +259,7 @@ declare function app:work-types($node as node(), $model as map(*)) {
     let $types := distinct-values(doc(concat($config:data-root, '/', 'work-types.xml'))//value)
     let $control :=
         <select multiple="multiple" name="work-types" class="form-control">
-            <option value="all">All</option>
+            <option value="all">All Work Types</option>
             {for $type in $types
             return <option value="{$type}">{$type}</option>
             }
@@ -309,9 +309,10 @@ declare function app:view($node as node(), $model as map(*), $id as xs:string, $
 :)
 declare 
     %templates:default("mode", "any")
+    %templates:default("scope", "narrow")
     %templates:default("work-types", "all")
     %templates:default("target-texts", "all")
-function app:query($node as node()*, $model as map(*), $query as xs:string?, $mode as xs:string, 
+function app:query($node as node()*, $model as map(*), $query as xs:string?, $mode as xs:string, $scope as xs:string, 
     $work-types as xs:string+, $target-texts as xs:string+) {
     let $queryExpr := app:create-query($query, $mode)
     return
@@ -340,9 +341,15 @@ function app:query($node as node()*, $model as map(*), $query as xs:string?, $mo
                 then collection($config:data-root)/tei:TEI
                 else collection($config:data-root)//tei:TEI[@xml:id = $target-texts]
             let $hits :=
-                for $hit in ($context//tei:sp[ft:query(., $queryExpr)], $context//tei:lg[ft:query(., $queryExpr)])
-                order by ft:score($hit) descending
-                return $hit
+                if ($scope eq 'narrow')
+                then
+                    for $hit in ($context//tei:sp[ft:query(., $queryExpr)], $context//tei:lg[ft:query(., $queryExpr)])
+                    order by ft:score($hit) descending
+                    return $hit
+                else
+                    for $hit in ($context//tei:div[not(tei:div)][ft:query(., $queryExpr)], $context//tei:div[not(tei:div)][ft:query(., $queryExpr)])
+                    order by ft:score($hit) descending
+                    return $hit
             let $store := (
                 session:set-attribute("apps.shakespeare", $hits),
                 session:set-attribute("apps.shakespeare.query", $queryExpr)
@@ -362,18 +369,23 @@ declare %private function app:create-query($query-string as xs:string?, $mode as
     let $query-string := if ($query-string) then app:sanitize-lucene-query($query-string) else ''
     let $query-string := normalize-space($query-string)
     let $query:=
-        (:TODO: refine regex:)
-        if (functx:contains-any-of($query-string, ('AND', 'OR', 'NOT', '+', '-', '!', '~', '^')) and $mode eq 'any')
+        (:If the query is in "any" mode and contains any operator used in boolean searches, proximity searches, boosted searches, or regex searches, 
+        pass it on to the query parser;:) 
+        if (functx:contains-any-of($query-string, ('AND', 'OR', 'NOT', '+', '-', '!', '~', '^', '.', '?', '*', '|', '{','[', '(', '<', '@', '#', '&amp;', '~')) and $mode eq 'any')
         then 
             let $luceneParse := app:parse-lucene($query-string)
             let $luceneXML := util:parse($luceneParse)
             let $lucene2xml := app:lucene2xml($luceneXML/node(), $mode)
             return $lucene2xml
+        (:otherwise the query is an ordinary term query or one of the special options (phrase, near, fuzzy, wildcard or regex):)
         else
-            let $last-item := tokenize($query-string, '\s')[last()]
             let $query-string := tokenize($query-string, '\s')
-            let $query-string := if ($last-item castable as xs:integer) then string-join(subsequence($query-string, 1, count($query-string) - 1), ' ') else $query-string
-            return
+            let $last-item := $query-string[last()]
+            let $query-string := 
+                if ($last-item castable as xs:integer) 
+                then string-join(subsequence($query-string, 1, count($query-string) - 1), ' ') 
+                else string-join($query-string, ' ')
+            let $query :=
                 <query>
                     {
                         if ($mode eq 'any') then
@@ -405,9 +417,8 @@ declare %private function app:create-query($query-string as xs:string?, $mode as
                                                 if ($mode eq 'regex')
                                                 then <regex>{$query-string}</regex>
                                                 else ()
-                    
                     }</query>
-
+            return $query
     return $query
     
 };
@@ -548,7 +559,11 @@ declare %private function app:sanitize-lucene-query($query-string as xs:string) 
     let $query-string := 
 	   if (functx:number-of-matches($query-string, '{') mod 2 and functx:number-of-matches($query-string, '}') mod 2) 
 	   then $query-string
-	   else translate($query-string, '{}', ' ') (:if there is an uneven number of braces, delete all braces.:)    
+	   else translate($query-string, '{}', ' ') (:if there is an uneven number of braces, delete all braces.:)
+    let $query-string := 
+	   if (functx:number-of-matches($query-string, '<') mod 2 and functx:number-of-matches($query-string, '>') mod 2) 
+	   then $query-string
+	   else translate($query-string, '<>', ' ') (:if there is an uneven number of angle brackets, delete all angle brackets.:)
     return $query-string
 };
 
