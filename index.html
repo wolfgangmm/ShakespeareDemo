@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <div xmlns="http://www.w3.org/1999/xhtml" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="main">
     <form action="search.html" class="form form-horizontal">
         <div class="col-md-3 col-md-push-9">
@@ -6,7 +5,7 @@
                 <div class="form-group">
                     <div class="col-md-12 col-xs-12">
                         <span class="input-group">
-                            <input name="query" type="search" class="templates:form-control form-control" placeholder="Search string"/>
+                            <input name="query" type="search" class="templates:form-control form-control" placeholder="Search String"/>
                             <span class="input-group-btn">
                                 <button id="f-btn-search" type="submit" class="btn btn-primary">
                                     <span class="glyphicon glyphicon-search"/>
@@ -16,21 +15,29 @@
                         <input type="hidden" name="field" value="text"/>
                     </div>
                 </div>
-                <div class="form-group" data-toggle="tooltip" data-placement="left" title="Search mode">
+                <div class="form-group" data-toggle="tooltip" data-placement="left" title="Search Mode">
                     <div class="col-md-12 col-xs-12">
                         <select name="mode" class="form-control" data-template="templates:form-control">
-                            <option value="any">Any</option>
-                            <option value="all">All</option>
-                            <option value="phrase">Phrase</option>
-                            <option value="near-ordered">Near (Ordered)</option>
-                            <option value="near-unordered">Near (Unordered)</option>
-                            <option value="fuzzy">Fuzzy</option>
-                            <option value="wildcard">Wildcard</option>
-                            <option value="regex">Regex</option>
+                            <option value="any" selected="selected">Any Search Term</option>
+                            <option value="all">All Search Terms</option>
+                            <option value="phrase">Phrase Search</option>
+                            <option value="near-ordered">Proximity Search (Ordered)</option>
+                            <option value="near-unordered">Proximity Search (Unordered)</option>
+                            <option value="fuzzy">Fuzzy Search</option>
+                            <option value="wildcard">Wildcard Search</option>
+                            <option value="regex">Regex Search</option>
                         </select>
                     </div>
                 </div>
-                <div class="form-group" data-toggle="tooltip" data-placement="left" title="Type of work to search">
+                <div class="form-group" data-toggle="tooltip" data-placement="left" title="Search Scope">
+                    <div class="col-md-12 col-xs-12">
+                        <select name="scope" class="form-control" data-template="templates:form-control">
+                            <option value="narrow" selected="selected">Narrow Search</option>
+                            <option value="broad">Broad Search</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" data-toggle="tooltip" data-placement="left" title="Type of Work to Search">
                     <div class="col-md-12 col-xs-12">
                         <span class="app:work-types"/>
                     </div>
