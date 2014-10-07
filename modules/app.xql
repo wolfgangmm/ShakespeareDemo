@@ -290,17 +290,19 @@ declare function app:navigation($node as node(), $model as map(*)) {
         }
 };
 
-declare function app:view($node as node(), $model as map(*), $id as xs:string, $query as xs:string?) {
-    for $div in $model("work")/id($id)
-    let $div :=
-        if ($query) then
-            util:expand(($div[.//tei:sp[ft:query(., $query)]], $div[.//tei:lg[ft:query(., $query)]]), "add-exist-id=all")
-        else
-            $div
+declare function app:view($node as node(), $model as map(*), $id as xs:string) {
+    let $query := session:get-attribute("apps.shakespeare.query")
     return
-        <div xmlns="http://www.w3.org/1999/xhtml" class="play">
-        { tei2:tei2html($div) }
-        </div>
+        for $div in $model("work")/id($id)
+        let $div :=
+            if ($query) then
+                util:expand(($div[.//tei:sp[ft:query(., $query)]], $div[.//tei:lg[ft:query(., $query)]]), "add-exist-id=all")
+            else
+                $div
+        return
+            <div xmlns="http://www.w3.org/1999/xhtml" class="play">
+            { tei2:tei2html($div) }
+            </div>
 };
 
 (:~
@@ -517,7 +519,7 @@ function app:show-hits($node as node()*, $model as map(*), $start as xs:integer,
             </td>
         </tr>
     let $matchId := ($hit/@xml:id, util:node-id($hit))[1]
-    let $config := <config width="120" table="yes" link="{$id}.html?query={$model('query')}#{$matchId}"/>
+    let $config := <config width="120" table="yes" link="{$id}.html#{$matchId}"/>
     let $kwic := kwic:summarize($hitExpanded, $config, app:filter#2)
     return
         ($loc, $kwic)        
