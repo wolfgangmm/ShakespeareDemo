@@ -22,8 +22,8 @@ declare function functx:contains-any-of
 declare function functx:number-of-matches 
   ( $arg as xs:string? ,
     $pattern as xs:string )  as xs:integer {
-       
-   count(tokenize(functx:escape-for-regex(functx:escape-for-regex($arg)),functx:escape-for-regex($pattern))) - 1
+
+   count(tokenize(functx:escape-for-regex($arg),functx:escape-for-regex($pattern))) - 1
  } ;
 
 declare function functx:escape-for-regex
@@ -290,19 +290,22 @@ declare function app:navigation($node as node(), $model as map(*)) {
         }
 };
 
-declare function app:view($node as node(), $model as map(*), $id as xs:string) {
+declare function app:view-div($node as node(), $model as map(*), $id as xs:string) {
     let $query := session:get-attribute("apps.shakespeare.query")
-    return
-        for $div in $model("work")/id($id)
-        let $div :=
-            if ($query) then
+    let $scope := if ($query) then session:get-attribute("apps.shakespeare.scope") else ()
+    let $div :=$model("work")/id($id)
+    let $div :=
+        if ($query) then
+            if ($scope eq 'narrow') then
                 util:expand(($div[.//tei:sp[ft:query(., $query)]], $div[.//tei:lg[ft:query(., $query)]]), "add-exist-id=all")
             else
-                $div
-        return
-            <div xmlns="http://www.w3.org/1999/xhtml" class="play">
-            { tei2:tei2html($div) }
-            </div>
+                util:expand($div[ft:query(., $query)], "add-exist-id=all")
+        else
+            $div
+    return
+        <div xmlns="http://www.w3.org/1999/xhtml" class="play">
+        { tei2:tei2html($div) }
+        </div>
 };
 
 (:~
@@ -323,7 +326,8 @@ function app:query($node as node()*, $model as map(*), $query as xs:string?, $mo
             return
                 map {
                     "hits" := $cached,
-                    "query" := session:get-attribute("apps.shakespeare.query")
+                    "query" := session:get-attribute("apps.shakespeare.query"),
+                    "scope" := $scope
                 }
         else
             (:Get the work ids of the work types selected.:)  
@@ -349,12 +353,13 @@ function app:query($node as node()*, $model as map(*), $query as xs:string?, $mo
                     order by ft:score($hit) descending
                     return $hit
                 else
-                    for $hit in ($context//tei:div[not(tei:div)][ft:query(., $queryExpr)], $context//tei:div[not(tei:div)][ft:query(., $queryExpr)])
+                    for $hit in $context//tei:div[not(tei:div)][ft:query(., $queryExpr)]
                     order by ft:score($hit) descending
                     return $hit
             let $store := (
                 session:set-attribute("apps.shakespeare", $hits),
-                session:set-attribute("apps.shakespeare.query", $queryExpr)
+                session:set-attribute("apps.shakespeare.query", $queryExpr),
+                session:set-attribute("apps.shakespeare.scope", $scope)
             )
             return
                 (: Process nested templates :)

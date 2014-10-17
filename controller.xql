@@ -44,9 +44,9 @@ else if (starts-with($exist:path, "/works/")) then
         if ($exist:resource = "") then
             "index.html"
         else if (ends-with($exist:resource, ".html")) then
-            "view-play.html"
+            "view-div.html"
         else
-            "view-work.html"
+            "view-outline.html"
     return
         if (ends-with($exist:resource, ".epub")) then
             <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
