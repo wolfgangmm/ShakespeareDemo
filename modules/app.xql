@@ -290,9 +290,17 @@ declare function app:navigation($node as node(), $model as map(*)) {
         }
 };
 
-declare function app:view-div($node as node(), $model as map(*), $id as xs:string) {
-    let $query := session:get-attribute("apps.shakespeare.query")
-    let $scope := if ($query) then session:get-attribute("apps.shakespeare.scope") else ()
+declare 
+    %templates:default("action", "browse")
+function app:view-div($node as node(), $model as map(*), $id as xs:string, $action as xs:string) {
+    let $query := 
+        if ($action eq 'search')
+        then session:get-attribute("apps.shakespeare.query")
+        else ()
+    let $scope := 
+        if ($query) 
+        then session:get-attribute("apps.shakespeare.scope") 
+        else ()
     let $div :=$model("work")/id($id)
     let $div :=
         if ($query) then
@@ -524,7 +532,7 @@ function app:show-hits($node as node()*, $model as map(*), $start as xs:integer,
             </td>
         </tr>
     let $matchId := ($hit/@xml:id, util:node-id($hit))[1]
-    let $config := <config width="120" table="yes" link="{$id}.html#{$matchId}"/>
+    let $config := <config width="120" table="yes" link="{$id}.html?action=search#{$matchId}"/>
     let $kwic := kwic:summarize($hitExpanded, $config, app:filter#2)
     return
         ($loc, $kwic)        
