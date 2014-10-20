@@ -22,8 +22,8 @@ declare function functx:contains-any-of
 declare function functx:number-of-matches 
   ( $arg as xs:string? ,
     $pattern as xs:string )  as xs:integer {
-       
-   count(tokenize(functx:escape-for-regex(functx:escape-for-regex($arg)),functx:escape-for-regex($pattern))) - 1
+
+   count(tokenize(functx:escape-for-regex($arg),functx:escape-for-regex($pattern))) - 1
  } ;
 
 declare function functx:escape-for-regex
@@ -290,19 +290,30 @@ declare function app:navigation($node as node(), $model as map(*)) {
         }
 };
 
-declare function app:view($node as node(), $model as map(*), $id as xs:string) {
-    let $query := session:get-attribute("apps.shakespeare.query")
-    return
-        for $div in $model("work")/id($id)
-        let $div :=
-            if ($query) then
+declare 
+    %templates:default("action", "browse")
+function app:view-div($node as node(), $model as map(*), $id as xs:string, $action as xs:string) {
+    let $query := 
+        if ($action eq 'search')
+        then session:get-attribute("apps.shakespeare.query")
+        else ()
+    let $scope := 
+        if ($query) 
+        then session:get-attribute("apps.shakespeare.scope") 
+        else ()
+    let $div :=$model("work")/id($id)
+    let $div :=
+        if ($query) then
+            if ($scope eq 'narrow') then
                 util:expand(($div[.//tei:sp[ft:query(., $query)]], $div[.//tei:lg[ft:query(., $query)]]), "add-exist-id=all")
             else
-                $div
-        return
-            <div xmlns="http://www.w3.org/1999/xhtml" class="play">
-            { tei2:tei2html($div) }
-            </div>
+                util:expand($div[ft:query(., $query)], "add-exist-id=all")
+        else
+            $div
+    return
+        <div xmlns="http://www.w3.org/1999/xhtml" class="play">
+        { tei2:tei2html($div) }
+        </div>
 };
 
 (:~
@@ -323,7 +334,8 @@ function app:query($node as node()*, $model as map(*), $query as xs:string?, $mo
             return
                 map {
                     "hits" := $cached,
-                    "query" := session:get-attribute("apps.shakespeare.query")
+                    "query" := session:get-attribute("apps.shakespeare.query"),
+                    "scope" := $scope
                 }
         else
             (:Get the work ids of the work types selected.:)  
@@ -349,12 +361,13 @@ function app:query($node as node()*, $model as map(*), $query as xs:string?, $mo
                     order by ft:score($hit) descending
                     return $hit
                 else
-                    for $hit in ($context//tei:div[not(tei:div)][ft:query(., $queryExpr)], $context//tei:div[not(tei:div)][ft:query(., $queryExpr)])
+                    for $hit in $context//tei:div[not(tei:div)][ft:query(., $queryExpr)]
                     order by ft:score($hit) descending
                     return $hit
             let $store := (
                 session:set-attribute("apps.shakespeare", $hits),
-                session:set-attribute("apps.shakespeare.query", $queryExpr)
+                session:set-attribute("apps.shakespeare.query", $queryExpr),
+                session:set-attribute("apps.shakespeare.scope", $scope)
             )
             return
                 (: Process nested templates :)
@@ -504,23 +517,24 @@ declare
     %templates:default("per-page", 10)
 function app:show-hits($node as node()*, $model as map(*), $start as xs:integer, $per-page as xs:integer) {
     for $hit at $p in subsequence($model("hits"), $start, $per-page)
-    let $id := $hit/ancestor-or-self::tei:div[1]/@xml:id/string()
-    let $work-title := app:work-title($hit/ancestor::tei:TEI)
-    let $doc-id := $hit/ancestor::tei:TEI/@xml:id
-    let $div-ancestor-id := $hit/ancestor::tei:div[1]/@xml:id
-    let $div-ancestor-head := $hit/ancestor::tei:div[1]/tei:head/text() 
+    let $div := $hit/ancestor-or-self::tei:div[1]
+    let $div-id := $div/@xml:id/string()
+    let $div-head := $div/tei:head/text() 
+    let $work := $hit/ancestor::tei:TEI
+    let $work-id := $work/@xml:id/string()
+    let $work-title := app:work-title($work)
     (:pad hit with surrounding siblings:)
-    let $hitExpanded := <hit>{($hit/preceding-sibling::*[1], $hit, $hit/following-sibling::*[1])}</hit>
+    let $hit-padded := <hit>{($hit/preceding-sibling::*[1], $hit, $hit/following-sibling::*[1])}</hit>
     let $loc := 
         <tr class="reference">
             <td colspan="3">
                 <span class="number">{$start + $p - 1}</span>
-                <a href="{$doc-id}.html">{$work-title}</a>, <a href="{$div-ancestor-id}.html">{$div-ancestor-head}</a>
+                <a href="{$work-id}.html">{$work-title}</a>, <a href="{$div-id}.html?action=search">{$div-head}</a>
             </td>
         </tr>
     let $matchId := ($hit/@xml:id, util:node-id($hit))[1]
-    let $config := <config width="120" table="yes" link="{$id}.html#{$matchId}"/>
-    let $kwic := kwic:summarize($hitExpanded, $config, app:filter#2)
+    let $config := <config width="120" table="yes" link="{$div-id}.html?action=search#{$matchId}"/>
+    let $kwic := kwic:summarize($hit-padded, $config, app:filter#2)
     return
         ($loc, $kwic)        
 };
