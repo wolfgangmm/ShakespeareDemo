@@ -542,13 +542,13 @@ function app:show-hits($node as node()*, $model as map(*), $start as xs:integer,
 (:~
     Callback function called from the kwic module.
 :)
-declare %private function app:filter($node as node(), $mode as xs:string) as xs:string? {
+declare %private function app:filter($node as node(), $mode as xs:string) as text()? {
   if ($node/parent::tei:speaker or $node/parent::tei:stage or $node/parent::tei:head) then 
-      concat('(', $node, ':) ')
+      text { concat('(', $node, ':) ') }
   else if ($mode eq 'before') then 
-      concat($node, ' ')
+      text { concat($node, ' ') }
   else 
-      concat(' ', $node)
+      text { concat(' ', $node) }
 };
 
 declare function app:base($node as node(), $model as map(*)) {
